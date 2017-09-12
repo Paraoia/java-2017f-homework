@@ -17,10 +17,12 @@ public class HelloSort{
                 }
             }
         }
+
         System.out.println("After sort:");
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i]+" ");
         }
         System.out.println("");
+
     }
 }
