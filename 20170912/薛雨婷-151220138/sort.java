@@ -16,7 +16,8 @@ public class sort {
                     }
                 }
                 for(int n=0; n< numbers.length; n++)
-                    System.out.println(numbers[n]);
+                    System.out.print(numbers[n]+" ");
+                System.out.println();
                 //System.out.println("Smallest Number is : " + smallest);
         }
 }
