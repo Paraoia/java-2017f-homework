@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class MySort
+public class Sort
 {
 	public static String display(int []list,int amount,int limit)
 	{
