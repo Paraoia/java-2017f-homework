@@ -1,5 +1,5 @@
 package Homework2;
-
+ 
 import java.util.*;
 
 public class Huluwas {
@@ -7,13 +7,13 @@ public class Huluwas {
 	
 	Huluwas(){
 		troop = new Huluwa[7];
-		troop[0] = new Huluwa(0, "ÀÏ´ó", "³à");
-		troop[1] = new Huluwa(1, "ÀÏ¶ş", "³È");
-		troop[2] = new Huluwa(2, "ÀÏÈı", "»Æ");
-		troop[3] = new Huluwa(3, "ÀÏËÄ", "ÂÌ");
-		troop[4] = new Huluwa(4, "ÀÏÎå", "Çà");
-		troop[5] = new Huluwa(5, "ÀÏÁù", "À¶");
-		troop[6] = new Huluwa(6, "ÀÏÆß", "×Ï");
+		troop[0] = new Huluwa(0, "ì¼ëŒ•", "ë…€");
+		troop[1] = new Huluwa(1, "ì¼ë—", "ëƒ ");
+		troop[2] = new Huluwa(2, "ì¼í›", "ë¼");
+		troop[3] = new Huluwa(3, "ì¼æ„·", "ì«„");
+		troop[4] = new Huluwa(4, "ì¼å·§", "í–‰");
+		troop[5] = new Huluwa(5, "ì¼ì§‡", "ìœµ");
+		troop[6] = new Huluwa(6, "ì¼íŒ", "å‡œ");
 	}
 	
 	public void Disorganize(){
@@ -28,7 +28,7 @@ public class Huluwas {
 			}
 		}
 		for(i=0;i<7;i++){
-			System.out.println("Ëæ»úÕ¾¶Óºó:" + troop[i].name);
+			System.out.println("è¸ìƒ™ç±ƒëš ë¹ˆ:" + troop[i].name);
 		}
 	}
 	
