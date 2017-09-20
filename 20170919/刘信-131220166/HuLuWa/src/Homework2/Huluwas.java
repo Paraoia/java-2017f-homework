@@ -7,13 +7,13 @@ public class Huluwas {
 	
 	Huluwas(){
 		troop = new Huluwa[7];
-		troop[0] = new Huluwa(0, "일댕", "녀");
-		troop[1] = new Huluwa(1, "일랗", "냠");
-		troop[2] = new Huluwa(2, "일힛", "뼝");
-		troop[3] = new Huluwa(3, "일愷", "쫄");
-		troop[4] = new Huluwa(4, "일巧", "행");
-		troop[5] = new Huluwa(5, "일짇", "융");
-		troop[6] = new Huluwa(6, "일펌", "凜");
+		troop[0] = new Huluwa(0, "老大", "赤");
+		troop[1] = new Huluwa(1, "老二", "橙");
+		troop[2] = new Huluwa(2, "老三", "黄");
+		troop[3] = new Huluwa(3, "老四", "绿");
+		troop[4] = new Huluwa(4, "老五", "青");
+		troop[5] = new Huluwa(5, "老六", "蓝");
+		troop[6] = new Huluwa(6, "老七", "紫");
 	}
 	
 	public void Disorganize(){
@@ -28,7 +28,7 @@ public class Huluwas {
 			}
 		}
 		for(i=0;i<7;i++){
-			System.out.println("踞샙籃뚠빈:" + troop[i].name);
+			System.out.println("随机站队后:" + troop[i].name);
 		}
 	}
 	
