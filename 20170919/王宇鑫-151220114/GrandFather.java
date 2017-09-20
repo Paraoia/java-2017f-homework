@@ -60,12 +60,13 @@ public class GrandFather
             {
                 if (huluwas.get(j - 1).isGreaterThan(huluwas.get(j)))
                 {
+                    //print
+                    exchangeInfo(huluwas.get(j - 1), huluwas.get(j), j - 1, j);
+                    //exchange
                     Huluwa temp = huluwas.get(j - 1);
                     huluwas.set(j - 1, huluwas.get(j));
                     huluwas.set(j, temp);
                     noChange = false;
-                    //print
-                    exchangeInfo(huluwas.get(j - 1), huluwas.get(j));
                 }
             }
             if (noChange)
@@ -106,12 +107,12 @@ public class GrandFather
         }   huluwas = n;
     }
 
-    private static void exchangeInfo(Huluwa l, Huluwa r)
+    private static void exchangeInfo(Huluwa lh, Huluwa rh, int l, int r)
     {
-        l.whatName(" -> ");
-        r.whatName("\n");
-        r.whatName(" -> ");
-        l.whatName("\n");
+        lh.whatName(" : ");
+        System.out.println(l + " to " + r);
+        rh.whatName(" : ");
+        System.out.println(r + " to " + l);
     }
 
     private static void insertInfo(Huluwa h, int index)
