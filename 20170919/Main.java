@@ -21,7 +21,7 @@ public class Main {
         for (int i = 0; i < 7; ++i) {
             wa[i] = new Fuluwa();
         }
-        //Step 2: binarySearch
+        //Step 2: quickSort
         sort.quickSort(wa);
         for (int i = 0; i < 7; ++i) {
             System.out.println(wa[i].getColor());
