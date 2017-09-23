@@ -25,11 +25,6 @@ public class Grandpa {
 			boys[i] = new Boy(i);
 	}
 
-	public void test(){
-		for(int i=0;i<7;i++)
-			boys[i].moveTo(2,3);
-	}
-
 	public void bubbleSort(){
 		for(int i=0;i<boys.length-1;i++)
 			for(int j=0;j<boys.length-1-i;j++)
