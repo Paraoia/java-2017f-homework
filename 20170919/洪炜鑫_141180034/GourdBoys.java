@@ -48,10 +48,7 @@ public class GourdBoys
 		{
 			for(int j=0;j<len-1-i;j++)
 			{
-				if(Brothers[j+1].ordinal()<Brothers[j].ordinal())
-				{
-					Swap(j,j+1);
-				}
+				if(Brothers[j+1].ordinal()<Brothers[j].ordinal()) { Swap(j,j+1); }
 			}
 		}
 	}
@@ -73,14 +70,9 @@ public class GourdBoys
 		{
 			while(i<Brothers.length-1&&Brothers[++i].ordinal()<median.ordinal());
 			while(j>0&&Brothers[--j].ordinal()>median.ordinal());
-			if(j>i)
-			{
-				Swap(i,j);
-			}
-			else
-			{
-				break;
-			}
+			
+			if(j>i) { Swap(i,j); }
+			else { break;}
 		}
 		Swap(i,right);
 		Qsort(left,i-1);
