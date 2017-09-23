@@ -1,7 +1,9 @@
 public class Huluwa {
 	public final static int NULL =0;
+	public final static int Red =1;
 	public final static int Orange =2;
 	public final static int Yellow =3;
+	public final static int Green =4;
 	public final static int Cyan =5;
 	public final static int Blue =6;
 	public final static int Purple=7;
@@ -12,18 +14,18 @@ public class Huluwa {
 		Huluwa Hulu_system = new Huluwa();
 		Hulu_system.Before_sorting();
 		Hulu_system.Bubble_sort_rank();
-		System.out.print("Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
+		System.out.print("Ã°ÅÝÅÅÐò½á¹û:");
 		Hulu_system.Report();
 		System.out.println(" ");
 		Hulu_system.Before_sorting();
 		Hulu_system.TwoHalf_Sorting_color();
-		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:");
+		System.out.print("¶þ·ÖÅÅÐò½á¹û:");
 		Hulu_system.Report();
 		
 	}
 	
 	
-	//ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+	//¹¹Ôìº¯Êý
 	Huluwa(){	
 		Hulu_list[0] = new Hulu(Red, 1);
 		Hulu_list[1] = new Hulu(Orange, 2);
@@ -35,7 +37,7 @@ public class Huluwa {
 	}
 	
 	
-	//ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½
+	//ÅÅÐòÇ°´òÂÒ¶ÓÐÎ
 	void Before_sorting() {
 		Hulu_list[0].Set(Cyan, 5);
 		Hulu_list[1].Set(Purple, 7);	
@@ -44,12 +46,12 @@ public class Huluwa {
 		Hulu_list[4].Set(Red, 1);	
 		Hulu_list[5].Set(Green, 4);	
 		Hulu_list[6].Set(Yellow, 3);	
-		System.out.print("ï¿½ï¿½ï¿½ï¿½Ç°:");
+		System.out.print("ÅÅÐòÇ°:");
 		Report();
 	}
 	
 	
-	//ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
+	//°´ÑÕÉ«±¨Êý
 	void Report() {
 		for(int i = 0;i < 7;i++) {
 			System.out.print(Hulu_list[i].Report_color_s());
@@ -60,9 +62,9 @@ public class Huluwa {
 	}
 	
 	
-	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//°´ÅÅÐÐÃ°ÅÝÅÅÐò
 	void Bubble_sort_rank() {
-		System.out.println("Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼:");
+		System.out.println("Ã°ÅÝÅÅÐò¿ªÊ¼:");
 		for(int i = 0;i < Hulu_list.length-2;i++) {
 			for(int j = Hulu_list.length-1; j > i;j--) {
 				if(Hulu_list[j].Report_rank() < Hulu_list[j-1].Report_rank()) {
@@ -75,13 +77,13 @@ public class Huluwa {
 			}
 			System.out.println(" ");
 		}
-		System.out.println("Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("Ã°ÅÝÅÅÐò½áÊø");
 	}
 	
 	
-	//ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//°´ÑÕÉ«¶þ·ÖÅÅÐò
 	void TwoHalf_Sorting_color() {
-		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½");
+		System.out.println("¶þ·ÖÅÅÐò¿ªÊ¼£º");
 		
 		for(int i = 1;i < Hulu_list.length;i++) {
 			int first = 0;int last = i-1;
@@ -93,7 +95,7 @@ public class Huluwa {
 				else
 					last = mid-1;
 			}
-			//ï¿½Òµï¿½Î»ï¿½ï¿½
+			//ÕÒµ½Î»ÖÃ
 			
 			Hulu temp = Hulu_list[i];
 			for(int j = i - 1;j > last;j--) {
@@ -101,10 +103,10 @@ public class Huluwa {
 				System.out.print(Hulu_list[j+1].Report_rank_s() + ": " + (j+1) + "->" + (j+2) + ", ");
 			}
 			Hulu_list[last+1] = temp;
-			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦Î»ï¿½ï¿½
+			//½«Æä²åÈëÏàÓ¦Î»ÖÃ
 			
 			System.out.println(temp.Report_rank_s() + ": " + (i+1) + "->" + (last+2));
 		}
-		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("¶þ·ÖÅÅÐò½áÊø");
 	}
 }
