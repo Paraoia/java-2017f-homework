@@ -75,10 +75,16 @@ public class grandFather {
         // According Rank
         rankSort(huluwa);
         System.out.println("Rank sort finished.");
+        for(int i = 0; i < 6; i++)
+            System.out.print(huluwa[i].getName() + "->");
+        System.out.println(huluwa[6].getName());
         setOrder(huluwa);
         // According Color
         colorSort(huluwa,0, 6);
         System.out.println("Color sort finished.");
+        for(int i = 0; i < 6; i++)
+            System.out.print(huluwa[i].getColor(huluwa[i].getRank()) + "->");
+        System.out.println(huluwa[6].getColor(huluwa[6].getRank()));
         talkSkill(huluwa);
     }
 }

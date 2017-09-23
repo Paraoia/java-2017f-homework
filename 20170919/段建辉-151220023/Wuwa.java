@@ -1,7 +1,7 @@
 public class Wuwa extends Xiaojingang {
     Wuwa() {
         rank = 5;
-        color = Color.VERDANT;
+        color = Color.CYAN;
         name = "五娃";
     }
     @Override
