@@ -1,9 +1,9 @@
 public class Global {
-    enum NAME {
-        Dawa, Erwa, Sanwa, Siwa, Wuwa, Liuwa, Qiwa
-    }
+    public final static String[] NAME = {
+        "Dawa", "Erwa", "Sanwa", "Siwa", "Wuwa", "Liuwa", "Qiwa"
+    };
 
-    enum COLOR {
-        Chi, Cheng, Huang, Lv, Qing, Lan, Zi
-    }
+    public final static String[] COLOR = {
+        "Chi", "Cheng", "Huang", "Lv", "Qing", "Lan", "Zi"
+    };
 }
