@@ -30,7 +30,7 @@ public class SevenBrother {
         System.out.print("-------------\n  Count Off\n-------------\n");
         for(int i=0;i<7;i++) {
             System.out.print("NO." + (i+1) + "\t");
-            Huluwas[i].countOff(0);
+            Huluwas[i].countOff(1);
         }
     }
     public void initial(){

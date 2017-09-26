@@ -31,6 +31,6 @@ public class Huluwa {
         if (0 == kind)
             System.out.println(name);
         else if (1 == kind)
-            System.out.print(color);
+            System.out.println(color);
     }
 }
