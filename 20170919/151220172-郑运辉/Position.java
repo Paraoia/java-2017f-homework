@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Position {
+
     public static int[] setPositionByInput() {
         System.out.println("输入位置信息，从0到6");
         Scanner s = new Scanner(System.in);
@@ -49,3 +50,4 @@ public class Position {
         return result;
     }
 }
+

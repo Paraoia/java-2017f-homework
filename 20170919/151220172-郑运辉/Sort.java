@@ -1,8 +1,8 @@
 public class Sort {
     public void BubbleSort(HuLu h[]) {
         System.out.println("Bubble Sort:");
-        for (int i = 0; i < HuLu.Sum - 1; i++)
-            for (int j = 0; j < HuLu.Sum - 1; j++) {
+        for (int i = 0; i < HuLu.TOTAL - 1; i++)
+            for (int j = 0; j < HuLu.TOTAL - 1; j++) {
                 if (h[j].getNum() > h[j + 1].getNum()) {
                     h[j + 1].ChangePosition(j + 1, j);
                     h[j].ChangePosition(j, j + 1);
@@ -15,7 +15,7 @@ public class Sort {
 
     public void BinSort(HuLu h[]) {
         System.out.println("Binary Sort:");
-        for (int i = 1; i < HuLu.Sum; i++) {
+        for (int i = 1; i < HuLu.TOTAL; i++) {
             int temp = h[i].getNum();
             HuLu l = h[i];
             int right = i - 1;
@@ -54,15 +54,15 @@ public class Sort {
             while (h[high].getNum() >= key.getNum() && high > low) {
                 high--;
             }
-            if (low % HuLu.Sum != high % HuLu.Sum) h[low].ChangePosition(low % HuLu.Sum, high % HuLu.Sum);
+            if (low % HuLu.TOTAL != high % HuLu.TOTAL) h[low].ChangePosition(low % HuLu.TOTAL, high % HuLu.TOTAL);
             h[low] = h[high];
             while (h[low].getNum() <= key.getNum() && high > low) {
                 low++;
             }
-            if (low % HuLu.Sum != high % HuLu.Sum) h[high].ChangePosition(high % HuLu.Sum, low % HuLu.Sum);
+            if (low % HuLu.TOTAL != high % HuLu.TOTAL) h[high].ChangePosition(high % HuLu.TOTAL, low % HuLu.TOTAL);
             h[high] = h[low];
         }
-        if (high % HuLu.Sum != temp % HuLu.Sum) h[high].ChangePosition(high % HuLu.Sum, temp % HuLu.Sum);
+        if (high % HuLu.TOTAL != temp % HuLu.TOTAL) h[high].ChangePosition(high % HuLu.TOTAL, temp % HuLu.TOTAL);
         h[high] = key;
         return high;
     }
