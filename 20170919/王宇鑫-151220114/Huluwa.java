@@ -1,73 +1,82 @@
-import java.util.*;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
-public class Huluwa
-{
-    private static int NO = 0;
+public class Huluwa {
+    private String name;
+    private Color color;
+    private Integer seniority;
+    //
+    public enum Color {
+        CHI, CHENG, HUANG, LV, QING, LAN, ZI, NONE;
 
-    private int number = 0;
+        private static String colorString = "赤橙黄绿青蓝紫";
+        @Override
+        public String toString() {
+            return "" + colorString.charAt(this.ordinal());
+        }
 
-    private Map<keyType, String> info = new LinkedHashMap<>();
-
-    public Huluwa()
-    {
-        number = ++NO;
-        info.put(keyType.name, name());
-        info.put(keyType.color, color());
+        public static Color colorAt(Integer ordinal) {
+            switch (ordinal) {
+                case 1: return CHI;
+                case 2: return CHENG;
+                case 3: return HUANG;
+                case 4: return LV;
+                case 5: return QING;
+                case 6: return LAN;
+                case 7: return ZI;
+                default: return NONE;
+            }
+        }
     }
 
-    public static void clear()
-    {
-        NO = 0;
+    Huluwa(Integer seniority, String name, Color color) {
+        this.seniority = seniority;
+        this.name = name;
+        this.color = color;
     }
 
-    public boolean isGreaterThan(Huluwa h)
-    {
-        return number > h.number;
+    public void moveTo(Queue.Position to) {
+        to.seat = this;
+        whatName();
+        System.out.println(" -> " + to.position);
     }
 
-    public enum keyType
-    {
-        name, color
+    public String getName() {
+        return name;
     }
 
-    public void whatName(String with)
-    {
-        System.out.print(info.get(keyType.name));
-        System.out.print(with);
+    public Color getColor() {
+        return color;
     }
 
-    public void whatColor(String with)
-    {
-        System.out.print(info.get(keyType.color));
-        System.out.print(with);
+    public void whatName() {
+        System.out.print(getName());
     }
 
-    private static String defaultName = "大二三四五六七";
-
-    private String name()
-    {
-        if (number > defaultName.length())
-            return "我不是我没有我不存在";
-        return "老" + defaultName.charAt(number - 1);
+    public void whatColor() {
+        System.out.print(getColor());
     }
 
-    private static String defaultColor = "红橙黄绿青蓝紫";
+    public Boolean isGreaterThan(Huluwa h) {
+        return this.seniority > h.seniority;
+    }
 
-    private String color()
-    {
-        if (number > defaultColor.length())
-            return "我不是我没有我不存在";
-        return "" + defaultColor.charAt(number - 1);
+    public Boolean isLessThan(Huluwa h) {
+        return this.seniority < h.seniority;
+    }
+
+    public Boolean isEqualTo(Huluwa h) {
+        return this.seniority == h.seniority;
     }
 
     public static void main(String[] args)
     {
         GrandFather gf = new GrandFather();
-        gf.shuffle();
-        gf.sort(GrandFather.sortType.bubble);
-        gf.report(keyType.name);
-        gf.shuffle();
-        gf.sort(GrandFather.sortType.insert);
-        gf.report(keyType.color);
+        gf.enqueueHuluwas();
+        gf.sortHuluwas(Queue.SortType.BUBBLE);
+        gf.report(GrandFather.ReportType.NAME);
+        gf.dequeueHuluwas();
+        gf.enqueueHuluwas();
+        gf.sortHuluwas(Queue.SortType.QUICK);
+        gf.report(GrandFather.ReportType.COLOR);
     }
 }
