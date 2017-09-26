@@ -1,19 +1,30 @@
 /**
  * Created by cbcwe on 2017/9/22.
+ * Edited by cbcwe on 2017/9/26
  */
 public class GourdDoll {
     /***
      * 模拟一个葫芦娃
      * name:葫芦娃的名字
-     * value:0代表大娃，1代表2娃，以此类推
+     * rank:0代表大娃，1代表2娃，以此类推
      */
-    String name;
-    int value;
+    private String name;
+    private int rank;
+
+    // 获取葫芦娃的排行
+    public int getRank(){
+        return rank;
+    }
+
+    // 获取葫芦娃的名字
+    public String getName(){
+        return name;
+    }
 
     public GourdDoll(int new_value) {
-        value = new_value;
-        value %= 7;
-        switch (value) {
+        rank = new_value;
+        rank %= 7;
+        switch (rank) {
             case 0:
                 name = "红娃";
                 break;
@@ -38,14 +49,17 @@ public class GourdDoll {
             default:
                 name = "谁家的孩子?";
         }
+        System.out.println(name+"诞生了");
     }
 
-    public void speakColor(){
-        System.out.print(name+"! ");
+    // 报出葫芦娃的名字
+    public void speakName(){
+        System.out.print(name+" ");
     }
 
+    // 报出葫芦娃的排行
     public void speakRank(){
-        switch(value){
+        switch(rank){
             case 0:
                 System.out.print("老大 ");
                 break;
@@ -71,5 +85,12 @@ public class GourdDoll {
                 System.out.print("爷爷什么时候多摘了个葫芦？ ");
 
         }
+    }
+
+    // 静态函数，交换GourdDoll数组的两个元素的值，即把葫芦娃a和葫芦娃b交换位置
+    public static void swap(GourdDoll []gourdDoll , int a , int b){
+        GourdDoll tmp = gourdDoll[a];
+        gourdDoll[a] = gourdDoll[b];
+        gourdDoll[b] = tmp;
     }
 }

@@ -13,23 +13,27 @@
 ### GourdDoll.java
 
 - 定义了一个葫芦娃的属性，包括name（“红娃”、“橙娃”等）和value（从0~6，用于标识排行）；
-- 提供了葫芦娃对外报出自己名字和排行的接口speakRank()和speakColor()。
+- getRank()获取葫芦娃的排行；
+- getName()获取葫芦娃的名字；
+- speakRank()报出葫芦娃的排行；
+- speakName()报出葫芦娃的名字；
+- 静态函数swap()实现了葫芦娃数组中两个葫芦娃位置的交换。
 
 
 
 
 
-### MySort.java
+### Grandpa.java
 
-- 定义了两种排序的算法——冒泡排序(bubbleSort())和快速排序(quickSort()和partition())；
-- report()函数用于排序过程中在GourdDoll数组发生改变时报告葫芦娃的交换动作。
-
+- 模拟爷爷指挥葫芦娃们进行两种排序（bubbleSort和quickSort）并报告交换动作(report)
 
 
 
 
-### Game.java
 
-- 定义了showColor()和showRank()函数，来让葫芦娃数组报出自己的颜色和排行；
+### MyQueue.java
+
+- 模拟老爷爷和七个葫芦娃的排序队列
+- 定义了showName()和showRank()函数，来让葫芦娃数组报出自己的名字和排行；
 - 定义了getRandomArray()函数，打乱葫芦娃顺序；
 - 提供程序的main()函数，运行程序的主体。
