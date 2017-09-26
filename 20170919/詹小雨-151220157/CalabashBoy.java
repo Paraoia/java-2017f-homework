@@ -11,14 +11,28 @@ public class CalabashBoy {
 
     CalabashBoy (Name number) {
         name = number;
-        switch(name) {
-            case First: color = Color.Red;break;
-            case Second: color = Color.Orange;break;
-            case Third: color = Color.Yellow;break;
-            case Fourth: color = Color.Green;break;
-            case Fifth: color = Color.Blue;break;
-            case Sixth: color = Color.Indigo;break;
-            case Seventh: color = Color.Purple;break;
+        switch (name) {
+            case First:
+                color = Color.Red;
+                break;
+            case Second:
+                color = Color.Orange;
+                break;
+            case Third:
+                color = Color.Yellow;
+                break;
+            case Fourth:
+                color = Color.Green;
+                break;
+            case Fifth:
+                color = Color.Blue;
+                break;
+            case Sixth:
+                color = Color.Indigo;
+                break;
+            case Seventh:
+                color = Color.Purple;
+                break;
         }
     }
 
@@ -35,10 +49,6 @@ public class CalabashBoy {
         return 0;
     }
 
-    public void colorreport() {
-        System.out.print(color.toString());
-    }
-
     public int tellname() {
         switch(name) {
             case First: return 0;
@@ -50,6 +60,10 @@ public class CalabashBoy {
             case Seventh: return 6;
         }
         return 0;
+    }
+
+    public void colorreport() {
+        System.out.print(color.toString());
     }
 
     public void namereport() {

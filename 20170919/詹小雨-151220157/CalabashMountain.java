@@ -8,11 +8,11 @@ public class CalabashMountain {
         grandfather.setname(boys);
 
         System.out.println("\nA new turn:");
-        grandfather.formline(boys, 1); //by name
+        grandfather.formline(boys);
         grandfather.bubblesort(boys);
 
         System.out.println("\nA new turn:");
-        grandfather.formline(boys, 2); //by color
+        grandfather.formline(boys);
         grandfather.quicksort(boys);
     }
 
