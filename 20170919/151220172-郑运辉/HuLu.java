@@ -41,6 +41,6 @@ public class HuLu {
     }
 
     public void ChangePosition(int Before, int After) {
-        System.out.println("老" + Num + ":" + Before + "->" + After);
+        System.out.println(NumArr[Num-1] + ":" + Before + "->" + After);
     }
 }
