@@ -1,17 +1,19 @@
-import java.awt.*;
+//import java.awt.*;
 import java.util.Random;
 
 public class Huluwa {
 
 
-    int level;
-    String color;
-    String name;
-    int pos;
-    int colorForSort;
+    private int level;
+    private int colorForSort;
+    private String color;
+    private String name;
+
 
     public static final int COLOR = 1;
     public static final int NAME = 2;
+    public static final int LEVEL = 3;
+
     public static final int RED = 1;
     public static final int ORANGE = 2;
     public static final int YELLOW = 3;
@@ -26,30 +28,26 @@ public class Huluwa {
         level = newLevel;
         color = newColor;
         name = newName;
-        pos = 0;
         colorForSort = newColorForSort;
     }
 
 
-    public int getRandomNumber(){
+    public int getRandomNumber(int range){
+        //根据给定的范围，随机产生一个位置
+
         Random randomNumber = new Random();
-        return randomNumber.nextInt(7) % (7);
+        return randomNumber.nextInt(range) % (range);
 
     }
 
-    public void swapPos(int startPos, int endPos)
+    public void talkWhenSwap(int startPos, int endPos)
     {
+        //换位置时说话
         System.out.println(name+":"+startPos+"->"+endPos);
-        pos = endPos;
-    }
-
-    public void setPos(int newPos)
-    {
-        pos = newPos;
     }
 
     public void countOff(int caseChoose)
-    {
+    {   //根据类型报出自己的一些属性
         switch(caseChoose)
         {
             case NAME:System.out.println(name);break;
@@ -58,4 +56,17 @@ public class Huluwa {
         }
     }
 
+    public int GetValue(int type)
+    {   //根据所需类型说出自己的属性
+        switch(type) {
+            case COLOR:
+                return colorForSort;
+            case LEVEL:
+                return level;
+            default:
+                break;
+        }
+
+        return 0;
+    }
 }
