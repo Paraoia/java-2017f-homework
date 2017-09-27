@@ -40,7 +40,7 @@ public class Position {
 
     }
 
-    int GetPositionNumber(){
+    public int GetPositionNumber(){
         return positionNumber;
     }
 
