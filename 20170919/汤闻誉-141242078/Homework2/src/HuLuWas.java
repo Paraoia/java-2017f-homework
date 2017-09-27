@@ -43,10 +43,11 @@ public class HuLuWas {
             System.out.println("There is a bug");
             return;
         }
-        array[x].tellName();
-        System.out.print(": "+(x+1)+"->"+(y+1)+"   ");
-        array[y].tellName();
-        System.out.print(": "+(y+1)+"->"+(x+1)+"\n");
+        array[x].reportMovement(x+1,y+1);
+    //    System.out.print(": "+(x+1)+"->"+(y+1)+"   ");
+
+        array[y].reportMovement(y+1,x+1);
+    //   System.out.print(": "+(y+1)+"->"+(x+1)+"\n");
         swap(x,y);
     }
 

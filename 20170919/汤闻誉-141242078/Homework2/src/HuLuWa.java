@@ -14,6 +14,9 @@ public class HuLuWa {
     void tellColor(){
         System.out.print(color+"  ");
     }
+    void reportMovement(Integer oldPosition,Integer newPosition){
+        System.out.println(name+": "+oldPosition+"->"+newPosition);
+    }
  /*
     void move(Integer newPosition){
         if(position==newPosition)return;
