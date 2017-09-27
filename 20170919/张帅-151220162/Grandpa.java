@@ -22,7 +22,7 @@ public class Grandpa {
 	Grandpa(){
 		//各葫芦娃有序
 		for(int i=0;i<7;i++)
-			boys[i] = new Boy(i);
+			boys[i] = new Boy(i,Color.values()[i]);
 	}
 
 	public void bubbleSort(){
@@ -73,10 +73,10 @@ public class Grandpa {
 		if(end<=begin)
 			return;
 
-		int pivotValue = boys[end].getNumber();
+		Color pivotValue = boys[end].getColor();
 		int p = begin;
 		for(int i=begin;i<end;i++)
-			if(boys[i].getNumber()<pivotValue){
+			if(boys[i].getColor().compareTo(pivotValue)<0){
 				swap(boys, i, p);
 				p++;
 			}
