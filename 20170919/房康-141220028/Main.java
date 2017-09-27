@@ -17,26 +17,16 @@ public class Main {
         Sorter sorter = new Sorter();
 
         Collections.shuffle(list);
-        sorter.bubbleSort(list, new Comparator<Person>() {
-            @Override
-            public int compare(Person o1, Person o2) {
-                return o1.getOrder().compareTo(o2.getOrder());
-            }
-        });
+        sorter.bubbleSort(list, Comparator.comparingInt(o -> o.getOrder().ordinal()));
         for(Person person : list){
-            System.out.println(person);
+            person.talk();
         }
         System.out.println("===============================");
 
         Collections.shuffle(list);
-        sorter.quickSort(list, new Comparator<Person>() {
-            @Override
-            public int compare(Person o1, Person o2) {
-                return o1.getColor().compareTo(o2.getColor());
-            }
-        });
+        sorter.quickSort(list, Comparator.comparingInt(o -> o.getColor().ordinal()));
         for(Person person : list){
-            System.out.println(person);
+            person.talk();
         }
     }
 }

@@ -27,9 +27,8 @@ public class Person {
         this.color = color;
     }
 
-    @Override
-    public String toString() {
+    public void talk(){
         String str = "I am brother " + this.order.name() + " and my color is " + this.color.name();
-        return str;
+        System.out.println(str);
     }
 }
