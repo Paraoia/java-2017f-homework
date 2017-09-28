@@ -2,9 +2,9 @@
 /*======描述一个坑的属性和行为========*/
 public class Position {
 	
-	int id;//第几号坑
-	boolean is_empty;//坑里有没有人
-	int dollid;//蹲在坑里的葫芦娃
+	private int id;//第几号坑
+	private boolean is_empty;//坑里有没有人
+	private int dollid;//蹲在坑里的葫芦娃
 	
 	public Position(){
 		id=-1;
