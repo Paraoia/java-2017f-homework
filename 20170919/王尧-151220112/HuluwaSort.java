@@ -1,132 +1,54 @@
-﻿import java.util.*;
-
-class Huluwa {
-	int num;
-	String name = new String();
-
-	
-	/*
-	 * move方法为每个葫芦娃冒泡排序时的移动
-	 * 参数array为葫芦娃的队列，pos为葫芦娃所在的位置
-	 */
-	void move (Huluwa []array, int pos) {
-		if (array[pos].num > array[pos + 1].num) {
-			System.out.println(array[pos].name + ": " + (pos + 1) + "->" + (pos + 2));
-			System.out.println(array[pos + 1].name + ": " + (pos + 2) + "<-" + (pos + 1));
-			Huluwa tmp = array[pos];
-			array[pos] = array[pos + 1];
-			array[pos + 1] = tmp;
-		}
-	}
-	
-	/*
-	 * insert方法为每个葫芦娃通过二分插入到新队列的操作
-	 * 参数array为葫芦娃原来所在的队列，tmp为插入的新临时队列，pos为葫芦娃原来的位置
-	 */
-	void insert (Huluwa []array, Huluwa []tmp, int pos) {
-		if (pos == 0) {
-			tmp[0] = array[0];
-			System.out.println(tmp[0].name + " -> " + (pos + 1));
-		}
-		else {
-			int left = 0;
-			int right = pos - 1;
-			int mid = (left + right) / 2;
-			while (left <= right) {
-				if (array[pos].num > tmp[mid].num) {
-					left = mid + 1;
-				}
-				else {
-					right = mid - 1;
-				}
-				mid = (left + right) / 2;
-			}
-			
-			if (array[pos].num > tmp[mid].num) {
-				for (int i = pos - 1; i > mid; i--) {
-					System.out.println(tmp[i].name + ": " + (i + 1) + "->" + (i + 2));
-					tmp[i + 1] = tmp[i];
-				}
-				System.out.println(array[pos].name + " -> " + (mid + 2));
-				tmp[mid + 1] = array[pos];
-			}
-			else {
-				for (int i = pos - 1; i >= mid; i--) {
-					System.out.println(tmp[i].name + ": " + (i + 1) + "->" + (i + 2));
-					tmp[i + 1] = tmp[i];
-				}
-				System.out.println(array[pos].name + " -> " + (mid + 1));
-				tmp[mid] = array[pos];
-			}
-		}
-	}
-}
-
 public class HuluwaSort {
 	Huluwa []hlw = new Huluwa[7];
-	Huluwa []tmp = new Huluwa[7];
+	Queue queue = new Queue();
 	
 	HuluwaSort() {
-		for (int i = 0; i < 7; i++) {
-			hlw[i] = new Huluwa();
-			tmp[i] = new Huluwa();
-		}
-	}
-	
-	
-	/*
-	 * initHuluwa方法为对葫芦娃队列的初始化
-	 */
-	void initHuluwa() {
-		hlw[0].name = "老大（红娃）";
-		hlw[1].name = "老二（橙娃）";
-		hlw[2].name = "老三（黄娃）";
-		hlw[3].name = "老四（绿娃）";
-		hlw[4].name = "老五(青娃）";
-		hlw[5].name = "老六（蓝娃）";
-		hlw[6].name = "老七（紫娃）";
 		for (int i = 0; i < 7; i++)
-			hlw[i].num = i;
+			hlw[i] = new Huluwa();
+		
+		hlw[0].setNum(1); hlw[0].setColor(Color.CHI); hlw[0].setName("DaWa");
+		hlw[1].setNum(2); hlw[1].setColor(Color.CHENG); hlw[1].setName("ErWa");
+		hlw[2].setNum(3); hlw[2].setColor(Color.HONG); hlw[2].setName("SanWa");
+		hlw[3].setNum(4); hlw[3].setColor(Color.LV); hlw[3].setName("SiWa");
+		hlw[4].setNum(5); hlw[4].setColor(Color.QING); hlw[4].setName("WuWa");
+		hlw[5].setNum(6); hlw[5].setColor(Color.LAN); hlw[5].setName("LiuWa");
+		hlw[6].setNum(7); hlw[6].setColor(Color.ZI); hlw[6].setName("QiWa");
+		
+		
 	}
 	
-	/*
-	 * ranPos方法为葫芦娃随机站队
-	 */
-	void ranPos() {
-		Random rand = new Random();
-		for (int i = 0; i < 7; i++) {	
-			int p = rand.nextInt(i + 1);
-			Huluwa tmp = hlw[i];
-			hlw[i] = hlw[p];
-			hlw[p] = tmp;
-		}
-	}
-	
-	/*
-	 * bubbleSort方法让每个葫芦娃按照冒泡排序的方法移动
-	 */
 	void bubbleSort() {
 		for (int i = 0; i < 6; i++)
 			for (int j = 0; j < 6 - i; j++)
-				hlw[j].move(hlw, j);
+				if (queue.positions[j].holder.num > queue.positions[j + 1].holder.num)
+					hlw[j].move(queue, j);
 	}
 	
-	/*
-	 * insertSort方法让每个葫芦娃按照二分插入排序的方法插入新队列
-	 */
-	void insertSort() {
-		for (int i = 0; i < 7; i++)
-			hlw[i].insert(hlw, tmp, i);
-		for (int i = 0; i < 7; i++)
-			hlw[i] = tmp[i];
+	int partition(int left, int right) {
+		int splitPoint = left;
+		Position pivot;
+		pivot = queue.positions[left];
+		for (int i = left + 1; i <= right; i++)
+			if (queue.positions[i].holder.color.ordinal() < pivot.holder.color.ordinal())
+			{
+				splitPoint ++;
+				hlw[i].swap(queue, i, splitPoint);
+			}
+		hlw[left].swap(queue, left, splitPoint);
+		return splitPoint;
 	}
 	
-	/*
-	 *  printArray方法打印出队列的排序状态
-	 */
-	void printArray() {
+	void quickSort(int left, int right) {
+		if (left < right) {
+			int mid = partition(left, right);
+			quickSort(left, mid - 1);
+			quickSort(mid + 1, right);
+		}
+	}
+	
+	void printQueue() {
 		for (int i = 0; i < 7; i++)
-			System.out.print(hlw[i].name + " ");
+			System.out.print(queue.positions[i].holder.getName() + " ");
 		System.out.println("");
 	}
 	
@@ -134,29 +56,24 @@ public class HuluwaSort {
 		// TODO Auto-generated method stub
 		HuluwaSort HlwSort = new HuluwaSort();
 		
-		HlwSort.initHuluwa();
-		System.out.println("初始化为：");
-		HlwSort.printArray();
-		System.out.println("");
-		
-		HlwSort.ranPos();
+		HlwSort.queue.enqueue(HlwSort.hlw);
 		System.out.println("随机站队后：");
-		HlwSort.printArray();
+		HlwSort.printQueue();
 		System.out.println("");
 		
 		HlwSort.bubbleSort();
 		System.out.println("冒泡排序后：");
-		HlwSort.printArray();
+		HlwSort.printQueue();
 		System.out.println("");
 		
-		HlwSort.ranPos();
+		HlwSort.queue.enqueue(HlwSort.hlw);
 		System.out.println("随机站队后：");
-		HlwSort.printArray();
+		HlwSort.printQueue();
 		System.out.println("");
 		
-		HlwSort.insertSort();
-		System.out.println("二分插入排序后：");
-		HlwSort.printArray();
+		HlwSort.quickSort(0, 6);
+		System.out.println("快速排序后：");
+		HlwSort.printQueue();
 		System.out.println("");
 	}
 
