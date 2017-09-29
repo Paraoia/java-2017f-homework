@@ -2,25 +2,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class action{
+public  class start{
 
-   public static void main(String [] args){
+    public static void main(String [] args){
 
        calabash []brothers = new calabash[7];
+       queue brotherQueue = new queue();
+       brotherQueue.setPositions(7);
+
 
         //冒泡排序并报名字
        lineUp(brothers);
-       sort.bubbleSort(brothers);
-       for (int i = 0; i < 7; i++) {
-          brothers[i].printName();
-       }
+       brotherQueue.sitDown(brothers);
+       brotherQueue.bubbleSort();
+       brotherQueue.numOff();
 
         //快速排序并报颜色
        lineUp(brothers);
-       sort.quickSort(brothers,0,6);
-       for (int i = 0; i < 7; i++) {
-           brothers[i].printColor();
-       }
+       brotherQueue.sitDown(brothers);
+       brotherQueue.quickSort(0,6);
+       brotherQueue.colorOff();
 
     }
 
@@ -59,5 +60,4 @@ public class action{
         }
         return randoms;
     }
-
 }
