@@ -1,68 +1,71 @@
-public class HuluwaBrothers
+public class HuluwaBrothers //ºùÂ«ÍŞĞÖµÜ¶ÓÁĞ
 {
-    Huluwa []brothers;
-    void Initialize() //åˆå§‹åŒ–
+    public Position[] positions; //Ò»ÅÅ×ùÎ»
+
+    void Initialize() //³õÊ¼»¯
     {
-        brothers = new Huluwa[7];
+        positions = new Position[7];
         int i;
-        for(i = 0; i < 7; i++)
-        {
-            Huluwa newbrother = new Huluwa(i+1);
-            brothers[i] = newbrother;
-            //brothers[i].Initialize(i+1); é”™è¯¯å†™æ³•!! brothers[i]æ­¤æ—¶ä¸ºNULL!
+        for (i = 0; i < 7; i++) {
+            positions[i] = new Position();
+            positions[i].index = i;
+            Huluwa newbrother = new Huluwa(i + 1);
+            positions[i].holder = newbrother;
+            //BrothersQueue[i].Initialize(i+1); ´íÎóĞ´·¨!! brothers[i]´ËÊ±ÎªNULL!
         }
     }
-    public void LineUpRandomly() //ä»»æ„ç«™é˜Ÿ
+
+    public void LineUpRandomly() //ÈÎÒâÕ¾¶Ó
     {
-        int [] array = new int []{0,1,2,3,4,5,6};
+        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6};
         int i, rand;
-        for(i = 6; i >= 0; i--)
-        {
-            java.util.Random random=new java.util.Random();// å®šä¹‰éšæœºç±»
-            rand = random.nextInt(i+1);// è¿”å›[0,7)é›†åˆä¸­çš„æ•´æ•°ï¼Œæ³¨æ„ä¸åŒ…æ‹¬10
-            if(rand != i)
-            {
+        for (i = 6; i >= 0; i--) {
+            java.util.Random random = new java.util.Random();// ¶¨ÒåËæ»úÀà
+            rand = random.nextInt(i + 1);// ·µ»Ø[0,7)¼¯ºÏÖĞµÄÕûÊı£¬×¢Òâ²»°üÀ¨7
+            if (rand != i) {
                 int temp = array[i];
                 array[i] = array[rand];
                 array[rand] = temp;
             }
         }
-        Huluwa []brothersCopy = new Huluwa[7];
-        for(i = 0; i < 7; i++)
-        {
+        Position[] positionsCopy = new Position[7];
+        for (i = 0; i < 7; i++) {
             //System.out.print(array[i] + " ");
-            brothersCopy[i] = brothers[array[i]];
+            positionsCopy[i] = new Position();
+            positionsCopy[i].index = i;
+            positionsCopy[i].holder = positions[array[i]].holder; //ºùÂ«ÍŞËæ»úÈë¶Ó
         }
-        brothers = brothersCopy;
+        positions = positionsCopy;
     }
-    public void GiveNumbers() //æŠ¥æ•°
+
+    public void ReportNumbers() //±¨Êı
     {
         int i;
-        for(i = 0; i < 7; i++)
-            brothers[i].giveNumber(); //æ¯ä¸ªè‘«èŠ¦å¨ƒä¾æ¬¡æŠ¥æ•°
+        for (i = 0; i < 7; i++)
+            positions[i].holder.reportNumber(); //Ã¿¸öºùÂ«ÍŞÒÀ´Î±¨Êı
         System.out.println();
     }
-    public void GiveColors() //æŠ¥é¢œè‰²
+
+    public void ReportColors() //±¨ÑÕÉ«
     {
         int i;
-        for(i = 0; i < 7; i++)
-            brothers[i].giveColor(); //æ¯ä¸ªè‘«èŠ¦å¨ƒä¾æ¬¡æŠ¥é¢œè‰²
+        for (i = 0; i < 7; i++)
+            positions[i].holder.reportColor(); //Ã¿¸öºùÂ«ÍŞÒÀ´Î±¨ÑÕÉ«
         System.out.println();
     }
-    public void BubbleSort() //å†’æ³¡æ’åº
+
+    public void BubbleSort() //Ã°ÅİÅÅĞò
     {
         int i, j;
-        for(i = 0; i < 7 - 1; i++)
+        for (i = 0; i < 7 - 1; i++)
         {
-            for(j = 0; j < 7 - 1 - i; j++)
+            for (j = 0; j < 7 - 1 - i; j++)
             {
-                if(brothers[j].index > brothers[j+1].index)
+                if (positions[j].holder.index > positions[j + 1].holder.index)
                 {
-                    brothers[j].Move(j, j+1);//æŠ¥å‘Šäº¤æ¢ä½ç½®
-                    brothers[j+1].Move(j+1, j);//æŠ¥å‘Šäº¤æ¢ä½ç½®
-                    Huluwa temp = brothers[j];
-                    brothers[j] = brothers[j+1];
-                    brothers[j+1] = temp;
+                    Huluwa temp = positions[j].holder;
+                    positions[j+1].holder.JumpandReport(this, j+1, j);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
+                    temp.JumpandReport(this, j , j+1);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
                 }
             }
         }
@@ -70,33 +73,30 @@ public class HuluwaBrothers
     private int Partition(int low, int high)
     {
         int pivotpos = low;
-        Huluwa pivot = brothers[low];
+        Huluwa pivot =  positions[low].holder;
         int i;
         for(i = low + 1; i <= high; i++)
         {
-            if(brothers[i].index < pivot.index)
+            if( positions[i].holder.color.getColorIndex() < pivot.color.getColorIndex()) //°´ÑÕÉ«ÅÅĞò
             {
                 pivotpos++;
                 if(pivotpos != i)
                 {
-                    brothers[i].Move(i, pivotpos); //æŠ¥å‘Šäº¤æ¢ä½ç½®
-                    brothers[pivotpos].Move(pivotpos, i); //æŠ¥å‘Šäº¤æ¢ä½ç½®
-                    Huluwa temp = brothers[i];
-                    brothers[i] = brothers[pivotpos];
-                    brothers[pivotpos] = temp;
+                    Huluwa temp = positions[i].holder;
+                    positions[pivotpos].holder.JumpandReport(this, pivotpos, i);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
+                    temp.JumpandReport(this, i , pivotpos);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
                 }
             }
         }
         if(pivotpos != low)
         {
-            brothers[pivotpos].Move(pivotpos, low); //æŠ¥å‘Šäº¤æ¢ä½ç½®
-            pivot.Move(low, pivotpos); //æŠ¥å‘Šäº¤æ¢ä½ç½®
-            brothers[low] = brothers[pivotpos];
-            brothers[pivotpos] = pivot;
+            Huluwa temp = positions[low].holder;
+            positions[pivotpos].holder.JumpandReport(this, pivotpos, low);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
+            temp.JumpandReport(this, low , pivotpos);//ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
         }
         return pivotpos;
     }
-    public void QuickSort(int left, int right) //å¿«é€Ÿæ’åº
+    public void QuickSort(int left, int right) //¿ìËÙÅÅĞò
     {
         if(left < right)
         {
@@ -105,4 +105,10 @@ public class HuluwaBrothers
             QuickSort(pivotpos+1, right);
         }
     }
+}
+
+class Position //¶ÓÁĞÎ»ÖÃÀà
+{
+    public int index;
+    public Huluwa holder;
 }

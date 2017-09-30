@@ -1,11 +1,11 @@
 enum Color
 {
-    RED("è€å¤§","çº¢è‰²",1), ORANGE("è€äºŒ", "æ©™è‰²",2), YELLOW("è€ä¸‰", "é»„è‰²",3), GREEN("è€å››","ç»¿è‰²",4),
-    CYAN("è€äº”","é’è‰²",5), BLUE("è€å…­", "è“è‰²", 6), PURPLE("è€ä¸ƒ", "ç´«è‰²", 7);
-    private String NoName; //è€X
-    private String ColorName; //é¢œè‰²
-    private int index; //åºå·
-    private Color(String NoName, String ColorName, int index) //æž„é€ å‡½æ•°
+    RED("ÀÏ´ó","ºìÉ«",1), ORANGE("ÀÏ¶þ", "³ÈÉ«",2), YELLOW("ÀÏÈý", "»ÆÉ«",3), GREEN("ÀÏËÄ","ÂÌÉ«",4),
+    CYAN("ÀÏÎå","ÇàÉ«",5), BLUE("ÀÏÁù", "À¶É«", 6), PURPLE("ÀÏÆß", "×ÏÉ«", 7);
+    private String NoName; //ÀÏX
+    private String ColorName; //ÑÕÉ«
+    private int index; //ÐòºÅ
+    private Color(String NoName, String ColorName, int index) //¹¹Ôìº¯Êý
     {
         this.NoName = NoName;
         this.ColorName = ColorName;
@@ -19,36 +19,38 @@ enum Color
     {
         return  ColorName;
     }
+    public int getColorIndex() {return index;}
 }
 public class Huluwa
 {
     Color color;
     int index;
-   Huluwa(int index)
+    Huluwa(int index)
     {
-           this.index = index;
-           switch (index)
-           {
-               case 1: color = Color.RED; break;
-               case 2: color = Color.ORANGE; break;
-               case 3: color = Color.YELLOW; break;
-               case 4: color = Color.GREEN; break;
-               case 5: color = Color.CYAN; break;
-               case 6: color = Color.BLUE; break;
-               case 7: color = Color.PURPLE; break;
-           }
+        this.index = index;
+        switch (index)
+        {
+            case 1: color = Color.RED; break;
+            case 2: color = Color.ORANGE; break;
+            case 3: color = Color.YELLOW; break;
+            case 4: color = Color.GREEN; break;
+            case 5: color = Color.CYAN; break;
+            case 6: color = Color.BLUE; break;
+            case 7: color = Color.PURPLE; break;
+        }
     }
-    public void giveNumber() //æŠ¥æ•°
+    public void reportNumber() //±¨Êý
     {
         System.out.print(color.getNoName() + " ");
     }
-    public void giveColor() //æŠ¥åå­—
+    public void reportColor() //±¨Ãû×Ö
     {
         System.out.print(color.getColorName() + " ");
     }
-    public void Move(int a, int b) //æŠ¥å‘Šäº¤æ¢ä½ç½®
+    public void JumpandReport(HuluwaBrothers queue, int a, int b) //ÒÆ¶¯Î»ÖÃ²¢±¨¸æ
     {
+        queue.positions[b].holder = this;
         a++; b++;
-        System.out.println(color.getNoName() + ":" + a + "->"+ b);
+        System.out.println("\t" + color.getNoName() + ":" + a + "->"+ b);
     }
 }

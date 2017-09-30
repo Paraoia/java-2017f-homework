@@ -4,35 +4,27 @@ public class Main
     {
         HuluwaBrothers huluwaBrothers = new HuluwaBrothers();
         huluwaBrothers.Initialize();
-        /*å†’æ³¡æ’åº*/
-        System.out.println("ç¬¬ä¸€æ¬¡ä»»æ„ç«™é˜Ÿï¼š");
-        huluwaBrothers.LineUpRandomly();//ä»»æ„ç«™é˜Ÿ
-        System.out.print("\tæŠ¥æ•°ï¼š");
-        huluwaBrothers.GiveNumbers(); //æŠ¥æ•°
-        System.out.print("\tæŠ¥é¢œè‰²ï¼š");
-        huluwaBrothers.GiveColors(); //æŠ¥é¢œè‰²
-        System.out.println("å†’æ³¡æ’åºè¿‡ç¨‹ï¼š");
-        huluwaBrothers.BubbleSort();//å†’æ³¡æ’åº
-        System.out.println("å†’æ³¡æ’åºåï¼š");
-        System.out.print("\tæŠ¥æ•°ï¼š");
-        huluwaBrothers.GiveNumbers(); //æŠ¥æ•°
-        System.out.print("\tæŠ¥é¢œè‰²ï¼š");
-        huluwaBrothers.GiveColors(); //æŠ¥é¢œè‰²
+        /*Ã°ÅİÅÅĞò*/
+        System.out.println("µÚÒ»´ÎÈÎÒâÕ¾¶Ó£º");
+        huluwaBrothers.LineUpRandomly();//ÈÎÒâÕ¾¶Ó
+        System.out.print("\t±¨Êı£º");
+        huluwaBrothers.ReportNumbers(); //±¨Êı
+        System.out.println("Ã°ÅİÅÅĞò¹ı³Ì£º");
+        huluwaBrothers.BubbleSort();//Ã°ÅİÅÅĞò
+        System.out.println("Ã°ÅİÅÅĞòºó£º");
+        System.out.print("\t±¨Êı£º");
+        huluwaBrothers.ReportNumbers(); //±¨Êı
         System.out.println();
 
-        /*å¿«é€Ÿæ’åº*/
-        System.out.println("ç¬¬äºŒæ¬¡ä»»æ„ç«™é˜Ÿï¼š");
-        huluwaBrothers.LineUpRandomly();//ä»»æ„ç«™é˜Ÿ
-        System.out.print("\tæŠ¥æ•°ï¼š");
-        huluwaBrothers.GiveNumbers(); //æŠ¥æ•°
-        System.out.print("\tæŠ¥é¢œè‰²ï¼š");
-        huluwaBrothers.GiveColors(); //æŠ¥é¢œè‰²
-        System.out.println("å¿«é€Ÿæ’åºè¿‡ç¨‹ï¼š");
-        huluwaBrothers.QuickSort(0, 6); //å¿«é€Ÿæ’åº
-        System.out.println("å¿«é€Ÿæ’åºåï¼š");
-        System.out.print("\tæŠ¥æ•°ï¼š");
-        huluwaBrothers.GiveNumbers(); //æŠ¥æ•°
-        System.out.print("\tæŠ¥é¢œè‰²ï¼š");
-        huluwaBrothers.GiveColors(); //æŠ¥é¢œè‰²
+        /*¿ìËÙÅÅĞò*/
+        System.out.println("µÚ¶ş´ÎÈÎÒâÕ¾¶Ó£º");
+        huluwaBrothers.LineUpRandomly();//ÈÎÒâÕ¾¶Ó
+        System.out.print("\t±¨ÑÕÉ«£º");
+        huluwaBrothers.ReportColors(); //±¨ÑÕÉ«
+        System.out.println("¿ìËÙÅÅĞò¹ı³Ì£º");
+        huluwaBrothers.QuickSort(0, 6); //¿ìËÙÅÅĞò
+        System.out.println("¿ìËÙÅÅĞòºó£º");
+        System.out.print("\t±¨ÑÕÉ«£º");
+        huluwaBrothers.ReportColors(); //±¨ÑÕÉ«
     }
 }
