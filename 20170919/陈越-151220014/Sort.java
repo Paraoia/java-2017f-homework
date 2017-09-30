@@ -46,15 +46,13 @@ public class Sort {
         Random ran = new Random();
         children[0] = new huluwa(ran.nextInt(num)+1);
         int i=1;
-        for(;i<num;i++)
-        {
+        for(;i<num;i++) {
             int j = 0;
             while (j != i) {
                 children[i] = new huluwa(ran.nextInt(num) + 1);
-                for (j = 0; j < i && children[j].cmp( children[i])!=0; j++) ;
+                for (j = 0; j < i && children[j].cmp(children[i]) != 0; j++) ;
             }
         }
-        printNum();
     }
 
     //交换葫芦娃的位置
