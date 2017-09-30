@@ -1,4 +1,4 @@
-package hulvwa;
+package huluwa;
 
 import java.util.Random;
 
@@ -7,19 +7,22 @@ public class Sort {
     {
         Sort sort = new Sort(7);
         sort.shuffle();
+        System.out.println("冒泡排序——————————————————————");
         sort.bubbleSort();
         sort.shuffle();
+        System.out.println("快速排序——————————————————————");
         sort.quickSort();
     }
 
-    private hulvwa children[];
+    private huluwa children[];
     private int num;
     Sort(int n)
     {
         num = n;
-        children = new hulvwa[num];
+        children = new huluwa[num+1];//第8个位置为空位，用于交换位置
 
     }
+    //让葫芦娃一次输出排名
     private void printNum()
     {
         for(int i=0;i<num;i++)
@@ -27,6 +30,8 @@ public class Sort {
             children[i].printNum();
         }
     }
+
+    //让葫芦娃一次输出颜色
     private void printColor()
     {
         for(int i=0;i<num;i++)
@@ -34,35 +39,46 @@ public class Sort {
             children[i].printColor();
         }
     }
+
+    //随机生成葫芦娃的初始排序
     public void shuffle()
     {
         Random ran = new Random();
-        children[0] = new hulvwa(ran.nextInt(num)+1);
+        children[0] = new huluwa(ran.nextInt(num)+1);
         int i=1;
         for(;i<num;i++)
         {
             int j = 0;
             while (j != i) {
-                children[i] = new hulvwa(ran.nextInt(num) + 1);
-                for (j = 0; j < i && children[j].no != children[i].no; j++) ;
+                children[i] = new huluwa(ran.nextInt(num) + 1);
+                for (j = 0; j < i && children[j].cmp( children[i])!=0; j++) ;
             }
         }
+        printNum();
     }
 
+    //交换葫芦娃的位置
+    private void swap(int i,int j)
+    {
+        children[num] = new huluwa();
+        children[num] = children[j];
+        children[num].myPrintln(j,num);
+        children[j]= children[i];
+        children[j].myPrintln(i,j);
+        children[i]=children[num];
+        children[i].myPrintln(num,i);
+    }
+
+    //冒泡排序
     public void bubbleSort()
     {
         for(int i = num-1;i>0;i--)
         {
             for(int j=0;j<i;j++)
             {
-                if(children[j+1].no<children[j].no)
+                if(children[j+1].cmp(children[j])<0)
                 {
-                    hulvwa temp = new hulvwa();
-                    temp = children[j];
-                    children[j]= children[j+1];
-                    children[j+1]=temp;
-                    children[j].myPrintln(j,j+1);
-                    children[j+1].myPrintln(j+1,j);
+                    swap(j,j+1);
 
                 }
             }
@@ -72,29 +88,21 @@ public class Sort {
     private int partition(int left,int right)
     {
         int pivotpos = left;
-        hulvwa temp = new hulvwa();
+        huluwa temp = new huluwa();
         temp = children[left];
         for(int i=left+1;i<=right;i++)
         {
-            if(children[i].no < temp.no)
+            if(children[i].cmp(temp) < 0)
             {
                 pivotpos++;
                 if(pivotpos!=i)
                 {
-                    hulvwa t = new hulvwa();
-                    t = children[i];
-                    children[i] = children[pivotpos];
-                    children[pivotpos] = t;
-                    children[i].myPrintln(i,pivotpos);
-                    children[pivotpos].myPrintln(pivotpos,i);
+                    swap(i,pivotpos);
                 }
             }
 
         }
-        children[left] = children[pivotpos];
-        children[pivotpos].myPrintln(pivotpos,left);
-        children[pivotpos] = temp;
-        children[left].myPrintln(left,pivotpos);
+        swap(left,pivotpos);
         return pivotpos;
     }
     private void quickPartSort(int left,int right)
@@ -106,6 +114,8 @@ public class Sort {
             quickPartSort(pivotpos+1,right);
         }
     }
+
+    //快速排序
     public void quickSort()
     {
         quickPartSort(0,num-1);
