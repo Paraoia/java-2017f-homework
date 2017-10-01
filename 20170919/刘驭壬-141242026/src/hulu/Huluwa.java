@@ -1,3 +1,5 @@
+package hulu;
+
 public class Huluwa {
     private String name;
     private String color;
@@ -7,14 +9,6 @@ public class Huluwa {
         this.name = name;
         this.color = color;
         this.rank = rank;
-    }
-
-    public void tellName(){
-        System.out.println(name);
-    }
-
-    public void tellColor(){
-        System.out.println(color);
     }
 
     public void setName(String name) {
