@@ -39,16 +39,23 @@ public
 		rank = r;
 	}
 	
-	//设定一个葫芦娃的颜色和排行
+	//设定一个葫芦娃的颜色并依此设定排行
 	void Set_color(Color col) {
 		color = col;
 		rank = col.ordinal();
 	}
 	
-	//让葫芦娃报告自己颜色
+	//设定一个葫芦娃的颜色和排行
+	void Set_color_rank(Color col, int r) {
+		color = col;
+		rank = r;
+	}
+	
+	
+	//让葫芦娃报告自己排行
 	String Report_rank_string() {
 		String r = "葫芦娃";
-		switch(rank) {
+		switch(color.ordinal()) {
 			case 1:		r = "大娃";break;
 			case 2:		r = "二娃";break;
 			case 3:		r = "三娃";break;
@@ -61,7 +68,7 @@ public
 		return r;
 	}
 	
-	//让葫芦娃报告自己排行
+	//让葫芦娃报告自己颜色
 	String Report_color_string() {
 		String r = "葫芦娃";
 		switch(rank) {

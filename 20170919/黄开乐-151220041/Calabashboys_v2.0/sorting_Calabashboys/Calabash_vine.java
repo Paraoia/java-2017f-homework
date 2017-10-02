@@ -6,6 +6,14 @@ public class Calabash_vine extends Calabash_boy {
 private
 	//一根藤上七个瓜
 	Calabash_boy []Vine = new Calabash_boy[7];
+
+	//将藤上的两个葫芦交换
+	void Exchange_pos(int i, int j) {
+		Calabash_boy temp = new Calabash_boy();
+		temp = Vine[i];
+		Vine[i] = Vine[j];
+		Vine[j] = temp;
+	}
 	
 public	
 	//构造函数,将葫芦娃放置到葫芦藤对应的位置上
@@ -30,12 +38,12 @@ public
 		Vine[5].Set_color(Color.Green);	
 		Vine[6].Set_color(Color.Yellow);	
 		System.out.print("排序前:");
-		Report();
+		Report_color_by_pos();
 	}
 	
 	
-	//按颜色报数
-	void Report() {
+	//葫芦藤上从左到右按颜色报数
+	void Report_color_by_pos() {
 		for(int i = 0;i < 7;i++) {
 			System.out.print(Vine[i].Report_color_string());
 			if(i < 6)
@@ -51,9 +59,7 @@ public
 		for(int i = 0;i < Vine.length-2;i++) {
 			for(int j = Vine.length-1; j > i;j--) {
 				if(Vine[j].Return_rank() < Vine[j-1].Return_rank()) {
-					Calabash_boy temp = Vine[j];
-					Vine[j] = Vine[j-1];
-					Vine[j-1] = temp;
+					Exchange_pos(j, j-1);
 					System.out.print(Vine[j-1].Report_rank_string() + ": " + (j+1) + "->" + j + ", ");
 					System.out.print(Vine[j].Report_rank_string() + ": " + j + "->" + (j+1) + "  ;  ");
 				}
