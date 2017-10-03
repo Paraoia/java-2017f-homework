@@ -1,28 +1,28 @@
-public class Huluwa{
-    private int num;
-    private String number;//like "老大"
+public class Huluwa {
+    private int seniority;//like 1, 2, ……, 7
+    private String name;//like "老大"
     private String color;//like "红色"
 
-    public Huluwa(int num, String number, String color) {
-        this.num = num;
-        this.number = number;
+    public Huluwa(int seniority, String name, String color) {
+        this.seniority = seniority;
+        this.name = name;
         this.color = color;
     }
 
-    public int getNum() {
-        return num;
+    public int getSeniority() {
+        return seniority;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setSeniority(int seniority) {
+        this.seniority = seniority;
     }
 
-    public String getNumber() {
-        return number;
+    public String getName() {
+        return name;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getColor() {
@@ -33,8 +33,8 @@ public class Huluwa{
         this.color = color;
     }
 
-    public void reportNumber(){
-        System.out.println(number);
+    public void reportName(){
+        System.out.println(name);
     }
 
     public void reportColor(){
@@ -42,8 +42,7 @@ public class Huluwa{
     }
 
     public void reportPosition(int src, int dst){
-        System.out.println(number + ":" + (src + 1) + "->" + (dst + 1));
+        System.out.println(name + ":" + src + "->" + dst);
     }
 
 }
-
