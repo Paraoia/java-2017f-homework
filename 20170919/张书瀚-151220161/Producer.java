@@ -8,11 +8,11 @@ public class Producer {
 
         a.disturb();
         a.show();
-        a.sortbyRank();
+        a.sortByRank();
 
         a.disturb();
         a.show();
-        a.sortbyColor();
+        a.sortByColor();
 
     }
 }

@@ -18,13 +18,13 @@ public class Grandpa {
     //初始化
     void init() {
         //Boy ctn[] = new Boy[7];
-        ctn[0] = new Boy(7, 7, 0, 0);
-        ctn[1] = new Boy(6, 6, 1, 1);
-        ctn[2] = new Boy(5, 5, 2, 2);
-        ctn[3] = new Boy(4, 4, 3, 3);
-        ctn[4] = new Boy(3, 3, 4, 4);
-        ctn[5] = new Boy(2, 2, 5, 5);
-        ctn[6] = new Boy(1, 1, 6, 6);
+        ctn[0] = new Boy(7, COLOR.PURPLE, 0, 0);
+        ctn[1] = new Boy(6, COLOR.BLUE, 1, 1);
+        ctn[2] = new Boy(5, COLOR.CYAN, 2, 2);
+        ctn[3] = new Boy(4, COLOR.GREEN, 3, 3);
+        ctn[4] = new Boy(3, COLOR.YELLOW, 4, 4);
+        ctn[5] = new Boy(2, COLOR.ORANGE, 5, 5);
+        ctn[6] = new Boy(1, COLOR.RED, 6, 6);
     }
 
     //随机打乱葫芦娃序列
@@ -40,15 +40,29 @@ public class Grandpa {
             //System.out.println(s);
             if (alhave[s] == false) {
                 alhave[s] = true;
-                ctn[count] = new Boy(s + 1, s + 1, count, count);
+                ctn[count] = new Boy(s + 1, reduct(s + 1), count, count);
                 //System.out.printf("新成员：位置%d，排行%d\n",count,s+1);
                 count++;
             }
         }
     }
 
-    //按排行排序
-    void sortbyRank() {
+    //随机打乱序列需要的函数
+    COLOR reduct(int num) {
+        switch (num){
+            case 1:return COLOR.RED;
+            case 2:return COLOR.ORANGE;
+            case 3:return COLOR.YELLOW;
+            case 4:return COLOR.GREEN;
+            case 5:return COLOR.CYAN;
+            case 6:return COLOR.BLUE;
+            case 7:return COLOR.PURPLE;
+            default:return COLOR.RED;
+        }
+    }
+
+    //按排行排序——冒泡排序
+    void sortByRank() {
         System.out.print("按排行排序:\n");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6 - i; j++) {
@@ -67,8 +81,8 @@ public class Grandpa {
         }
     }
 
-    //按颜色排序
-    void sortbyColor() {
+    //按颜色排序——二分排序
+    void sortByColor() {
         System.out.print("按颜色排序:\n");
         int low, middle, high;
         Boy temp;
@@ -78,7 +92,7 @@ public class Grandpa {
             high = i - 1;
             while (low <= high) {
                 middle = (low + high) / 2;
-                if (ctn[i].color < ctn[middle].color)
+                if (ctn[i].color.crank < ctn[middle].color.crank)
                     high = middle - 1;
                 else
                     low = middle + 1;

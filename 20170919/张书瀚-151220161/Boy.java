@@ -2,10 +2,10 @@
 
 public class Boy {
     int rank;       //排行,由数字1~7表示
-    int color;      //颜色,由数字1~7表示
+    COLOR color;      //颜色,由数字1~7表示
     int prePos, nowPos;     //自己之前的位置和现在的位置
 
-    Boy(int r, int c, int q, int p) {
+    Boy(int r, COLOR c, int q, int p) {
         rank = r;
         color = c;
         prePos = q;
@@ -26,13 +26,13 @@ public class Boy {
 
     void tellColor(){
         switch(color) {
-            case 1: System.out.print("红色 "); break;
-            case 2: System.out.print("橙色 "); break;
-            case 3: System.out.print("黄色 "); break;
-            case 4: System.out.print("绿色 "); break;
-            case 5: System.out.print("青色 "); break;
-            case 6: System.out.print("蓝色 "); break;
-            case 7: System.out.print("紫色 "); break;
+            case RED: System.out.print("红色 "); break;
+            case ORANGE: System.out.print("橙色 "); break;
+            case YELLOW: System.out.print("黄色 "); break;
+            case GREEN: System.out.print("绿色 "); break;
+            case CYAN: System.out.print("青色 "); break;
+            case BLUE: System.out.print("蓝色 "); break;
+            case PURPLE: System.out.print("紫色 "); break;
         }
     }
 
