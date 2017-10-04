@@ -3,47 +3,39 @@
 }
 
 public class hulu {
-    //在葫芦兄弟中的序号
-    int index ;
-    COLOR cl;
+    //本葫芦娃的序号
+    private int index ;
 
-    public int pos;
-    public int last_pos;
+    //颜色
+    private COLOR cl;
 
-    public hulu(int a)
+    //构造函数
+    public hulu(int rank)
     {
-        index = a;
-        switch (index)
-        {
-            case 1:
-                cl = COLOR.红色;
-                break;
-            case 2:
-                cl = COLOR.橙色;
-                break;
-            case 3:
-                cl = COLOR.黄色;
-                break;
-            case 4:
-                cl = COLOR.绿色;
-                break;
-            case 5:
-                cl = COLOR.青色;
-                break;
-            case 6:
-                cl = COLOR.蓝色;
-                break;
-            case 7:
-                cl = COLOR.紫色;
-                break;
-        }
-        last_pos = 0;
-        pos  =0;
+        this.index = rank;
+
+        //根据序号得到本葫芦娃的颜色
+        this.cl = COLOR.values()[index - 1];
     }
+
+
+    public int ret_index()
+    {
+        return index;
+    }
+
+    boolean cmp(hulu a)
+    {
+        return index >= a.index;
+    }
+
+    //报自己的颜色
     public void dis_col()
     {
         System.out.print(cl.toString() + " ");
     }
+
+    //报自己的名字
     public void dis_name()
     {
         switch (index)
@@ -70,11 +62,5 @@ public class hulu {
                 System.out.print("老七 ");
                 break;
         }
-    }
-    public void dis_pos()
-    {
-        dis_name();
-        System.out.print(":" + last_pos +"->" + pos);
-        System.out.println();
     }
 }

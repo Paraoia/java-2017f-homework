@@ -4,7 +4,7 @@ public class hulubro {
     hulu[] bros = new hulu[7];
 
     //让所有葫芦兄弟随机站队
-    public void init()
+    public void random_queue()
     {
         int hulu = 1;
         int num  = 0;
@@ -22,48 +22,37 @@ public class hulubro {
             {
                 dif[index] = 0;
                 bros[index] = new hulu(hulu++);
-                bros[index].pos = index;
-                bros[index].last_pos = index;
 
                 ++num;
             }
         }
     }
 
-    //打按顺序打印葫芦兄弟的名字
-    public void disp()
+    //交换两个葫芦娃的位置， 并让他们报告交换动作
+    public void exchange(int i, int j)
     {
-        for(int i = 0; i < 7;++i)
-        {
-            bros[i].dis_name();
-        }
-        System.out.println();
+        bros[i].dis_name();
+        System.out.print(i + "->" + j + "\n");
+
+        bros[j].dis_name();
+        System.out.print(i + "->" + j + "\n");
+
+        hulu temp = bros[i];
+        bros[i] = bros[j];
+        bros[j] = temp;
     }
 
-    //对葫芦兄弟进行冒泡排序并报名字
+    //对葫芦兄弟进行冒泡排序
     public void bubble_sort_and_name_report()
     {
         for(int i = 1 ; i < 7;++i)
-        {
             for(int j = 0; j< 7-i;++j)
-            {
-                if(bros[j].index > bros[j+1].index)
-                {
-                    bros[j].last_pos = bros[j].pos;
-                    bros[j+1].last_pos = bros[j+1].pos;
-                    int temp_index = bros[j].pos;
-                    bros[j].pos = bros[j+1].pos;
-                    bros[j+1].pos = temp_index;
+                if(bros[j].cmp(bros[j+1]))
+                    exchange(j,j+1);
 
-                    hulu temp = bros[j];
-                    bros[j] = bros[j+1];
-                    bros[j+1] = temp;
-                    bros[j].dis_pos();
-                    bros[j+1].dis_pos();
-                }
-            }
-        }
-        disp();
+        for(int i = 0 ; i < 7;++i)
+            bros[i].dis_name();
+        System.out.println();
     }
 
 
@@ -74,27 +63,25 @@ public class hulubro {
         int first = low;
         int last = high;
 
-        hulu pilot = a[first];
+        hulu pivot = a[first];
         while(first < last)
         {
-            while(first < last && a[last].cl.ordinal() >= pilot.cl.ordinal())
+            while(first < last && a[last].cmp(pivot))
                 --last;
-            a[first] = a[last];
-            a[last].last_pos = a[last].pos;
-            a[last].pos = first;
-            a[last].dis_pos();
-
-            while(first < last && a[first].cl.ordinal() <= pilot.cl.ordinal())
+            if(first<last)
+            {
+                exchange(first,last);
                 ++first;
-            a[last] = a[first];
-            a[first].last_pos = a[first].pos;
-            a[first].pos = last;
-            a[first].dis_pos();
+            }
+
+            while(first < last && pivot.cmp(a[first]))
+                ++first;
+            if(first<last)
+            {
+                exchange(first,last);
+                --last;
+            }
         }
-        a[first]  = pilot;
-        pilot.last_pos = pilot.pos;
-        pilot.pos = first;
-        pilot.dis_pos();
 
         qsort(a,low,first-1);
         qsort(a,first+1,high);
@@ -114,10 +101,10 @@ public class hulubro {
     public static void main(String args[])
     {
         hulubro b1 = new hulubro();
-        b1.init();
+        b1.random_queue();
         b1.bubble_sort_and_name_report();
 
-        b1.init();
+        b1.random_queue();
         b1.qsort_and_color_report();
     }
 }
