@@ -2,7 +2,7 @@ package Homework2;
 
 public class Main {
 	public static void main(String [] Args){
-		Huluwas a = new Huluwas();
+		Troop a = new Troop();
 		a.Disorganize();
 		a.BubbleSort();
 		a.SayName();
