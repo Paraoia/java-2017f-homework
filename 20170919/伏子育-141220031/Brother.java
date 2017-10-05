@@ -1,7 +1,3 @@
-/**
- * Created by rajesh on 17-9-25.
- */
-
 
 public class Brother {
 
@@ -15,10 +11,12 @@ public class Brother {
 
     private Color color;
     private Name name;
+    private int pos;
 
     public Brother(Color c, Name n) {
         color = c;
         name = n;
+        pos = -1;
     }
 
     public Color getColor() {
@@ -29,11 +27,27 @@ public class Brother {
         return name;
     }
 
+    public int getPos() {
+        return pos;
+    }
+
     public void setColor(Color c) {
         color = c;
     }
 
     public void setName(Name n) {
         name = n;
+    }
+
+    public void setPos(int p) {
+        pos = p;
+    }
+
+    public void moveTo(int p) {
+        pos = p;
+    }
+
+    public void speak() {
+        System.out.println("I'm brother " + name + ", " + "my color is " + color);
     }
 }
