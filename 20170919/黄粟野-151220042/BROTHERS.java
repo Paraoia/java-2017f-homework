@@ -3,13 +3,10 @@ import java.util.Collection;
 public class BROTHERS {
     Calabash[] brothers;
 
-    BROTHERS()
-    {
-
-    }
 
     void initialize()
     {
+        // 随机初始化七兄弟的位置
         brothers = new Calabash[7];
         for(int i=0;i<7;i++)
         {
@@ -28,21 +25,25 @@ public class BROTHERS {
             brothers[position] = temp;
 
         }
-        //for(int i=0;i<7;i++)
-          //  System.out.println(brothers[i].getRank()+" "+brothers[i].getCrank().getName()+" "+brothers[i].getName().getName());
 
     }
+
 
     public static void main(String[] args)
     {
         SORT test= new SORT();
         BROTHERS t1= new BROTHERS();
+
         t1.initialize();
         System.out.println("冒泡排序：");
         test.bubblesort(t1.brothers);
+        test.print(t1.brothers,1);
+
         t1.initialize();
         System.out.println("快速排序");
         test.quicksort(t1.brothers,0,6);
-        test.print(t1.brothers);
+        test.print(t1.brothers,0);
     }
+
+
 }
