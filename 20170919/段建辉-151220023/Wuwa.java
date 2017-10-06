@@ -1,14 +1,12 @@
 public class Wuwa extends Xiaojingang {
-    Wuwa() {
+    public Wuwa() {
         rank = 5;
         color = Color.CYAN;
         name = "五娃";
     }
+
     @Override
-    void talk() {
-        System.out.print("五娃");
-    }
-    void skill() {
-        Skill(5);
+    void talkSkill() {
+        System.out.println("我有洪击、蓄水、闪电的技能！(●′ω`●)");
     }
 }

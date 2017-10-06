@@ -1,14 +1,12 @@
 public class Siwa extends Xiaojingang {
-    Siwa() {
+    public Siwa() {
         rank = 4;
         color = Color.GREEN;
         name = "四娃";
     }
+
     @Override
-    void talk() {
-        System.out.print("四娃");
-    }
-    void skill() {
-        Skill(4);
+    void talkSkill() {
+        System.out.println("我有火攻、吸纳火焰、霹雳的技能！(‵▽′)ψ ");
     }
 }

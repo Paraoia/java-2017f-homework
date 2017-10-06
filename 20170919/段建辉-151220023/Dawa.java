@@ -1,15 +1,10 @@
 public class Dawa extends Xiaojingang {
-    Dawa() {
+    public Dawa() {
         rank = 1;
         color = Color.RED;
         name = "大娃";
     }
-    @Override
-    void talk() {
-        System.out.print("大娃");
-    }
 
-    void skill() {
-        Skill(1);
-    }
+    @Override
+    void talkSkill() { System.out.println("我有力壮术、巨大化的技能！≖‿≖✧ "); }
 }

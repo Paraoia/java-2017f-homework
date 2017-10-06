@@ -4,12 +4,9 @@ public class Sanwa extends Xiaojingang {
         color = Color.YELLOW;
         name = "三娃";
     }
-    @Override
-    void talk() {
-        System.out.print("三娃");
-    }
 
-    void skill() {
-        Skill(3);
+    @Override
+    void talkSkill() {
+        System.out.println("我有刀枪不入的技能！ ˋ（′～‵）ˊ");
     }
 }

@@ -1,15 +1,12 @@
 public class Liuwa extends Xiaojingang {
-    Liuwa() {
+    public Liuwa() {
         rank = 6;
         color = Color.BLUE;
         name = "六娃";
     }
-    @Override
-    void talk() {
-        System.out.print("六娃");
-    }
 
-    void skill() {
-        Skill(6);
+    @Override
+    void talkSkill() {
+        System.out.println("我有隐身的技能！(*・・*)");
     }
 }
