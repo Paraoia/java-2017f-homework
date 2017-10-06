@@ -3,64 +3,56 @@ import java.util.*;
 public class CalabashSort{
     final String[] names = {"大娃","二娃","三娃","四娃","五娃","六娃","七娃"};
     final String[] color = {"赤","橙","黄","绿","青","蓝","紫"};
+
     private CalabashBrother[] brothers;
+    private Position[] lotus;
+
     public CalabashSort(){
-        this.brothers = new CalabashBrother[7];
-        for(int i=0;i<7;i++)
-            brothers[i] = new CalabashBrother(names[i],color[i],i+1);
+        //suppose we have 7 empty lotus in the beginning
+        lotus = new Position[7];
+        for(int i=0;i<7;i++) {
+            lotus[i] = new Position();
+            lotus[i].index = i;
+            lotus[i].holder = null;
+        }
 
-        /* In the beginning, the 7 brothers are placed randomly */
-        Randomize();
-
-        displayOrder(0);
-        /*display the order*/
+        //and also we have 7 Calabash brothers by the side
+        brothers = new CalabashBrother[7];
+        for(int i=0;i<brothers.length;i++){
+            brothers[i] = new CalabashBrother(names[i],color[i],i);
+        }
     }
 
     public void Randomize(){
-        /*Randomize the order of the 7 brothers*/
+        //the seven brothers step onto the lotus randomly
+        for(int i=0;i<brothers.length;i++)
+            lotus[i].holder = brothers[i];
         Random random = new Random();
-        for(int i=0;i<7;i++) {
+        for(int i=0;i<brothers.length;i++) {
             int p = random.nextInt(7);
-            CalabashBrother tmp = brothers[i];
-            brothers[i] = brothers[p];
-            brothers[p] = tmp;
+            CalabashBrother tmp = lotus[i].holder;
+            lotus[i].holder = lotus[p].holder;
+            lotus[p].holder = tmp;
         }
     }
 
-    /**
-     * according to the type, output different information
-     * @param type 0 for all, 1 for name, 2 for color
-     */
-    public void displayOrder(int type){
-        switch (type){
-            case 0:
-                for(CalabashBrother tmp : brothers) {
-                    System.out.println(tmp.getName() + " " + tmp.getColor() + " " + Integer.toString(tmp.getNo()));
-                }
-                break;
-            case 1:
-                for(CalabashBrother tmp : brothers)
-                    System.out.println(tmp.getName());
-                break;
-            case 2:
-                for(CalabashBrother tmp : brothers)
-                    System.out.println(tmp.getColor());
-                break;
-        }
-    }
 
     private void exchangePosition(int a,int b){
-        System.out.println(brothers[a].getName() + " : " + Integer.toString(a) + " -> " + Integer.toString(b));
-        System.out.println(brothers[b].getName() + " : " + Integer.toString(b) + " -> " + Integer.toString(a));
-        CalabashBrother tmp = brothers[a];
-        brothers[a] = brothers[b];
-        brothers[b] = tmp;
+        //exchange the Calabash Brother on Lotus A with that on B
+
+        //Brother A jump to b while Brother B jump to a
+        lotus[a].holder.moveTo(a,b);
+        lotus[b].holder.moveTo(b,a);
+
+        CalabashBrother tmp = lotus[a].holder;
+        lotus[a].holder = lotus[b].holder;
+        lotus[b].holder = tmp;
     }
 
     public void BubbleSort(){
-        for(int i=brothers.length-1; i>0; i--){
+        for(int i=lotus.length-1; i>0; i--){
             for(int j=0; j<i;j++)
-                if(brothers[j].getNo() > brothers[j+1].getNo())
+                if(lotus[j].holder.getSeniority() > lotus[j+1].holder.getSeniority())
                     exchangePosition(j,j+1);
         }
     }
@@ -74,13 +66,13 @@ public class CalabashSort{
     }
 
     private int partition(int p,int q){
-        int key = brothers[p].getNo();
+        int key = lotus[p].holder.getSeniority();
         int i = p;
         int j = q;
         while(true){
-            for(;j > p && brothers[j].getNo() > key;j--)
+            for(;j > p && lotus[j].holder.getSeniority() > key;j--)
                 continue;
-            for(;i < q && brothers[i].getNo() < key;i++)
+            for(;i < q && lotus[i].holder.getSeniority() < key;i++)
                 continue;
             if(i < j)
                 exchangePosition(i,j);
@@ -88,4 +80,18 @@ public class CalabashSort{
                 return j;
         }
     }
+
+    public void displayByName(){
+        for(int i=0;i<lotus.length;i++)
+            lotus[i].holder.getName();
+    }
+    public void displayByColor(){
+        for(int i=0;i<lotus.length;i++)
+            lotus[i].holder.getColor();
+    }
+}
+
+class Position {
+    public int index;
+    public CalabashBrother holder;
 }
