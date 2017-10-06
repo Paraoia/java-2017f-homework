@@ -1,4 +1,5 @@
 public class Huluwa {
+    private String name;
     private int ranking;//葫芦娃的排行
     private String color;//葫芦娃的颜色
 
@@ -6,9 +7,11 @@ public class Huluwa {
 
     }
 
+
     public Huluwa(int ranking/*,String color*/){
         this.ranking = ranking;
         this.color = defineColor();
+        this.name = defineName();
     }
 
     public void setRanking(int ranking) {
@@ -47,8 +50,39 @@ public class Huluwa {
         return this.color;
     }
 
+    private String defineName()  {
+        switch (this.ranking){
+            case 1:
+                this.name = "老大";
+                break;
+            case 2:
+                this.name = "老二";
+                break;
+            case 3:
+                this.name = "老三";
+                break;
+            case 4:
+                this.name = "老四";
+                break;
+            case 5:
+                this.name = "老五";
+                break;
+            case 6:
+                this.name = "老六";
+                break;
+            case 7:
+                this.name = "老七";
+                break;
+        }
+
+        return this.name;
+    }
     public String getColor() {
         return color;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setColor(String color) {
