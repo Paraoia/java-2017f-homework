@@ -1,6 +1,19 @@
 public class HuLuWa {
     public color Color;//颜色
     public ranklist Ranklist;//排名
+
+    public static void talk(HuLuWa bro, int from, int to, boolean mode){ //变换位置时哔哔
+        if(mode == true) {
+            System.out.print(bro.Ranklist);
+            System.out.print(':');
+            System.out.println(Integer.toString(from) + "->" + Integer.toString(to));
+        }
+        else if(mode == false) {
+            System.out.print(bro.Color);
+            System.out.print(':');
+            System.out.println(Integer.toString(from) + "->" + Integer.toString(to));
+        }
+    }
 }
 
 enum color{

@@ -2,26 +2,13 @@ import java.util.Random;
 
 public class HuLuWaPlaying{
 
-    private static final int MAX = 7; //规定最多7个葫芦娃
-    private static HuLuWa []brothers; //全局变量 7兄弟
+    public static final int MAX = 7; //规定最多7个葫芦娃
+    public static HuLuWa []brothers; //全局变量 7兄弟
 
     public HuLuWaPlaying(){ //构造函数 分配空间
         brothers = new HuLuWa[MAX];
         for(int i = 0; i < MAX; ++i){
             brothers[i] = new HuLuWa();
-        }
-    }
-
-    private static void talk(HuLuWa bro, int from, int to, boolean mode){ //变换位置时哔哔
-        if(mode == true) {
-            System.out.print(bro.Ranklist);
-            System.out.print(':');
-            System.out.println(Integer.toString(from) + "->" + Integer.toString(to));
-        }
-        else if(mode == false) {
-            System.out.print(bro.Color);
-            System.out.print(':');
-            System.out.println(Integer.toString(from) + "->" + Integer.toString(to));
         }
     }
 
@@ -32,11 +19,10 @@ public class HuLuWaPlaying{
                     HuLuWa temp = brothers[j];
                     brothers[j] = brothers[j-1];
                     brothers[j-1] = temp;
-                    talk(brothers[j], j-1, j, true);
+                    HuLuWa.talk(brothers[j], j-1, j, true);
                 }
             }
         }
-        displayRank(true);
     }
 
     private static class dichotomySort{//快速排序类
@@ -48,20 +34,19 @@ public class HuLuWaPlaying{
                     hi--;
                 array[lo] = array[hi];
                 if(lo != hi)
-                    talk(array[lo], hi, lo, false);
+                    HuLuWa.talk(array[lo], hi, lo, false);
                 while(array[lo].Color.compareTo(key.Color) < 0 && hi>lo)
                     lo++;
                 array[hi] = array[lo];
                 if(lo != hi)
-                    talk(array[hi], lo, hi, false);
+                    HuLuWa.talk(array[hi], lo, hi, false);
             }
             array[hi] = key;
             int endPosition = hi;
             if(startPosition != endPosition)
-                talk(key, startPosition, endPosition, false);
+                HuLuWa.talk(key, startPosition, endPosition, false);
             return hi;
         }
-
         public static void Sort(HuLuWa[] array, int lo , int hi){
             if(lo >= hi){
                 return;
@@ -74,7 +59,6 @@ public class HuLuWaPlaying{
 
     public void quickSort(){//快速排序入口
         dichotomySort.Sort(brothers, 0 , MAX - 1);
-        displayRank(false);
     }
 
     public void randStand(boolean mode){//随机站队
@@ -94,7 +78,7 @@ public class HuLuWaPlaying{
         displayRank(mode);
     }
 
-    private static void displayRank(boolean mode){//开始和结束时说明位置
+    public void displayRank(boolean mode){//开始和结束时说明位置
         if(mode == true) {
             for (HuLuWa i : brothers) {
                 System.out.print(i.Ranklist);
