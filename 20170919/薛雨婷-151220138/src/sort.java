@@ -1,27 +1,32 @@
 public class sort {
-    public static  void main(String[] args){
-        brothers ONE=new brothers("老大","红色");
-        brothers TWO=new brothers("老二","橙色");
-        brothers THREE=new brothers("老三","黄色");
-        brothers FOUR=new brothers("老四","绿色");
-        brothers FIVE=new brothers("老五","青色");
-        brothers SIX=new brothers("老六","蓝色");
-        brothers SEVEN=new brothers("老七","紫色");
+    public static  void main(String[] args) {
+        brothers ONE = new brothers("老大", COLORS.RED);
+        brothers TWO = new brothers("老二", COLORS.ORANGE);
+        brothers THREE = new brothers("老三", COLORS.YELLOW);
+        brothers FOUR = new brothers("老四", COLORS.GREEN);
+        brothers FIVE = new brothers("老五", COLORS.CYAN);
+        brothers SIX = new brothers("老六", COLORS.BLUE);
+        brothers SEVEN = new brothers("老七", COLORS.VIOLET);
+        brothers brother[] = {FOUR, SIX, SEVEN, ONE, TWO, FIVE, THREE};
 
-        brothers brother1[]={FOUR,SIX,SEVEN,ONE,TWO,FIVE,THREE};
-        BubbleSort(brother1);
-        for(int i=0;i<7;i++)
-            System.out.print(brother1[i].get_name()+"  ");
-        System.out.println();
+        position pos = new position(brother);
+        pos.BubbleSort();
+        pos.outputName();
 
-        brothers brother2[]={FOUR,SIX,SEVEN,ONE,TWO,FIVE,THREE};
-        QuickSort(brother2,0,6);
-        for(int i=0;i<7;i++)
-            System.out.print(brother2[i].get_color()+"  ");
-        System.out.println();
+        position pos2 = new position(brother);
+        pos2.QuickSort(0, 6);
+        pos2.outputColor();
     }
 
-    static void BubbleSort(brothers brother[]){
+        // BubbleSort(brother1);
+        /*for(int i=0;i<7;i++)
+            System.out.print(brother1[i].get_name()+"  ");
+        System.out.println();*/
+
+        //QuickSort(brother2,0,6);
+
+
+    /*static void BubbleSort(brothers brother[]){
         for(int i=0;i<6;i++){
             for(int j=0;j<6-i;j++){
                 if(brother[j].get_num()>brother[j+1].get_num()){
@@ -33,9 +38,9 @@ public class sort {
                 }
             }
         }
-    }
+    }*/
 
-    static void QuickSort(brothers brother[],int low,int high){
+    /*static void QuickSort(brothers brother[],int low,int high){
         if(low<high){
             int par=partition(brother,low,high);
             QuickSort(brother,low,par-1);
@@ -65,5 +70,5 @@ public class sort {
             System.out.println(pivot.get_color() + ": " + sta + " -> " + high);
         }
         return high;
-    }
+    }*/
 }
