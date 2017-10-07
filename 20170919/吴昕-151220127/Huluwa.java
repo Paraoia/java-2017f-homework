@@ -44,6 +44,6 @@ public class Huluwa {
     // 葫芦娃从位置 src 跳到 dst, 报告交换动作
     public void hop(int src, int dst) {
         exclaim_name();
-        System.out.println(": " + src + "->" + dst);
+        System.out.println(":" + src + "->" + dst);
     }
 }
