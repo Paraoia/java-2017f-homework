@@ -2,9 +2,9 @@ public class HuLu {
 
   private   int     rank;
   private   int     color;
-    
-  private   final String[]  RANK =  {"老大","老二","老三","老四","老五","老六","老七"};
-  private   final String[]  COLOR = {"红色","橙色","黄色","绿色","青色","蓝色","紫色"};
+
+  private   final   String[]  RANK =  {"老大","老二","老三","老四","老五","老六","老七"};
+  private   final   String[]  COLOR = {"红色","橙色","黄色","绿色","青色","蓝色","紫色"};
 
     HuLu(int rank, int color)
     {
@@ -28,12 +28,11 @@ public class HuLu {
         System.out.print(COLOR[color]);
     }
 
-    public int getRank() {
+    public int  getRank() {
         return rank;
     }
 
-
-    public int getColor()
+    public int  getColor()
     {
         return color;
     }
