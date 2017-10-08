@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Brothers {
-    CalaBash []Brothers; //存储初始化的葫芦娃信息
-    CalaBash []BroAfRan; //随意站队后葫芦娃排序的数组
+    private CalaBash []Brothers; //存储初始化的葫芦娃信息
+    private CalaBash []BroAfRan; //随意站队后葫芦娃排序的数组
 
     /* 初始化Brothers数组 得到葫芦娃老大到老七的信息*/
     Brothers()
@@ -41,16 +41,14 @@ public class Brothers {
     }
 
 
-
-
     /* 打印输出队列从头至尾 葫芦娃的辈分*/
     public void PrintRank()
     {
         for(int i=0;i<6;i++)
         {
-            System.out.print(BroAfRan[i].Rank+" ");
+            System.out.print(BroAfRan[i].getRank()+" ");
         }
-        System.out.println(BroAfRan[6].Rank);
+        System.out.println(BroAfRan[6].getRank());
 
     }
 
@@ -59,9 +57,9 @@ public class Brothers {
     {
         for(int i=0;i<6;i++)
         {
-            System.out.print(BroAfRan[i].Color+" ");
+            System.out.print(BroAfRan[i].getColor()+" ");
         }
-        System.out.println(BroAfRan[6].Color);
+        System.out.println(BroAfRan[6].getColor());
 
     }
 
@@ -69,10 +67,18 @@ public class Brothers {
     public void PosExchange(int i, int j)
     {
         CalaBash temp;
-        System.out.print(BroAfRan[i].Rank+":"+i+"->"+j+"  ");
-        System.out.println(BroAfRan[j].Rank+":"+j+"->"+i+"  ");
+        System.out.print(BroAfRan[i].getRank()+":"+i+"->"+j+"  ");
+        System.out.println(BroAfRan[j].getRank()+":"+j+"->"+i+"  ");
         temp = BroAfRan[i];
         BroAfRan[i]=BroAfRan[j];
         BroAfRan[j]=temp;
+    }
+
+    public CalaBash[] getBroAfRan() {
+        return BroAfRan;
+    }
+
+    public CalaBash[] getBrothers() {
+        return Brothers;
     }
 }

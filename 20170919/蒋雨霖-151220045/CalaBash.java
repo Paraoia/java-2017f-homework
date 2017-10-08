@@ -1,7 +1,7 @@
 public class CalaBash {
-    String Color; //颜色
-    String Rank; //辈分
-    int Num; //辈分编号 用于排序
+    private String Color; //颜色
+    private String Rank; //辈分
+    private  int Num; //辈分编号 用于排序
     /*构造函数*/
     CalaBash(String color, String rank, int num)
     {
@@ -10,4 +10,15 @@ public class CalaBash {
         Num = num;
     }
 
+    public int getNum() {
+        return Num;
+    }
+
+    public String getColor() {
+        return Color;
+    }
+
+    public String getRank() {
+        return Rank;
+    }
 }
