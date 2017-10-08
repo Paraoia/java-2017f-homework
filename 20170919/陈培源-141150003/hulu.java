@@ -2,8 +2,8 @@ import java.util.Random;
 enum Colour{RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE}
 enum Rank{FIRST,SECOND,THIRD,FORTH,FIFTH,SIXTH,SEVENTH}
 class huluwa{
-    private static String[] rankArray={"ÀÏ´ó","ÀÏ¶ş","ÀÏÈı", "ÀÏËÄ", "ÀÏÎå", "ÀÏÁù", "ÀÏÆß"};
-    private static String[] colourArray={"³à", "³È", "»Æ", "ÂÌ", "Çà", "À¶", "×Ï"};
+    private static String[] rankArray={"è€å¤§","è€äºŒ","è€ä¸‰", "è€å››", "è€äº”", "è€å…­", "è€ä¸ƒ"};
+    private static String[] colourArray={"çº¢", "æ©™", "é»„", "ç»¿", "é’", "è“", "ç´«"};
     public Rank rank;
     public Colour colour;
     public huluwa(Rank rank,Colour colour){
