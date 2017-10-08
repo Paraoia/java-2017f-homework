@@ -47,7 +47,7 @@ public class hulu {
                 p[i+1]=p0;
             }
     }
-    for (i=0;i<6;i++)
+    for (i=0;i<7;i++)
         p[i].getRank();
     }
     private static void erfenSort(huluwa []p,int left,int right){
@@ -75,7 +75,7 @@ public class hulu {
     erfenSort(p,left,t0-1);
        erfenSort(p,t0+1,right);
        if(right-left==p.length-1) {
-           for (int i = left; i < right; i++)
+           for (int i = left; i<=right; i++)
                p[i].getColour();
        }
        }
