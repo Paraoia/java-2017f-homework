@@ -9,7 +9,4 @@ public class huluwa{
     static public void printColor(int i){
         System.out.printf("%s",color[i]);
     }
-    static public String getAgeSequence(int i){
-        return ageSequence[i];
-    }
 }
