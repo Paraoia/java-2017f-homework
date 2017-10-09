@@ -1,154 +1,90 @@
-import java.util.Scanner;
+import java.util.*;
+
+enum COLOR{无色,红色,橙色,黄色,绿色,蓝色,靛色,紫色}
 
 public class Huluwa {
-    public static void main(String[] args){
-        int []rank = new int[7];
-        HLW []huluwa = new HLW[7];
 
-        //冒泡排序
-        System.out.println("输入葫芦娃的排行\n");
-        Scanner input = new Scanner(System.in);
-        for(int i=0;i<=6;i++){
-            rank[i] = input.nextInt();
-            HLW temp =new HLW(rank[i]);
-            huluwa[i] = temp;
-        }
-        BubbleSort sort0 = new BubbleSort();
-        sort0.HLWBubbleSort(0,huluwa.length-1,huluwa);
-        //报数
-        for(int m=0;m<=6;m++) {
-            huluwa[m].Talk((m+1)+"");
-        }
+    private int rank;
+    private COLOR color;
 
-        //颜色排序（快排）
-        System.out.println("输入葫芦娃的颜色(red,orange,yellow,green,blue,indigo,purple)\n");
-        for(int i=0;i<=6;i++){
-            String temp = input.next();
-            huluwa[i] = new HLW(temp);
-        }
-        QuickSort sort = new QuickSort();
-        sort.HLWQuickSort(0,huluwa.length-1,huluwa);
-        //报数
-        for(int i=0;i<=6;i++){
-            huluwa[i].Talk(huluwa[i].GetColor());
-        }
-}
-}
-
-class HLW{
-    private int rank; //1-7 表示排行
-    private String color; //表示赤橙红绿蓝靛紫
-
-    //初始化
-    public HLW(int ranktemp){
-        String []COLOR = new String[]{"red","orange","yellow","green","blue","indigo","purple"};
-        rank = ranktemp;
-        color=COLOR[ranktemp-1];
-
+    //初始化函数
+    Huluwa(){
+        this.rank=0;
+        this.color=COLOR.无色;
     }
-    public HLW(String colortemp){
-        color=colortemp;
-        String []COLOR = new String[]{"red","orange","yellow","green","blue","indigo","purple"};
-        for(int j=0;j<=6;j++){
-            if(colortemp.compareTo(COLOR[j])==0){
-                rank=j+1;
-                break ;
-            }
+
+    Huluwa(int RANK){
+        if(RANK<1||RANK>7){
+            throw new IndexOutOfBoundsException("The rank is out of bound");
+        }
+        this.rank=RANK;
+        this.color=COLOR.values()[RANK];
+    }
+
+    Huluwa(COLOR Color){
+        this.color=Color;
+        switch(Color){
+            case 红色: this.rank=1;
+            case 橙色: this.rank=2;
+            case 黄色: this.rank=3;
+            case 绿色: this.rank=4;
+            case 蓝色: this.rank=5;
+            case 靛色: this.rank=6;
+            case 紫色: this.rank=7;
+            default:throw new IndexOutOfBoundsException("The color is out of selection");
         }
     }
 
-    //比较两个葫芦娃排行
-    public boolean CompareRank(HLW huluwa){
-        if(rank >=  huluwa.rank)
+    int getRank(){
+        return this.rank;
+    }
+
+    COLOR getColor(){
+        return this.color;
+    }
+
+    //通过排行比较
+    boolean CompareRank(Huluwa hlw){
+        if(this.rank > hlw.getRank())
             return true;
         else
             return false;
     }
 
-    //得到这个葫芦娃的颜色
-    public String GetColor(){
-        return color;
+    //通过颜色比较
+    boolean CompareColor(Huluwa hlw){
+            return this.rank > hlw.getRank();
     }
 
-    //比较葫芦娃颜色顺序//0等于 1大于 -1小于
-    public int CompareColor(HLW huluwa) {
-       int i=0;
-       String[] COLOR = new String[]{"red", "orange", "yellow", "green", "blue", "indigo", "purple"};
-       for (;i <= 6; i++) {
-           if ((COLOR[i].compareTo(color) == 0) || (COLOR[i].compareTo(huluwa.color) == 0)) {
-               break;
-           }
-       }
-       if((COLOR[i].compareTo(color) == 0)&&(COLOR[i].compareTo(huluwa.color) != 0)){
-           return 1;
-       }
-       else if((COLOR[i].compareTo(color) == 0)&&(COLOR[i].compareTo(huluwa.color) == 0)){
-           return 0;
-       }
-       else
-           return -1;
-   }
-
-   //葫芦娃说话
-    public void Talk(String phase){
-        switch (rank){
-            case 1: System.out.println("老大：" + phase); break;
-            case 2: System.out.println("老二：" + phase); break;
-            case 3: System.out.println("老三：" + phase); break;
-            case 4: System.out.println("老四：" + phase); break;
-            case 5: System.out.println("老五：" + phase); break;
-            case 6: System.out.println("老六：" + phase); break;
-            case 7: System.out.println("老七：" + phase); break;
-            default : break;
-
-        }
-   }
-}
-
-class QuickSort{
-    void HLWQuickSort(int low, int high,HLW []huluwa){
-        if(low > high)
-            return;
-        HLW temp = huluwa[low];
-        int i=low;
-        int j=high;
-        while(i!=j){
-            while(huluwa[j].CompareColor(temp)<=0&&i<j)
-                j--;
-            while(huluwa[i].CompareColor(temp)>=0&&i<j)
-                i++;
-            if(i<j){
-                HLW temp1 = huluwa[i];
-                huluwa[i]=huluwa[j];
-                huluwa[i].Talk((i+1)+"->"+(j+1));
-                huluwa[j]=temp1;
-                huluwa[j].Talk((j+1)+"->"+(i+1));
-            }
-        }
-        huluwa[low]=huluwa[i];
-        if(low!=i)
-            huluwa[i].Talk((i+1) + "->" + (low+1));
-        huluwa[i]=temp;
-        if(i!=low)
-            temp.Talk((low+1) + "->" + (i+1));
-
-        HLWQuickSort(low,i-1,huluwa);
-        HLWQuickSort(i+1,high,huluwa);
-    }
-}
-
-class BubbleSort{
-    void HLWBubbleSort(int low, int high, HLW[]huluwa){
-        for(int m=low;m<high;m++){
-            for(int n=m; n<high-m;n++){
-                if(huluwa[n].CompareRank(huluwa[n+1])){
-                    HLW temp = huluwa[n];
-                    huluwa[n].Talk((n+1) + "->" + (n+2));
-                    huluwa[n]=huluwa[n+1];
-                    huluwa[n+1].Talk((n+2) + "->" + (n+1));
-                    huluwa[n+1]=temp;
-                }
-            }
+    //说话
+    String getColorString(){
+        switch(this.color){
+            case 红色: return "红色";
+            case 橙色: return "橙色";
+            case 黄色: return "黄色";
+            case 绿色: return "绿色";
+            case 蓝色: return "蓝色";
+            case 靛色: return "靛色";
+            case 紫色: return "紫色";
+            default: throw new RuntimeException("The color is not found");
         }
     }
+
+    String getRankString(){
+        switch(this.rank){
+            case 1: return "老大";
+            case 2: return "老二";
+            case 3: return "老三";
+            case 4: return "老四";
+            case 5: return "老五";
+            case 6: return "老六";
+            case 7: return "老七";
+            default : throw new RuntimeException("The rank is not found");
+        }
+    }
+
+    void HuluwaTalk(String str){
+       System.out.println(str);
+    }
+
 }
