@@ -1,6 +1,5 @@
 
 public class Calabash {
-
     private Name name;
     private Color color;
 
