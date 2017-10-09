@@ -1,11 +1,30 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by joker on 17-9-26.
  */
-public class Sort {
-    public static void bubbleSort(List<Brother> list){
+public class BroSort {
+    private List<Brother> list= new ArrayList<>();
+    BroSort(){
+        for(int i = 0; i < 7; i ++)
+            list.add(new Brother(i+1));
+    }
+
+    public void shuffle(){
+        Collections.shuffle(list);
+    }
+    public void printColor(){
+        for(int i = 0; i < 7; i++)
+            System.out.println(list.get(i).getColor());
+    }
+    public void printName(){
+        for(int i = 0; i < 7; i++)
+            System.out.println(list.get(i).getName());
+    }
+    public void bubbleSort(){
         for(int i = 0; i < list.size() - 1; i++){
             for(int j = 0; j < list.size() - i - 1; j ++){
                 if(list.get(j).getNum() > list.get(j+1).getNum()){
@@ -19,7 +38,7 @@ public class Sort {
         }
     }
 
-    private static int partition(List<Brother> list,  int low, int high) {
+    private int partition(int low, int high) {
         Brother pivot = list.get(low);
         int left = low;
         int right = high;
@@ -34,8 +53,8 @@ public class Sort {
                 Brother tmp = list.get(left);
                 list.set(left, list.get(right));
                 list.set(right, tmp);
-                System.out.println("Bother " + list.get(left).getName() + ":" + left + "->" + right);
-                System.out.println("Bother " + list.get(right).getName() + ":" + right + "->" + left);
+                System.out.println("Brother " + list.get(left).getName() + ":" + left + "->" + right);
+                System.out.println("Brother " + list.get(right).getName() + ":" + right + "->" + left);
             }
         }
         list.set(low, list.get(left));
@@ -43,16 +62,16 @@ public class Sort {
         return left;
 
     }
-    public static void sort(List<Brother> list, int low, int high) {
+    public void sort(int low, int high) {
         if (low < high) {
-            int p = partition(list, low, high);
-            sort(list,  low, p - 1);
-            sort(list,  p + 1, high);
+            int p = partition( low, high);
+            sort(  low, p - 1);
+            sort( p + 1, high);
         }
     }
 
-    public static void quickSort(List<Brother> list) {
-        sort(list, 0, list.size() - 1);
+    public  void quickSort() {
+        sort( 0, list.size() - 1);
     }
  }
 
