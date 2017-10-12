@@ -1,7 +1,7 @@
 public class mySort{
 	public static void main(String[] args){
 		//array of 10 numbers
-		int numbers[] = new int[]{9,6,5,4,3,8,7,0,1,2};
+		int numbers[] = new int[]{9,6,5,4,3,8,7,10,1,2};
 		//selectSort
 		for(int i = 0;i < numbers.length - 1;i++)
 		{
