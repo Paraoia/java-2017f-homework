@@ -2,7 +2,7 @@ package huluwa;
 
 import java.util.Random;
 
-public class huluwa {
+public class huluwa implements Comparable{
 
     private int no;                //编号
     private String color;           //颜色
@@ -38,6 +38,11 @@ public class huluwa {
 
     }
 
+    public void sitdown(Position position,int src,int dst)
+    {
+        position.setHolder(this);
+        myPrintln(src,dst);
+    }
     //葫芦娃输出自己的颜色
     public void printColor()
     {
@@ -45,14 +50,18 @@ public class huluwa {
     }
 
     //葫芦娃比较排行
-    public int cmp(huluwa a)
+    public int cmp(Comparable a)
     {
-        if(no > a.no)
-            return  1;
-        else if(no == a.no)
-            return 0;
+        if(a instanceof huluwa) {
+            if (no > ((huluwa) a).no)
+                return 1;
+            else if (no == ((huluwa) a).no)
+                return 0;
+            else
+                return -1;
+        }
         else
-            return  -1;
+            return -1;
     }
 
 }
