@@ -1,12 +1,12 @@
 public class CalaBash {
-    private String Color; //颜色
-    private String Rank; //辈分
+    private COLOR Color; //颜色
+    private Rank Rank; //辈分
     private  int Num; //辈分编号 用于排序
     /*构造函数*/
-    CalaBash(String color, String rank, int num)
+    CalaBash(COLOR color, Rank rank, int num)
     {
-        Color = color;
-        Rank = rank;
+        this.Color = color;
+        this.Rank = rank;
         Num = num;
     }
 
@@ -14,11 +14,11 @@ public class CalaBash {
         return Num;
     }
 
-    public String getColor() {
+    public COLOR getColor() {
         return Color;
     }
 
-    public String getRank() {
+    public Rank getRank() {
         return Rank;
     }
 }

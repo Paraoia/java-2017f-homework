@@ -1,8 +1,14 @@
+
 public class World {
     public static void main(String []args)
     {
         Brothers bro =new Brothers();
         Sort sort = new Sort();
+
+        for(int i=0;i<bro.getBrothers().length;i++)
+        {
+            bro.getBrothers()[i]=new CalaBash(COLOR.values()[i],Rank.values()[i],i+1);
+        }
         /* 随意站队 */
         bro.RandomQueue();
         System.out.println("冒泡排序前的站队：");

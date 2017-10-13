@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Brothers {
     private CalaBash []Brothers; //存储初始化的葫芦娃信息
     private CalaBash []BroAfRan; //随意站队后葫芦娃排序的数组
@@ -9,13 +8,6 @@ public class Brothers {
     {
         Brothers = new CalaBash[7];
         BroAfRan = new CalaBash[7];
-        Brothers[0]= new CalaBash("红色","老大",1);
-        Brothers[1]= new CalaBash("橙色","老二",2);
-        Brothers[2]= new CalaBash("黄色","老三",3);
-        Brothers[3]= new CalaBash("绿色","老四",4);
-        Brothers[4]= new CalaBash("青色","老五",5);
-        Brothers[5]= new CalaBash("蓝色","老六",6);
-        Brothers[6]= new CalaBash("紫色","老七",7);
 
     }
 
@@ -81,4 +73,13 @@ public class Brothers {
     public CalaBash[] getBrothers() {
         return Brothers;
     }
+}
+
+enum COLOR
+{
+    红色,橙色, 黄色, 绿色, 青色, 蓝色, 紫色
+}
+enum Rank
+{
+    老大,老二, 老三, 老四, 老五, 老六, 老七
 }
