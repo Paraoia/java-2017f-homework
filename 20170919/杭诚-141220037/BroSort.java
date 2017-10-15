@@ -10,7 +10,7 @@ public class BroSort {
     private List<Brother> list= new ArrayList<>();
     BroSort(){
         for(int i = 0; i < 7; i ++)
-            list.add(new Brother(i+1));
+            list.add(new Brother(i));
     }
 
     public void shuffle(){
