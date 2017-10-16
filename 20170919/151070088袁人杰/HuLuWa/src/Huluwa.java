@@ -1,119 +1,87 @@
-public class Huluwa {
-    private String name;
-    private int ranking;//葫芦娃的排行
-    private String color;//葫芦娃的颜色
+public class Huluwa implements Creature,Comparable{
+    private SENIORITY seniority;
+    private Position position;//葫芦娃的位置
+    private COLOUR colour;//葫芦娃的颜色
 
     public Huluwa(){
 
     }
 
 
-    public Huluwa(int ranking/*,String color*/){
-        this.ranking = ranking;
-        this.color = defineColor();
-        this.name = defineName();
+    public Huluwa(COLOUR colour,SENIORITY seniority){
+        this.colour = colour;
+        this.seniority = seniority;
     }
 
-    public void setRanking(int ranking) {
-        this.ranking = ranking;
+    public void setColor(COLOUR colour) {
+        this.colour = colour;
     }
 
-    public int getRanking() {
-        return ranking;
+    public COLOUR getColour() {
+        return colour;
     }
 
-    public String defineColor() {
-        switch (this.ranking){
-            case 1:
-                this.color = "红";
-                break;
-            case 2:
-                this.color = "橙";
-                break;
-            case 3:
-                this.color = "黄";
-                break;
-            case 4:
-                this.color = "绿";
-                break;
-            case 5:
-                this.color = "青";
-                break;
-            case 6:
-                this.color = "蓝";
-                break;
-            case 7:
-                this.color = "紫";
-                break;
-
-        }
-        return this.color;
+    public SENIORITY getSeniority() {
+        return seniority;
     }
 
-    private String defineName()  {
-        switch (this.ranking){
-            case 1:
-                this.name = "老大";
-                break;
-            case 2:
-                this.name = "老二";
-                break;
-            case 3:
-                this.name = "老三";
-                break;
-            case 4:
-                this.name = "老四";
-                break;
-            case 5:
-                this.name = "老五";
-                break;
-            case 6:
-                this.name = "老六";
-                break;
-            case 7:
-                this.name = "老七";
-                break;
+    @Override
+    public Position getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+        position.setHolder(this);
+    }
+
+    @Override
+    public void report() {
+        System.out.print(this.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "老" + this.seniority.toString() + "(" + this.colour + ")@Position" + this.position.getX() + ", ";
+    }
+
+    @Override
+    public boolean biggerThan(Comparable bro) {
+
+        if (bro instanceof Huluwa)
+            return this.getSeniority().toNumber() > ((Huluwa) bro).getSeniority().toNumber();
+        else
+            return false;
+    }
+
+    enum COLOUR {
+        RED(1),ORANGE(2),YELLOW(3),GREEN(4),BLUE(5),INDIGO(6),VIOLET(7);
+
+        private int cNum=0;
+
+        private COLOUR(int _cNum) {
+            this.cNum=_cNum;
         }
 
-        return this.name;
-    }
-    public String getColor() {
-        return color;
+        public int toNumber() {
+            return this.cNum;
+        }
+
     }
 
-    public String getName() {
-        return name;
-    }
+    enum SENIORITY {
+        一(1),二(2),三(3),四(4),五(5),六(6),七(7);
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+        private int sNum=0;
 
-    /*public void report(){
-        switch(this.ranking){
-            case 1:
-                System.out.println("老大！");
-                break;
-            case 2:
-                System.out.println("老二！");
-                break;
-            case 3:
-                System.out.println("老三！");
-                break;
-            case 4:
-                System.out.println("老四！");
-                break;
-            case 5:
-                System.out.println("老五！");
-                break;
-            case 6:
-                System.out.println("老六！");
-                break;
-            case 7:
-                System.out.println("老七！");
-                break;
+        private SENIORITY(int _sNum) {
+            this.sNum=_sNum;
+        }
+
+        public int toNumber() {
+            return this.sNum;
         }
     }
-    */
 
 }
