@@ -1,6 +1,16 @@
 import java.util.Random;
 public class HuluBrothers {
-    Huluwa[] brothers = new Huluwa[7];
+    Huluwa[] brothers;
+    HuluBrothers(){
+        brothers = new Huluwa[7];
+        brothers[0] = new Huluwa(Order.老大, Color.红色);
+        brothers[1] = new Huluwa(Order.老二, Color.橙色);
+        brothers[2] = new Huluwa(Order.老三, Color.黄色);
+        brothers[3] = new Huluwa(Order.老四, Color.绿色);
+        brothers[4] = new Huluwa(Order.老五, Color.青色);
+        brothers[5] = new Huluwa(Order.老六, Color.蓝色);
+        brothers[6] = new Huluwa(Order.老七, Color.紫色);
+    }
 
     //葫芦兄弟构造函数
     void initialize(){
@@ -11,24 +21,15 @@ public class HuluBrothers {
         Random random = new Random();
         for(int i = 0; i < 7; i++){
             int j = random.nextInt(7);
-            int tmp = a[i];
-            a[i] = a[j];
-            a[j] = tmp;
+            Huluwa tmp = brothers[i];
+            brothers[i] = brothers[j];
+            brothers[j] = tmp;
         }
+        /*
         for(int i = 0; i < 7; i++)
             brothers[i] = new Huluwa(a[i]);
+        */
     }
-    /*
-    void initialize(){
-        brothers[0] = new Huluwa(4);
-        brothers[1] = new Huluwa(6);
-        brothers[2] = new Huluwa(0);
-        brothers[3] = new Huluwa(3);
-        brothers[4] = new Huluwa(1);
-        brothers[5] = new Huluwa(5);
-        brothers[6] = new Huluwa(2);
-    }
-    */
 
     public void BubbleSort(){
         for(int i = 0; i < 6; i++){
