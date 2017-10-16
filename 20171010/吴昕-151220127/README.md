@@ -1,35 +1,35 @@
-# ËµÃ÷ÎÄµµ
+# è¯´æ˜Žæ–‡æ¡£
 
 ------
-## Éè¼ÆÀíÄî
+## è®¾è®¡ç†å¿µ
 
-¶ÔÇ°Á½´Î×÷ÒµµÄÓÅ»¯ºÍ¸Ä°æ£¬»ùÓÚexample¡£
-#####1. Ê×ÏÈ¶ÔËùÓÐ½ÇÉ«½«Æä³éÏó³ÉÉúÎïÌå½Ó¿Ú**Creature**£¬ÉùÃ÷¹²ÓÃ·½·¨¡£ÊµÀý»¯¸÷¸ö¶ÔÏó¡£
-#####2. ¶ÔÁÐÕóÉùÃ÷Ò»¸ö½Ó¿Ú**Order**ºÍ·½·¨`rank()`£¬¹ý³ÌÖÐÎªÁË·½±ã´úÂë¸´ÓÃÔö¼ÓÁËstatic·½·¨`addPos()`¡£·½±ãºóÆÚÔö¼ÓÕóÊÆ¡£
-#####3. ÁÐÕóÀà**Embattle**ÖÐ°üº¬ÁË¶Ô½ÇÉ«µÄ´¦Àí£¬°üÀ¨³õÊ¼»¯¾ÖÃæ£¬Ìí¼Ó½ÇÉ«£¬´òÂÒºùÂ«ÍÞÐÖµÜµÄÅÅÐòµÈ¡£
-#####4. µ÷ÓÃ`Crane().rank()`ºÍ`Arrow().rank()`ÊµÏÖÁ½ÖÖÇé¿öÏÂ²»Í¬µÄÕóÊÆ¡£¾ßÌåÊµÏÖÊ±¶ÔºùÂ«ÍÞÐÖµÜ¡¢Ò¯Ò¯¡¢Ð«×Ó¾«¡¢Éß¾«¡¢Ð¡à¶†ª¶¼½øÐÐÁËÅÅ²¼¡£
-#####5. ÇÐ»»ÕóÊÆÊ±½«¾ÖÃæÉÏ¼ÇÂ¼½ÇÉ«ºÍÎ»ÖÃµÄÁ´±íÇå¿Õ¡£
-#####6. ÊµÏÖ`show()`º¯Êý´òÓ¡¾ÖÃæ¡£
+å¯¹å‰ä¸¤æ¬¡ä½œä¸šçš„ä¼˜åŒ–å’Œæ”¹ç‰ˆï¼ŒåŸºäºŽexampleã€‚<br>
+1. é¦–å…ˆå¯¹æ‰€æœ‰è§’è‰²å°†å…¶æŠ½è±¡æˆç”Ÿç‰©ä½“æŽ¥å£**Creature**ï¼Œå£°æ˜Žå…±ç”¨æ–¹æ³•ã€‚å®žä¾‹åŒ–å„ä¸ªå¯¹è±¡ã€‚<br>
+2. å¯¹åˆ—é˜µå£°æ˜Žä¸€ä¸ªæŽ¥å£**Order**å’Œæ–¹æ³•`rank()`ï¼Œè¿‡ç¨‹ä¸­ä¸ºäº†æ–¹ä¾¿ä»£ç å¤ç”¨å¢žåŠ äº†staticæ–¹æ³•`addPos()`ã€‚æ–¹ä¾¿åŽæœŸå¢žåŠ é˜µåŠ¿ã€‚<br>
+3. åˆ—é˜µç±»**Embattle**ä¸­åŒ…å«äº†å¯¹è§’è‰²çš„å¤„ç†ï¼ŒåŒ…æ‹¬åˆå§‹åŒ–å±€é¢ï¼Œæ·»åŠ è§’è‰²ï¼Œæ‰“ä¹±è‘«èŠ¦å¨ƒå…„å¼Ÿçš„æŽ’åºç­‰ã€‚<br>
+4. è°ƒç”¨`Crane().rank()`å’Œ`Arrow().rank()`å®žçŽ°ä¸¤ç§æƒ…å†µä¸‹ä¸åŒçš„é˜µåŠ¿ã€‚å…·ä½“å®žçŽ°æ—¶å¯¹è‘«èŠ¦å¨ƒå…„å¼Ÿã€çˆ·çˆ·ã€èŽå­ç²¾ã€è›‡ç²¾ã€å°å–½å•°éƒ½è¿›è¡Œäº†æŽ’å¸ƒã€‚<br>
+5. åˆ‡æ¢é˜µåŠ¿æ—¶å°†å±€é¢ä¸Šè®°å½•è§’è‰²å’Œä½ç½®çš„é“¾è¡¨æ¸…ç©ºã€‚<br>
+6. å®žçŽ°`show()`å‡½æ•°æ‰“å°å±€é¢ã€‚<br>
 
-## ÃæÏò¶ÔÏó¸ÅÄî
+## é¢å‘å¯¹è±¡æ¦‚å¿µ
 
-#####1. °ÑºùÂ«ÍÞ¡¢Ò¯Ò¯µÈ½ÇÉ«³éÏó³ÉÉúÎï**Creature**£¬ÆßÐÖµÜºÍÐ¡à¶†ªµÈ×÷Îª¸ÃÀàµÄ**¶ÔÏó**ÊÇ¸ÃÀàµÄ**ÊµÀý»¯**£¬ÓÐÏòÀà´«µÝÏûÏ¢µÄ**·½·¨**£¬¾ßÌå±íÏÖÎª`setPosition(), getPosition()`µÈº¯ÊýÊµÏÖ¡£´Ë´Î×÷ÒµÖÐÃ¿¸ö¶ÔÏó²ÉÓÃµÄ¶¼ÊÇÄ¬ÈÏ¹¹ÔìÆ÷´´½¨¡£
-#####2. ÁíÒ»¸ö½Ó¿ÚÊÇ**Order**¡£ÒòÎªÁÐÕó·½Ê½ÓÐ¶àÖÖ£¨°üÀ¨º×ÐÎ¡¢¼ýÊ¸ÐÎµÈ£©£¬Ð¡à¶†ª¿ÉÄÜËæÊ±±ä»»¸ü¶àµÄÕóÊÆ£¬²ÉÓÃ½Ó¿Ú·½±ãºóÐø¶ÔÕóÊÆµÄ²¹³ä¡£
+1. æŠŠè‘«èŠ¦å¨ƒã€çˆ·çˆ·ç­‰è§’è‰²æŠ½è±¡æˆç”Ÿç‰©**Creature**ï¼Œä¸ƒå…„å¼Ÿå’Œå°å–½å•°ç­‰ä½œä¸ºè¯¥ç±»çš„**å¯¹è±¡**æ˜¯è¯¥ç±»çš„**å®žä¾‹åŒ–**ï¼Œæœ‰å‘ç±»ä¼ é€’æ¶ˆæ¯çš„**æ–¹æ³•**ï¼Œå…·ä½“è¡¨çŽ°ä¸º`setPosition(), getPosition()`ç­‰å‡½æ•°å®žçŽ°ã€‚æ­¤æ¬¡ä½œä¸šä¸­æ¯ä¸ªå¯¹è±¡é‡‡ç”¨çš„éƒ½æ˜¯é»˜è®¤æž„é€ å™¨åˆ›å»ºã€‚<br>
+2. å¦ä¸€ä¸ªæŽ¥å£æ˜¯**Order**ã€‚å› ä¸ºåˆ—é˜µæ–¹å¼æœ‰å¤šç§ï¼ˆåŒ…æ‹¬é¹¤å½¢ã€ç®­çŸ¢å½¢ç­‰ï¼‰ï¼Œå°å–½å•°å¯èƒ½éšæ—¶å˜æ¢æ›´å¤šçš„é˜µåŠ¿ï¼Œé‡‡ç”¨æŽ¥å£æ–¹ä¾¿åŽç»­å¯¹é˜µåŠ¿çš„è¡¥å……ã€‚<br>
 
-## ÃæÏò¶ÔÏó»úÖÆ
+## é¢å‘å¯¹è±¡æœºåˆ¶
 
-###  ·â×°
+###  å°è£…
 
-¶ÔÈÏÎªÊÇË½ÓÐµÄÊôÐÔÓÃ**private**Òþ²ØÐÅÏ¢£¬±ÈÈçÃ¿¸öÉúÎïÌå¶ÔÏóµÄÎ»ÖÃ(`position`)¡¢×ø±ê£¬ÒÔ¼°Õû¸ö¾ÖÃæµÄÅÅ²¼Çé¿ö(Êý×é`arr[][]`)£¬ÔÚÀàÄÚ²¿ÊµÏÖÏ¸½Ú¡£Í¬Ê±±ØÒªÊ±ºòÌá¹©ÁËget»òsetµÈ·½·¨Ìá¹©¸øÍâ½ç·ÃÎÊ»òÐÞ¸ÄÊý¾Ý(±ÈÈç`getPositions(), getCreatures()`µÈ)¡£
+å¯¹è®¤ä¸ºæ˜¯ç§æœ‰çš„å±žæ€§ç”¨**private**éšè—ä¿¡æ¯ï¼Œæ¯”å¦‚æ¯ä¸ªç”Ÿç‰©ä½“å¯¹è±¡çš„ä½ç½®(`position`)ã€åæ ‡ï¼Œä»¥åŠæ•´ä¸ªå±€é¢çš„æŽ’å¸ƒæƒ…å†µ(æ•°ç»„`arr[][]`)ï¼Œåœ¨ç±»å†…éƒ¨å®žçŽ°ç»†èŠ‚ã€‚åŒæ—¶å¿…è¦æ—¶å€™æä¾›äº†getæˆ–setç­‰æ–¹æ³•æä¾›ç»™å¤–ç•Œè®¿é—®æˆ–ä¿®æ”¹æ•°æ®(æ¯”å¦‚`getPositions(), getCreatures()`ç­‰)ã€‚
 
-###  ¼Ì³Ð
+###  ç»§æ‰¿
 
-#####1. Huluwa, Grandpa, Scorpion, Snake, Lackey¼Ì³Ð×ÔCreature½Ó¿Ú¡£Crane, Arrow¼Ì³Ð×ÔOrder½Ó¿Ú£¬ÊµÏÖº×ÐÎºÍ¼ýÊ¸ÐÎÁÐÕó¡£
-#####2. ÒòÎªÀà¶¼ÊÇ¼Ì³Ð×ÔÖÕ¼«»ùÀà**Object**£¬Í¨¹ý`super()`µ÷ÓÃ»ùÀà°æ±¾¹¹ÔìÆ÷(±ÈÈçPositionÀà¹¹ÔìÆ÷)¡£
-#####3. ÔÚ´¦Àí¾ÖÃæÊ±£¬ËùÓÐÉúÎïÌå(°üÀ¨ºùÂ«ÍÞ¡¢Ð¡à¶†ªµÈ)¶¼**ÏòÉÏ×ªÐÍ**Îª**Creature**¡£
+1. Huluwa, Grandpa, Scorpion, Snake, Lackeyç»§æ‰¿è‡ªCreatureæŽ¥å£ã€‚Crane, Arrowç»§æ‰¿è‡ªOrderæŽ¥å£ï¼Œå®žçŽ°é¹¤å½¢å’Œç®­çŸ¢å½¢åˆ—é˜µã€‚<br>
+2. å› ä¸ºç±»éƒ½æ˜¯ç»§æ‰¿è‡ªç»ˆæžåŸºç±»**Object**ï¼Œé€šè¿‡`super()`è°ƒç”¨åŸºç±»ç‰ˆæœ¬æž„é€ å™¨(æ¯”å¦‚Positionç±»æž„é€ å™¨)ã€‚<br>
+3. åœ¨å¤„ç†å±€é¢æ—¶ï¼Œæ‰€æœ‰ç”Ÿç‰©ä½“(åŒ…æ‹¬è‘«èŠ¦å¨ƒã€å°å–½å•°ç­‰)éƒ½**å‘ä¸Šè½¬åž‹**ä¸º**Creature**ã€‚<br>
 
-###  ¶àÌ¬
+###  å¤šæ€
 
-¼Ì³Ð×Ô**Creature**½Ó¿ÚµÄËùÓÐ¶ÔÏó¶¼ÖØÐ´**Creature**ÖÐÉùÃ÷µÄ`setPosition()`ºÍ`getPosition()`£¬²¢ÇÒ¶¼ÓÐ×Ô¼ºµÄ·½·¨º¯Êý¡£
-**Arrow**ºÍ**Crane**ÀàÖÐÖØÐ´½Ó¿Ú**Order**µÄ`rank()`º¯Êý£¬²¢ÇÒµ÷ÓÃÁË**Order**½Ó¿ÚÖÐ**static**·½·¨`addPos()`¡£
-**ÏòÉÏ×ªÐÍ**ºóÃ¿¸ö¶ÔÏó¶¼¿´×öÊÇÒ»¸ö**Creature**£¬Êµ¼Ê²Ù×÷Ê±µ÷ÓÃ¾ßÌå¶ÔÏó·½·¨(Èç`show()`´òÓ¡¸÷¸ö¶ÔÏóÃû³Æ)¡£
+ç»§æ‰¿è‡ª**Creature**æŽ¥å£çš„æ‰€æœ‰å¯¹è±¡éƒ½é‡å†™**Creature**ä¸­å£°æ˜Žçš„`setPosition()`å’Œ`getPosition()`ï¼Œå¹¶ä¸”éƒ½æœ‰è‡ªå·±çš„æ–¹æ³•å‡½æ•°ã€‚
+**Arrow**å’Œ**Crane**ç±»ä¸­é‡å†™æŽ¥å£**Order**çš„`rank()`å‡½æ•°ï¼Œå¹¶ä¸”è°ƒç”¨äº†**Order**æŽ¥å£ä¸­**static**æ–¹æ³•`addPos()`ã€‚
+**å‘ä¸Šè½¬åž‹**åŽæ¯ä¸ªå¯¹è±¡éƒ½çœ‹åšæ˜¯ä¸€ä¸ª**Creature**ï¼Œå®žé™…æ“ä½œæ—¶è°ƒç”¨å…·ä½“å¯¹è±¡æ–¹æ³•(å¦‚`show()`æ‰“å°å„ä¸ªå¯¹è±¡åç§°)ã€‚
