@@ -1,10 +1,10 @@
-public class Formation  //¶ÓĞÎ»ùÀà
+ï»¿public class Formation  //é˜Ÿå½¢åŸºç±»
 {
-    public Position []positions = null; //¶ÓĞÎËùÕ¼ÓĞµÄÎ»ÖÃÊı×é
+    public Position []positions = null; //é˜Ÿå½¢æ‰€å æœ‰çš„ä½ç½®æ•°ç»„
     public int length;
 }
 
-class LongSnakeForm extends Formation //³¤ÉßĞÎ
+class LongSnakeForm extends Formation //é•¿è›‡å½¢
 {
     LongSnakeForm(Space space)
     {
@@ -17,7 +17,7 @@ class LongSnakeForm extends Formation //³¤ÉßĞÎ
     }
 }
 
-class MoonForm extends Formation //ÙÈÔÂĞÎ
+class MoonForm extends Formation //åƒæœˆå½¢
 {
     MoonForm(Space space)
     {
@@ -37,7 +37,7 @@ class MoonForm extends Formation //ÙÈÔÂĞÎ
         positions[k++] = space.getPosition(9,10);
     }
 }
-class SwordForm extends Formation //·æÊ¸ĞÎ
+class SwordForm extends Formation //é”‹çŸ¢å½¢
 {
     SwordForm(Space space)
     {

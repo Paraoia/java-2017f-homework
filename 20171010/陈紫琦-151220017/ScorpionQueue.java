@@ -1,13 +1,13 @@
-public class ScorpionQueue extends Queue //Ğ«×Ó¾«¼°Æäà¶†ªÕóĞÍ
+ï»¿public class ScorpionQueue extends Queue //èå­ç²¾åŠå…¶å–½å•°é˜µå‹
 {
     ScorpionQueue()
     {
         num = 19;
         creatures = new Creature[num];
-        creatures[0] = new Scorpion(); //Ğ«×Ó¾«³õÊ¼»¯
+        creatures[0] = new Scorpion(); //èå­ç²¾åˆå§‹åŒ–
         for(int i= 1 ; i < num  ; i++)
         {
-            creatures[i] = new Minion(i); //Ğ¡à¶†ª³õÊ¼»¯
+            creatures[i] = new Minion(i); //å°å–½å•°åˆå§‹åŒ–
         }
     }
 }

@@ -1,8 +1,8 @@
-public interface Sorter //ÅÅĞòÆ÷½Ó¿Ú
+ï»¿public interface Sorter //æ’åºå™¨æ¥å£
 {
     public void sort(Queue queue);
 }
-class BubbleSorter implements Sorter //Ã°ÅİÅÅĞòÆ÷
+class BubbleSorter implements Sorter //å†’æ³¡æ’åºå™¨
 {
     @Override
     public void sort (Queue queue)
@@ -15,14 +15,14 @@ class BubbleSorter implements Sorter //Ã°ÅİÅÅĞòÆ÷
             {
                  if (((Comparable)(positions[j].getHolder())).biggerThan((Comparable)(positions[j + 1].getHolder())) )
                 {
-                    queue.Swap(positions[j], positions[j+1]);// Î»ÓÚÎ»ÖÃjºÍÎ»ÖÃj+1µÄÁ½¸öÉúÎï½»»»Î»ÖÃ
+                    queue.Swap(positions[j], positions[j+1]);// ä½äºä½ç½®jå’Œä½ç½®j+1çš„ä¸¤ä¸ªç”Ÿç‰©äº¤æ¢ä½ç½®
                 }
             }
         }
     }
 }
 
-class QuickSorter implements Sorter  //¿ìËÙÅÅĞòÆ÷
+class QuickSorter implements Sorter  //å¿«é€Ÿæ’åºå™¨
 {
     private Position[] positions;
     private Queue queue;
@@ -33,7 +33,7 @@ class QuickSorter implements Sorter  //¿ìËÙÅÅĞòÆ÷
         this.queue = queue;
         QuickSort(0, positions.length - 1);
     }
-    public void QuickSort( int left, int right) //¿ìËÙÅÅĞò
+    public void QuickSort( int left, int right) //å¿«é€Ÿæ’åº
     {
         if(left < right)
         {
@@ -54,13 +54,13 @@ class QuickSorter implements Sorter  //¿ìËÙÅÅĞòÆ÷
                 pivotpos++;
                 if(pivotpos != i)
                 {
-                    queue.Swap(positions[i], positions[pivotpos]);// Î»ÓÚÎ»ÖÃiºÍÎ»ÖÃpivotposµÄÁ½¸öÉúÎï½»»»Î»ÖÃ
+                    queue.Swap(positions[i], positions[pivotpos]);// ä½äºä½ç½®iå’Œä½ç½®pivotposçš„ä¸¤ä¸ªç”Ÿç‰©äº¤æ¢ä½ç½®
                 }
             }
         }
         if(pivotpos != low)
         {
-            queue.Swap(positions[low], positions[pivotpos]);// Î»ÓÚÎ»ÖÃlowºÍÎ»ÖÃpivotposµÄÁ½¸öÉúÎï½»»»Î»ÖÃ
+            queue.Swap(positions[low], positions[pivotpos]);// ä½äºä½ç½®lowå’Œä½ç½®pivotposçš„ä¸¤ä¸ªç”Ÿç‰©äº¤æ¢ä½ç½®
         }
         return pivotpos;
     }

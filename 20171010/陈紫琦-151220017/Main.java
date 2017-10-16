@@ -1,34 +1,34 @@
-public class Main
+ï»¿public class Main
 {
     public static void main(String[]args)
     {
-        /*³õÊ¼»¯*/
+        /*åˆå§‹åŒ–*/
         Space space = new Space();
-        HuluwaQueue huluwaqueue = new HuluwaQueue(); //ºùÂ«ÍŞ
-        ScorpionQueue scorpionqueue = new ScorpionQueue(); //Ğ«×Ó¾«ºÍà¶†ª
-        Snake snake = new Snake(); //Éß¾«
-        Oldman oldman = new Oldman(); //ÀÏÒ¯Ò¯
-        /*ºùÂ«ÍŞÏÈµ½£¬Ëæ»úÕ¾¶Ó*/
-        System.out.println("ºùÂ«ÍŞËæ»úÕ¾¶Ó£º");
-        huluwaqueue.FormationChange(new LongSnakeForm(space)); //ºùÂ«ÍŞÕ¾³É³¤ÉßĞÎ
-        huluwaqueue.LineUpRandomly();//³õÊ¼ÂÒĞò
+        HuluwaQueue huluwaqueue = new HuluwaQueue(); //è‘«èŠ¦å¨ƒ
+        ScorpionQueue scorpionqueue = new ScorpionQueue(); //èå­ç²¾å’Œå–½å•°
+        Snake snake = new Snake(); //è›‡ç²¾
+        Oldman oldman = new Oldman(); //è€çˆ·çˆ·
+        /*è‘«èŠ¦å¨ƒå…ˆåˆ°ï¼Œéšæœºç«™é˜Ÿ*/
+        System.out.println("è‘«èŠ¦å¨ƒéšæœºç«™é˜Ÿï¼š");
+        huluwaqueue.FormationChange(new LongSnakeForm(space)); //è‘«èŠ¦å¨ƒç«™æˆé•¿è›‡å½¢
+        huluwaqueue.LineUpRandomly();//åˆå§‹ä¹±åº
         space.Output();
-        /*ºùÂ«ÍŞÅÅĞò*/
+        /*è‘«èŠ¦å¨ƒæ’åº*/
         new QuickSorter().sort(huluwaqueue);
-        /*¶ÔÖÅ¾ÖÃæ1*/
-        System.out.println("(ÅÅĞòºó)¶ÔÖÅ¾ÖÃæ1£º");
-        scorpionqueue.FormationChange(new MoonForm(space)); //Ğ«×Ó¾«ºÍà¶†ªÕ¾³ÉÙÈÔÂĞÎ
-        snake.setPosition(space.getPosition(2,6)); //Éß¾«¸øĞ«×Ó¾«¼ÓÓÍ
-        oldman.setPosition(space.getPosition(5,1)); //ÀÏÒ¯Ò¯¸øºùÂ«ÍŞ¼ÓÓÍ
+        /*å¯¹å³™å±€é¢1*/
+        System.out.println("(æ’åºå)å¯¹å³™å±€é¢1ï¼š");
+        scorpionqueue.FormationChange(new MoonForm(space)); //èå­ç²¾å’Œå–½å•°ç«™æˆåƒæœˆå½¢
+        snake.setPosition(space.getPosition(2,6)); //è›‡ç²¾ç»™èå­ç²¾åŠ æ²¹
+        oldman.setPosition(space.getPosition(5,1)); //è€çˆ·çˆ·ç»™è‘«èŠ¦å¨ƒåŠ æ²¹
         space.Output();
         System.out.println();
-        /*¶ÔÖÅ¾ÖÃæ2*/
-        System.out.println("¶ÔÖÅ¾ÖÃæ2£º");
-        snake.leavePosition(); //Éß¾«ÈÃ³öµØ·½
-        oldman.leavePosition(); //ÀÏÒ¯Ò¯ÈÃ³öµØ·½
-        scorpionqueue.FormationChange(new SwordForm(space)); //Ğ«×Ó¾«ºÍà¶†ª±ä»»¶ÓĞÎ³É·æÊ¸ĞÎ
-        snake.setPosition(space.getPosition(9,5)); //Éß¾«¸øĞ«×Ó¾«¼ÓÓÍ
-        oldman.setPosition(space.getPosition(7,0)); //ÀÏÒ¯Ò¯¸øºùÂ«ÍŞ¼ÓÓÍ
+        /*å¯¹å³™å±€é¢2*/
+        System.out.println("å¯¹å³™å±€é¢2ï¼š");
+        snake.leavePosition(); //è›‡ç²¾è®©å‡ºåœ°æ–¹
+        oldman.leavePosition(); //è€çˆ·çˆ·è®©å‡ºåœ°æ–¹
+        scorpionqueue.FormationChange(new SwordForm(space)); //èå­ç²¾å’Œå–½å•°å˜æ¢é˜Ÿå½¢æˆé”‹çŸ¢å½¢
+        snake.setPosition(space.getPosition(9,5)); //è›‡ç²¾ç»™èå­ç²¾åŠ æ²¹
+        oldman.setPosition(space.getPosition(7,0)); //è€çˆ·çˆ·ç»™è‘«èŠ¦å¨ƒåŠ æ²¹
         space.Output();
 
     }

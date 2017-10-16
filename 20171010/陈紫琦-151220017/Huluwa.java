@@ -1,11 +1,11 @@
-enum HuluAttribute//ºùÂ«ÍŞÊôĞÔ
+ï»¿enum HuluAttribute//è‘«èŠ¦å¨ƒå±æ€§
 {
-    RED("ÀÏ´ó","ºìÉ«",1), ORANGE("ÀÏ¶ş", "³ÈÉ«",2), YELLOW("ÀÏÈı", "»ÆÉ«",3), GREEN("ÀÏËÄ","ÂÌÉ«",4),
-    CYAN("ÀÏÎå","ÇàÉ«",5), BLUE("ÀÏÁù", "À¶É«", 6), PURPLE("ÀÏÆß", "×ÏÉ«", 7);
-    private String NoName; //ÀÏX
-    private String ColorName; //ÑÕÉ«
-    private int index; //ĞòºÅ
-    private HuluAttribute(String NoName, String ColorName, int index) //¹¹Ôìº¯Êı
+    RED("è€å¤§","çº¢è‰²",1), ORANGE("è€äºŒ", "æ©™è‰²",2), YELLOW("è€ä¸‰", "é»„è‰²",3), GREEN("è€å››","ç»¿è‰²",4),
+    CYAN("è€äº”","é’è‰²",5), BLUE("è€å…­", "è“è‰²", 6), PURPLE("è€ä¸ƒ", "ç´«è‰²", 7);
+    private String NoName; //è€X
+    private String ColorName; //é¢œè‰²
+    private int index; //åºå·
+    private HuluAttribute(String NoName, String ColorName, int index) //æ„é€ å‡½æ•°
     {
         this.NoName = NoName;
         this.ColorName = ColorName;

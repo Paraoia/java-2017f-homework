@@ -1,28 +1,28 @@
- abstract public class Queue //³éÏóÀà£ºÄ³ÉúÎï¶ÓÁĞ
+ï»¿ abstract public class Queue //æŠ½è±¡ç±»ï¼šæŸç”Ÿç‰©é˜Ÿåˆ—
 {
-    public int num; //¶ÓÁĞÈËÊı £¨²»ÄÜÊÇstatic ·ñÔòËùÓĞ¼Ì³ĞÀà¶¼ÎªÏàÍ¬Öµ£©
-    public Creature []creatures; //¶ÓÁĞÖĞµÄÉúÎïÊı×é
-    Position []positions; //¶ÓÁĞÕ¼¾İµÄÎ»ÖÃµÄÒıÓÃ¹¹³ÉµÄÊı×é
-    Formation form; //±íÊ¾¶ÓÁĞµ±Ç°¶ÓĞÎµÄ¶ÔÏó
+    public int num; //é˜Ÿåˆ—äººæ•° ï¼ˆä¸èƒ½æ˜¯static å¦åˆ™æ‰€æœ‰ç»§æ‰¿ç±»éƒ½ä¸ºç›¸åŒå€¼ï¼‰
+    public Creature []creatures; //é˜Ÿåˆ—ä¸­çš„ç”Ÿç‰©æ•°ç»„
+    Position []positions; //é˜Ÿåˆ—å æ®çš„ä½ç½®çš„å¼•ç”¨æ„æˆçš„æ•°ç»„
+    Formation form; //è¡¨ç¤ºé˜Ÿåˆ—å½“å‰é˜Ÿå½¢çš„å¯¹è±¡
 
     public Position[] getPositions()
     {
         return positions;
     }
-    public void Swap(Position p1, Position p2) //Î»ÓÚÎ»ÖÃp1ºÍp2µÄÁ½¸öÉúÎï½»»»Î»ÖÃ
+    public void Swap(Position p1, Position p2) //ä½äºä½ç½®p1å’Œp2çš„ä¸¤ä¸ªç”Ÿç‰©äº¤æ¢ä½ç½®
     {
         Creature temp1 = p1.getHolder();
         Creature temp2 = p2.getHolder();
-        temp1.leavePosition(); //Àë¿ªÎ»ÖÃ
-        temp2.leavePosition(); //Àë¿ªÎ»ÖÃ
+        temp1.leavePosition(); //ç¦»å¼€ä½ç½®
+        temp2.leavePosition(); //ç¦»å¼€ä½ç½®
         temp1.setPosition(p2);
         temp2.setPosition(p1);
     }
-    public void FormationChange(Formation form) //±ä»»¶ÓĞÎ
+    public void FormationChange(Formation form) //å˜æ¢é˜Ÿå½¢
     {
         this.form = form;
         positions = form.positions;
-        for(Creature cr :creatures) //ËùÓĞÉúÎïÀë¿ªµ±Ç°Î»ÖÃ
+        for(Creature cr :creatures) //æ‰€æœ‰ç”Ÿç‰©ç¦»å¼€å½“å‰ä½ç½®
         {
             cr.leavePosition();
         }

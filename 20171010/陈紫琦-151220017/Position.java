@@ -1,8 +1,8 @@
-public class Position //¶ÓÁĞÎ»ÖÃÀà
+ï»¿public class Position //é˜Ÿåˆ—ä½ç½®ç±»
 {
     private int x, y;
-    private Creature holder; //Î»ÖÃµÄÕ¼ÓĞÕß
-    private boolean empty; //Î»ÖÃÊÇ·ñÎª¿Õ
+    private Creature holder; //ä½ç½®çš„å æœ‰è€…
+    private boolean empty; //ä½ç½®æ˜¯å¦ä¸ºç©º
     public Position(int x, int y)
     {
         super();
@@ -30,19 +30,19 @@ public class Position //¶ÓÁĞÎ»ÖÃÀà
     {
         this.y = y;
     }
-    public void setHolder(Creature holder) //½øÈëÎ»ÖÃ
+    public void setHolder(Creature holder) //è¿›å…¥ä½ç½®
     {
         this.holder = holder;
         empty = false;
     }
-    public Creature out() //´ÓÎ»ÖÃÀë¿ª
+    public Creature out() //ä»ä½ç½®ç¦»å¼€
     {
         Creature holder = this.holder;
         this.holder = null;
         empty = true;
         return holder;
     }
-    public Creature getHolder() //»ñµÃµ±Ç°½ÇÉ«µÄÒıÓÃ
+    public Creature getHolder() //è·å¾—å½“å‰è§’è‰²çš„å¼•ç”¨
     {
         return this.holder;
     }

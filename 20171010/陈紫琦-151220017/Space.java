@@ -1,4 +1,4 @@
-public class Space //¶şÎ¬×ø±ê±íÊ¾µÄ¿Õ¼ä
+ï»¿public class Space //äºŒç»´åæ ‡è¡¨ç¤ºçš„ç©ºé—´
 {
     public static final int N = 11;
     private Position [][]positions;
@@ -9,14 +9,14 @@ public class Space //¶şÎ¬×ø±ê±íÊ¾µÄ¿Õ¼ä
         for(i = 0; i < N; i++)
             for(j = 0; j < N; j++)
             {
-                positions[i][j] = new Position(i, j);//³õÊ¼»¯N*N¸öÎ»ÖÃ
+                positions[i][j] = new Position(i, j);//åˆå§‹åŒ–N*Nä¸ªä½ç½®
             }
     }
     public Position getPosition(int x, int y)
     {
         return positions[x][y];
     }
-    public void Output() //Êä³öµ±Ç°¾ÖÃæ
+    public void Output() //è¾“å‡ºå½“å‰å±€é¢
     {
         int i,j ;
         for( i = 0; i < N; i++)

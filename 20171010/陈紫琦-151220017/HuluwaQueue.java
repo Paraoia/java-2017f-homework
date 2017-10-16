@@ -1,4 +1,4 @@
-public class HuluwaQueue extends Queue
+ï»¿public class HuluwaQueue extends Queue
 {
     Space space;
     HuluwaQueue()
@@ -25,13 +25,13 @@ public class HuluwaQueue extends Queue
     }
 
 
-    public void LineUpRandomly() //ÈÎÒâÕ¾¶Ó
+    public void LineUpRandomly() //ä»»æ„ç«™é˜Ÿ
     {
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6};
         int i, rand;
         for (i = 6; i >= 0; i--) {
-            java.util.Random random = new java.util.Random();// ¶¨ÒåËæ»úÀà
-            rand = random.nextInt(i + 1);// ·µ»Ø[0,7)¼¯ºÏÖĞµÄÕûÊı£¬×¢Òâ²»°üÀ¨7
+            java.util.Random random = new java.util.Random();// å®šä¹‰éšæœºç±»
+            rand = random.nextInt(i + 1);// è¿”å›[0,7)é›†åˆä¸­çš„æ•´æ•°ï¼Œæ³¨æ„ä¸åŒ…æ‹¬7
             if (rand != i) {
                 int temp = array[i];
                 array[i] = array[rand];
@@ -45,11 +45,11 @@ public class HuluwaQueue extends Queue
                creatures[array[i]].setPosition(positions[i]);
     }
 
-    public void report() //±¨Êı
+    public void report() //æŠ¥æ•°
     {
         int i;
         for (Position position: positions)
-            position.getHolder().report(); //Ã¿¸öºùÂ«ÍŞÒÀ´Î±¨Êı
+            position.getHolder().report(); //æ¯ä¸ªè‘«èŠ¦å¨ƒä¾æ¬¡æŠ¥æ•°
         System.out.println();
     }
 

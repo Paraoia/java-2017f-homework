@@ -1,12 +1,12 @@
-enum Species //ÎïÖÖ
+ï»¿enum Species //ç‰©ç§
 {
     HULUWA, OLDMAN, SNAKE, SCORPION, MINION;
 }
-abstract public class Creature //³éÏóÀà£ºÉúÎï
+abstract public class Creature //æŠ½è±¡ç±»ï¼šç”Ÿç‰©
 {
-    public Species species; //ÎïÖÖ
-    protected Position position; //Î»ÖÃ
-    abstract public void report(); //±¨Ãû×Ö
+    public Species species; //ç‰©ç§
+    protected Position position; //ä½ç½®
+    abstract public void report(); //æŠ¥åå­—
     Creature()
     {
         position = null;
@@ -15,7 +15,7 @@ abstract public class Creature //³éÏóÀà£ºÉúÎï
     {
         return this.position;
     }
-    public void setPosition(Position position) //ÉèÖÃÎ»ÖÃ
+    public void setPosition(Position position) //è®¾ç½®ä½ç½®
     {
         if(position.ifEmpty())
         {
@@ -25,7 +25,7 @@ abstract public class Creature //³éÏóÀà£ºÉúÎï
         }
         else assert(false);
     }
-    public void leavePosition() //Àë¿ªÎ»ÖÃ
+    public void leavePosition() //ç¦»å¼€ä½ç½®
     {
         if(this.position != null)
         {
@@ -36,7 +36,7 @@ abstract public class Creature //³éÏóÀà£ºÉúÎï
     }
 
 }
-class Oldman extends Creature //ÉúÎï£ºÀÏÒ¯Ò¯
+class Oldman extends Creature //ç”Ÿç‰©ï¼šè€çˆ·çˆ·
 {
     Oldman()
     {
@@ -45,11 +45,11 @@ class Oldman extends Creature //ÉúÎï£ºÀÏÒ¯Ò¯
     }
     public void report()
     {
-        System.out.print("ÀÏÒ¯Ò¯");
+        System.out.print("è€çˆ·çˆ·");
     }
 }
 
-class Snake extends Creature //ÉúÎï£ºÉß¾«
+class Snake extends Creature //ç”Ÿç‰©ï¼šè›‡ç²¾
 {
     Snake()
     {
@@ -58,6 +58,6 @@ class Snake extends Creature //ÉúÎï£ºÉß¾«
     }
     public void report()
     {
-        System.out.print("Éß¾«");
+        System.out.print("è›‡ç²¾");
     }
 }

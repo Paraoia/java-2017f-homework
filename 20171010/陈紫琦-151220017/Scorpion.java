@@ -1,5 +1,5 @@
-
-public class Scorpion extends Creature //Ğ«×Ó¾«Àà
+ï»¿
+public class Scorpion extends Creature //èå­ç²¾ç±»
 {
     Scorpion()
     {
@@ -7,10 +7,10 @@ public class Scorpion extends Creature //Ğ«×Ó¾«Àà
     }
     public void report()
     {
-        System.out.print("Ğ«×Ó¾«");
+        System.out.print("èå­ç²¾");
     }
 }
-class Minion extends Creature //Ğ¡à¶†ªÀà
+class Minion extends Creature //å°å–½å•°ç±»
 {
     int index;
     Minion(int index)
@@ -21,7 +21,7 @@ class Minion extends Creature //Ğ¡à¶†ªÀà
     }
     public void report()
     {
-        System.out.print("à¶†ª"+ index );
+        System.out.print("å–½å•°"+ index );
     }
 }
 
