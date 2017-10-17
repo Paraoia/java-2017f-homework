@@ -24,8 +24,9 @@ public class Battle {
         for (int i = 0; i < 7; ++i) {
             creatures[i + 1] = new CalabashBrother(i);
         }
-        creatures[8] = new ScorpionKing();
-        for (int i = 9; i < NUM; ++i) {
+        creatures[8] = new SnakeQueen();
+        creatures[9] = new ScorpionKing();
+        for (int i = 10; i < NUM; ++i) {
             creatures[i] = new Lackey();
         }
 
@@ -147,7 +148,8 @@ public class Battle {
         clearVillainsArea();
         int startLine = 4, startCol = 6;
         int j = 9;
-        for (int i = startLine; i < startLine + 5; ++i) {
+        map[startLine][startCol + 2] = j++;
+        for (int i = startLine + 1; i < startLine + 5; ++i) {
             map[i][startCol + Math.abs(i - startLine - 2)] = j++;
             map[i][startCol + 4 - Math.abs(i - startLine - 2)] = j++;
         }
@@ -174,9 +176,10 @@ public class Battle {
         clearVillainsArea();
         int startLine = 3, startCol = 5;
         int j = 9;
-        for (int i = startLine; i < startLine + 4; ++i) {
-            map[i][startCol + startLine + 3 - i] = j++;
+        map[startLine][startCol + 3] = j++;
+        for (int i = startLine + 1; i < startLine + 4; ++i) {
             map[i][startCol + i - startLine + 3] = j++;
+            map[i][startCol + startLine + 3 - i] = j++;
         }
         for (int i = startLine + 1; i < startLine + 7; ++i) {
             map[i][startCol + 3] = j++;
