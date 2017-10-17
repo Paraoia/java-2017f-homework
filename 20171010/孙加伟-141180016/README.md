@@ -1,21 +1,4 @@
 #葫芦娃第三次作业
 ===================
-* 大家好<br>我是`孙加伟`<br>
-  * Hello,大家好，我是果冻虾仁。<br>
-    * [我的博客](http://blog.csdn.net/guodongxiaren) 
->数据结构
->>树
->>>二叉树
->>>>平衡二叉树
->>>>>满二叉树
-![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo")  
- [![baidu]](http://baidu.com)  
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
-```Java
-public static void main(String[] args){} //Java
-
-*****
-
-| Author | 果冻虾仁 |
-| --- | ---
-| E-mail | Jelly.K.Wang@qq.com
+1.Creature类是所有角色的父类，它定义了所有角色共有的属性，name(姓名)、property(属性)、activity(战斗中所处状态)
+以及对应的set和get方法
