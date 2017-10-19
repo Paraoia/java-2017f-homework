@@ -22,7 +22,7 @@ public class Queue {
         return creatures;
     }
 
-    private void Add(int x, int y, Creature creature){
+    public void Add(int x, int y, Creature creature){
         this.creatures[x][y] = creature;
         this.creatures[x][y].setPosition(this.positions[x][y]);
     }
@@ -58,45 +58,6 @@ public class Queue {
         }
     }
 
-    private void stratagem(int startRow, int startCol, Creature []creatures, String name, boolean cancel){
-        if(name.equals("ChangSheZhen")){
-            if(cancel){
-                for(int i = 0; i < creatures.length; ++i)
-                    this.Add(startRow, i + startCol, new Vacancy());
-            }
-            else{
-                for(int i = 0; i < creatures.length; ++i)
-                    this.Add(startRow, i + startCol, creatures[i]);
-            }
-        }
-        else if(name.equals("YanXingZhen")){
-            if(cancel){
-                for(int i = 0; i < creatures.length; ++i)
-                    this.Add(startRow+i, startCol+i, new Vacancy());
-            }
-            else{
-                for(int i = 0; i < creatures.length; ++i)
-                    this.Add(startRow+i, startCol+i, creatures[i]);
-            }
-        }
-        else if(name.equals("HeYiZhen")){
-            if(cancel){
-                for(int i = 0; i < creatures.length/2; ++i)
-                    this.Add(startRow+i, startCol+i, new Vacancy());
-                this.Add(startRow + creatures.length/2, startCol + creatures.length/2, new Vacancy());
-                for(int i = creatures.length/2 + 1; i < creatures.length; ++i)
-                    this.Add(startRow+creatures.length-i-1, startCol+i, new Vacancy());
-            }
-            else{
-                for(int i = 0; i < creatures.length/2; ++i)
-                    this.Add(startRow+i, startCol+i, creatures[i+1]);
-                this.Add(startRow + creatures.length/2, startCol + creatures.length/2, creatures[0]);
-                for(int i = creatures.length/2 + 1; i < creatures.length; ++i)
-                    this.Add(startRow+creatures.length-i-1, startCol+i, creatures[i]);
-            }
-        }
-    }
-
     private void yell(int positionX, int positionY, Creature creature, boolean cancel){
         if(cancel)
             this.Add(positionX,positionY,new Vacancy());
@@ -112,9 +73,11 @@ public class Queue {
         for (int i = 0; i < brothers.length; i++) {
             brothers[i] = new Huluwa(COLOR.values()[i], SENIORITY.values()[i]);
         }
-        queue.stratagem(GoodGuyRowStart, GoodGuyColStart, brothers, "ChangSheZhen",false);
-        queue.shuffle(GoodGuyRowStart, GoodGuyColStart, brothers.length);
-        new BubbleSorter().sort(queue, GoodGuyRowStart, GoodGuyColStart, brothers.length);
+
+        Changshezhen changshezhen = new Changshezhen();//长蛇阵
+        changshezhen.generate(GoodGuyRowStart, GoodGuyColStart, brothers, queue); //生成
+        queue.shuffle(GoodGuyRowStart, GoodGuyColStart, brothers.length); //随机
+        new BubbleSorter().sort(queue, GoodGuyRowStart, GoodGuyColStart, brothers.length); //排序
 
         //坏蛋排队
         Monster []badguys = new Monster[7];
@@ -125,19 +88,24 @@ public class Queue {
             xiaodi[i] = new Xiaolouluo();
             badguys[i+1] = xiaodi[i];
         } //小喽啰加入
-        queue.stratagem(BadGuyRowStart,BadGuyColStart,badguys, "YanXingZhen",false);
+
+        Yanxingzhen yanxingzhen = new Yanxingzhen();//雁行阵
+        yanxingzhen.generate(BadGuyRowStart,BadGuyColStart,badguys, queue); //生成
 
         //爷爷蛇精助威
         Grandpa grandpa = new Grandpa();
         Snake snake = new Snake();
         queue.yell(GrandpaX,GrandpaY,grandpa, false);
         queue.yell(SnackX,SnackY,snake, false);
+
         //输出对峙局面
         queue.rollCall();
 
         //取消雁行阵 转成鹤翼阵
-        queue.stratagem(BadGuyRowStart, BadGuyColStart, badguys,"YanXingZhen",true);
-        queue.stratagem(BadGuyRowStart, BadGuyColStart, badguys,"HeYiZhen",false);
+        yanxingzhen.cancel(BadGuyRowStart, BadGuyColStart, badguys,queue); //取消
+        Heyizhen heyizhen = new Heyizhen(); //鹤翼阵
+        heyizhen.generate(BadGuyRowStart, BadGuyColStart, badguys,queue); //生成
+
         //输出对峙局面
         queue.rollCall();
     }
