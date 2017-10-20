@@ -1,5 +1,6 @@
 # 葫芦娃第三次作业面向对象方法说明
 
+
 1. 主要抽象出四个类(**列出了重要成员**)
    Creature (**Abstract Class**)
 	因为Creature 有很多共有属性(type, position, etc.)，所以不采用Interface
@@ -12,6 +13,7 @@
    Zhenfa: 
 	阵法由position数组和creature数组构成，初始化时并没有初始化position(可以想象此时是一个散乱的队列)
        调用**form** 方法 使得阵法成型并具有具体形状。
+       
 2.降低类之间的耦合性
   Space 只有一组position, 没有必要再有一组creature成员，因为Position 已经有Holder成员可以保存相关信息。
 
