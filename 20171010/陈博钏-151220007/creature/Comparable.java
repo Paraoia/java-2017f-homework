@@ -4,5 +4,5 @@ package creature;
  * Created by cbcwe on 2017/10/16.
  */
 public interface Comparable {
-    public boolean biggerThan(Comparable another);
+    public boolean olderThan(final Comparable another);
 }
