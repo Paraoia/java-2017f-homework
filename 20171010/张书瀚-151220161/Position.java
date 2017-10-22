@@ -28,11 +28,6 @@ public class Position {
         this.holder = null;
     }
 
-    public void setX_Y(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
     public int getX() {
         return x;
     }

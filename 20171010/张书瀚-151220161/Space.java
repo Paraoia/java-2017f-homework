@@ -40,28 +40,22 @@ public class Space implements Constants {
         this.creatures[4] = monsters;
     }
 
-    //用于查看当前葫芦娃的排序信息
-    void show() {
-        System.out.print("\nTEST: ");
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < creatures[i].length; j++) {
-                creatures[i][j].report();
-            }
-        }
+    //用于查看当前战场排列与所有生物当前位置
+    public void show() {
 
         for (int m = 0; m < MAXSPACE; m++) {
             for (int n = 0; n < MAXSPACE; n++) {
                 if (positions[m][n].isOccupy()) {
                     Position temp = positions[m][n];
                     if (temp.getHolder() instanceof Boy)
-                        System.out.print(((Boy) temp.getHolder()).getRank()+" ");
+                        System.out.print(((Boy) temp.getHolder()).getRank() + " ");
                     else if (temp.getHolder() instanceof Goblins)
-                        System.out.print(((Goblins) temp.getHolder()).getNo()+" ");
-                    else if(temp.getHolder() instanceof Scorpion)
+                        System.out.print(((Goblins) temp.getHolder()).getNo() + " ");
+                    else if (temp.getHolder() instanceof Scorpion)
                         System.out.print("蝎 ");
-                    else if(temp.getHolder() instanceof Snake)
+                    else if (temp.getHolder() instanceof Snake)
                         System.out.print("蛇 ");
-                    else if(temp.getHolder() instanceof Grandpa)
+                    else if (temp.getHolder() instanceof Grandpa)
                         System.out.print("爷 ");
                     else
                         System.out.print("? ");
@@ -70,10 +64,16 @@ public class Space implements Constants {
             }
             System.out.print("\n");
         }
+        System.out.print("报位置：\n");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < creatures[i].length; j++) {
+                creatures[i][j].report();
+            }
+        }
     }
 
     //随机打乱葫芦娃序列
-    void disturb() {        //打乱
+    public void disturb() {        //打乱
         boolean alhave[] = new boolean[7];
         for (int i = 0; i < 7; i++) {
             alhave[i] = false;
@@ -82,17 +82,15 @@ public class Space implements Constants {
         while (count <= 6) {
             Random r = new Random();
             int s = r.nextInt(7);
-            //System.out.println(s);
-            if (alhave[s] == false) {
+            if (!alhave[s]) {
                 alhave[s] = true;
-                creatures[1][count] = new Boy(RANK.values()[s],COLOR.values()[s]);
-                //System.out.printf("新成员：位置%d，排行%d\n",count,s+1);
+                creatures[1][count] = new Boy(RANK.values()[s], COLOR.values()[s]);
                 count++;
             }
         }
     }
 
-   public static void main(String args[]) {
+    public static void main(String args[]) {
 
         Boy bro[] = new Boy[7];
         for (int i = 0; i < bro.length; i++) {
@@ -104,24 +102,40 @@ public class Space implements Constants {
         }
 
         Space a = new Space(bro, gob);
+        a.posInit();
+        //将葫芦娃乱序
         a.disturb();
         //new BubbleSorter().sort(a);
+        //将葫芦娃排序
         new BinarySorter().sort(a);
-        a.posInit();
+
         new SnakeFormatter().format(a);
         new WingFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new LineFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new BalanceFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new ScaleFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new SquareFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new MoonFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
+
         new ArrowFormatter().format(a);
+        new CheerUp().cheer(a);
         a.show();
 
     }

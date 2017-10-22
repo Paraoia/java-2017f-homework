@@ -10,7 +10,7 @@ public class BinarySorter implements Sorter {
             high = i - 1;
             while (low <= high) {
                 middle = (low + high) / 2;
-                if (!((Comparable)creatures[1][i]).biggerThan((Comparable)creatures[1][middle]))
+                if (!((Comparable) creatures[1][i]).biggerThan((Comparable) creatures[1][middle]))
                     high = middle - 1;
                 else
                     low = middle + 1;

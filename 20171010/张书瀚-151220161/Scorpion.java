@@ -15,7 +15,7 @@ public class Scorpion implements Creature, Comparable {
     @Override
     public void report() {
         if (this.pos != null)
-            System.out.println("Scorpion @ " + this.pos.getX() + "," + this.pos.getY());
+            System.out.println("蝎子精 @ " + this.pos.getX() + "," + this.pos.getY());
     }
 
     @Override

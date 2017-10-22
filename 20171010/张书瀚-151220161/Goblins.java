@@ -25,7 +25,7 @@ public class Goblins implements Creature, Comparable {
     @Override
     public void report() {
         if (this.pos != null)
-            System.out.println("goblin" + no + " @ " + this.pos.getX() + "," + this.pos.getY());
+            System.out.println("喽啰" + no + " @ " + this.pos.getX() + "," + this.pos.getY());
     }
 
     @Override

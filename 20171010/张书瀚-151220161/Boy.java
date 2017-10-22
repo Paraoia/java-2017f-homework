@@ -2,11 +2,11 @@
 
 
 public class Boy implements Creature, Comparable {
-    RANK rank;       //排行
-    COLOR color;      //颜色
-    Position pos;     //自己之前的位置和现在的位置
+    private RANK rank;       //排行
+    private COLOR color;      //颜色
+    private Position pos;     //自己之前的位置和现在的位置
 
-    Boy(RANK r, COLOR c) {
+    public Boy(RANK r, COLOR c) {
         rank = r;
         color = c;
     }
@@ -44,17 +44,6 @@ public class Boy implements Creature, Comparable {
         else
             return true;
     }
-
-
-    //每当换位置时，跟新位置属性并报出
-   /* void changePos(int a) {
-        prePos = nowPos;
-        nowPos = a;
-        if(prePos != nowPos) {
-            tellRank();
-            System.out.printf(":%d->%d\n",prePos, nowPos);
-        }
-    }*/
 }
 
 

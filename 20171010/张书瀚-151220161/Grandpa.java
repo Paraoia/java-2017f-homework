@@ -16,7 +16,7 @@ public class Grandpa implements Creature, Comparable {
     @Override
     public void report() {
         if (this.pos != null)
-            System.out.println("Grandpa @ " + this.pos.getX() + "," + this.pos.getY());
+            System.out.println("爷爷 @ " + this.pos.getX() + "," + this.pos.getY());
     }
 
     @Override

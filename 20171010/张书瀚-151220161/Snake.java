@@ -14,7 +14,7 @@ public class Snake implements Creature, Comparable {
     @Override
     public void report() {
         if (this.pos != null)
-            System.out.println("Snake @ " + this.pos.getX() + "," + this.pos.getY());
+            System.out.println("蛇精 @ " + this.pos.getX() + "," + this.pos.getY());
     }
 
     @Override
