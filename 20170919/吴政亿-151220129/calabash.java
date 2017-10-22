@@ -1,5 +1,5 @@
 enum  COLOR{
-    Red,Orange,Yellow,Green,Cyan,Blue,Purple
+    Red,Orange,Yellow,Green,Cyan,Blue,Purple;
 }
 
 public class Calabash {
