@@ -1,4 +1,4 @@
-#第三次作业说明
+# 第三次作业说明
 本次作业用到了接口、抽象类等面向对象概念。以下是用到的接口和抽象类的描述：
 	
 - Space：接口，用于描述空间
@@ -32,11 +32,13 @@
 	-Huluwa：具体类，用于描述葫芦娃的行为和特征
 	
 各个接口和类的从属关系图如下（实线表示继承，虚线表示包含于）：
-![](C:\Users\wenji\Desktop\1.png)
 
-![](C:\Users\wenji\Desktop\2.png)
 
-![](C:\Users\wenji\Desktop\3.png)
+![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
+
+![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
+
+![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
 
 
 好处：用Space来对空间进行抽象就可以不局限于二维空间，如果要实现三维空间，只要新建一个类继承Space，再具体实现，其余与Space相关联的类和方法都不需要改变。同理，Position也可以变为三维的。用Sorter和ZhenArranger来分别对排序和阵型排列进行抽象则可以更方便地扩充排序方法和阵型排列方法，不需要修改源代码，只要增加新的类型就好了。
