@@ -34,11 +34,11 @@
 各个接口和类的从属关系图如下（实线表示继承，虚线表示包含于）：
 
 
-![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
+![](https://github.com/HuangWenJ/java-2017f-homework/blob/master/20171010/%E9%BB%84%E6%96%87%E6%9D%B0-151220043/pic/1.png?raw=true)
 
-![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
+![](https://github.com/HuangWenJ/java-2017f-homework/blob/master/20171010/%E9%BB%84%E6%96%87%E6%9D%B0-151220043/pic/2.png?raw=true)
 
-![](https://github.com/HuangWenJ/java-2017f-homework/20171010/黄文杰-151220043/pic/1.png)
+![](https://github.com/HuangWenJ/java-2017f-homework/blob/master/20171010/%E9%BB%84%E6%96%87%E6%9D%B0-151220043/pic/3.png?raw=true)
 
 
 好处：用Space来对空间进行抽象就可以不局限于二维空间，如果要实现三维空间，只要新建一个类继承Space，再具体实现，其余与Space相关联的类和方法都不需要改变。同理，Position也可以变为三维的。用Sorter和ZhenArranger来分别对排序和阵型排列进行抽象则可以更方便地扩充排序方法和阵型排列方法，不需要修改源代码，只要增加新的类型就好了。
