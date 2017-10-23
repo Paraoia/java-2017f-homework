@@ -1,3 +1,45 @@
+enum Color {COLORFUL, RED, ORANGE, YELLOW, GREEN, CYAN, BLUE, PURPLE};
+
+class Xiaojingang implements creature, compare {
+    /*
+     * To make sure there is only one object for each Huluwa,
+     * there's no static for rank, color and name.
+     *
+     * And Xiaojingang is for latter usage.
+     *
+     * All the 7 huluwas' talkName and talkColor extends from Xiaojingang.
+     *
+     */
+    int rank;
+    Color color;
+    String name;
+
+    Xiaojingang() {
+        rank = 0;
+        color = Color.COLORFUL;
+        name = "小金刚";
+    }
+    @Override
+    public boolean Compare(Comparable some) {
+        return some instanceof Xiaojingang && this.getRank() > ((Xiaojingang) some).getRank();
+    }
+    @Override
+    public int getRank() {
+        return rank;
+    }
+    @Override
+    public String talkName() {
+        return name;
+    }
+    @Override
+    public void talkSkill() {
+        System.out.println("我可以打败蛇精！");
+    }
+    public String getColor() {
+        return color.toString();
+    }
+}
+
 class Dawa extends Xiaojingang {
     Dawa() {
         rank = 1;
@@ -5,8 +47,6 @@ class Dawa extends Xiaojingang {
         name = "大娃";
     }
 
-    @Override
-    public String talkName() {return name; }
     @Override
     public void talkSkill() { System.out.println("我有力壮术、巨大化的技能！≖‿≖✧ "); }
 }

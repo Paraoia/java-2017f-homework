@@ -9,39 +9,38 @@ class vine {
     private static Wuwa wuwa = new Wuwa();
     private static Liuwa liuwa = new Liuwa();
     private static Qiwa qiwa = new Qiwa();
-    static Xiaojingang[] huluwa = new Xiaojingang[7];
+    private static Xiaojingang[] creatures = new Xiaojingang[7];
     /* COMPOSITION. */
-    private static Position positions = new Position(huluwa);
-
-    /* Vine has method for huluwas to sort in rank order. */
+    private static Position positions = new Position(creatures);
+    /* Vine has method for creatures to sort in rank order. */
     static void rankSort() {
         positions.rankSort();
     }
-    /* Vine has method for huluwas to sort in color order. */
+    /* Vine has method for creatures to sort in color order. */
     static void colorSort() {
         positions.colorSort();
     }
-    /* Set order for huluwas, and set it in descending order. */
+    /* Set order for creatures, and set it in descending order. */
     static void setOrder() {
-        huluwa[0] = qiwa;
-        huluwa[1] = liuwa;
-        huluwa[2] = wuwa;
-        huluwa[3] = siwa;
-        huluwa[4] = sanwa;
-        huluwa[5] = erwa;
-        huluwa[6] = dawa;
+        creatures[0] = qiwa;
+        creatures[1] = liuwa;
+        creatures[2] = wuwa;
+        creatures[3] = siwa;
+        creatures[4] = sanwa;
+        creatures[5] = erwa;
+        creatures[6] = dawa;
     }
     static void finishedOrder(int c) {
         switch (c) {
             case 0:
                 for(int i = 0; i < 6; i++)
-                    System.out.print(huluwa[i].talkName() + "->");
-                System.out.println(huluwa[6].talkName());
+                    System.out.print(creatures[i].talkName() + "->");
+                System.out.println(creatures[6].talkName());
                 break;
             case 1:
                 for(int i = 0; i < 6; i++)
-                    System.out.print(huluwa[i].talkColor() + "->");
-                System.out.println(huluwa[6].talkColor());
+                    System.out.print(creatures[i].getColor() + "->");
+                System.out.println(creatures[6].getColor());
                 break;
             default: break;
         }

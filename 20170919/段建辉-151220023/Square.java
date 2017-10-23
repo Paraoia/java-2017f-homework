@@ -1,10 +1,10 @@
-public class grandFather {
+public class Square {
     /* First grandfather calls all huluwas and generates 7 positions. */
     /* Plant a vine. */
     static vine Vine;
 
     /* Using talk function to messaging. */
-    public static void talkSkill(Xiaojingang[] huluwa) {
+    public static void talkSkill(creature[] huluwa) {
         for(int i = 0; i < 7; i++)
             huluwa[i].talkSkill();
     }
@@ -21,6 +21,5 @@ public class grandFather {
         System.out.println("Color sort finished.");
         vine.finishedOrder(1);
         /* Test function. */
-        talkSkill(vine.huluwa);
     }
 }
