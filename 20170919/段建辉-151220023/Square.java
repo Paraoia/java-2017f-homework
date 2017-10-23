@@ -1,13 +1,5 @@
 public class Square {
     /* First grandfather calls all huluwas and generates 7 positions. */
-    /* Plant a vine. */
-    static vine Vine;
-
-    /* Using talk function to messaging. */
-    public static void talkSkill(creature[] huluwa) {
-        for(int i = 0; i < 7; i++)
-            huluwa[i].talkSkill();
-    }
 
     public static void main(String arg[]) {
         vine.setOrder();

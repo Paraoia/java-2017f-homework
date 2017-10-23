@@ -6,7 +6,7 @@ class ranksort implements sort {
         for (int i = 0; i < positions.length; i++) {
             for (int j = 0; j < positions.length - 1; j++) {
                 Xiaojingang temp;
-                if (positions[j].Compare( positions[j + 1].getRank())){
+                if (positions[j].getRank() > positions[j + 1].getRank()){
                     temp = positions[j];
                     positions[j] = positions[j + 1];
                     System.out.println(positions[j].talkName() + ": " + (j + 1) + "->" + j);
@@ -41,7 +41,7 @@ class colorsort implements sort {
     /* Colorsort uses binary sort. */
     @Override
     public void Sort(Xiaojingang[] positions) {
-        Sort_imp(0, positions.length - 1, positions);
+        Sort_imp(0, positions.length-1, positions);
     }
     private void Sort_imp(int start, int end, Xiaojingang[] positions) {
         for (int i = start + 1; i <= end; i++) {

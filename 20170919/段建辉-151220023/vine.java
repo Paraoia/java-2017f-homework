@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
 class vine {
     private static Dawa dawa = new Dawa();
     private static Erwa erwa = new Erwa();

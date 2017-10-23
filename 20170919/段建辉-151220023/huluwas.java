@@ -32,11 +32,12 @@ class Xiaojingang implements creature, compare {
         return name;
     }
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我可以打败蛇精！");
     }
-    public String getColor() {
-        return color.toString();
+    @Override
+    public Color getColor() {
+        return color;
     }
 }
 
@@ -48,7 +49,7 @@ class Dawa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() { System.out.println("我有力壮术、巨大化的技能！≖‿≖✧ "); }
+    public void talkSomething() { System.out.println("我有力壮术、巨大化的技能！≖‿≖✧ "); }
 }
 
 class Erwa extends Xiaojingang {
@@ -59,7 +60,7 @@ class Erwa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我有千里眼、顺风耳的技能！٩(͡๏̯͡๏)۶");
     }
 }
@@ -72,7 +73,7 @@ class Sanwa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我有刀枪不入的技能！ ˋ（′～‵）ˊ");
     }
 }
@@ -85,7 +86,7 @@ class Siwa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我有火攻、吸纳火焰、霹雳的技能！(‵▽′)ψ ");
     }
 }
@@ -98,7 +99,7 @@ class Wuwa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我有洪击、蓄水、闪电的技能！(●′ω`●)");
     }
 }
@@ -111,7 +112,7 @@ class Liuwa extends Xiaojingang {
     }
 
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("我有隐身的技能！(*・・*)");
     }
 }
@@ -123,7 +124,7 @@ class Qiwa extends Xiaojingang {
         name = "七娃";
     }
     @Override
-    public void talkSkill() {
+    public void talkSomething() {
         System.out.println("哈哈哈！我有神葫芦！(๑´ڡ`๑) (๑＞ڡ＜)☆");
     }
 }

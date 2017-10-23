@@ -1,6 +1,6 @@
 public interface creature {
-    String getColor();
-    void talkSkill();
+    Color getColor();
+    void talkSomething();
     String talkName();
     int getRank();
 }
