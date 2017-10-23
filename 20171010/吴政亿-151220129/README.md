@@ -118,12 +118,12 @@ void swap(int a, int b)         | 下标为a，b的两个生物互换位置
 void shuffle()                  | 打乱队列
 void Echo()                     | 输出队列信息
 
-## 代码思路
+## 四、代码思路
 
 套用了第二次作业的内容并将一维扩展为二维，将Queue所面向的类由Calabash抽象为Creature，将本次作业划分为三个模块，main函数，Queue队列的实现，二维生物空间Position的实现。   
 在本试验中，依旧是爷爷负责为葫芦娃们排序和打乱，所以爷爷的类中含有内部类Queue来存储葫芦娃们。
 
-## 心得体会
+## 五、心得体会
 
 在定义二维空间Position的DeleteCreature函数时，一开始报错没反应过来，错误为
 
