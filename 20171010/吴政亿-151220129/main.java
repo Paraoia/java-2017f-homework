@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         //初始化爷爷
         Grandpa pa = new Grandpa();
