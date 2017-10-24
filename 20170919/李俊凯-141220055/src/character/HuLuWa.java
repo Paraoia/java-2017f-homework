@@ -1,17 +1,18 @@
-package HuLuBrother;
+package character;
 
-import static HuLuBrother.HuLuColor.*;
+import static character.COLOR.*;
 
 /**
- * Created by junkai.li on 2017/9/20.
+ * Created by ljkgo_000 on 2017/10/2.
  */
 
-public class HuLuBaby {
+public class HuLuWa {
+
     int id;
-    HuLuColor color;
+    COLOR color;
     String name;
 
-    HuLuBaby(int i) {
+    public HuLuWa(int i) {
         id = i;
         switch (i) {
             case 1:
@@ -46,5 +47,21 @@ public class HuLuBaby {
                 color = white;
                 name = "老几";
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public COLOR getColor() {
+        return color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void selfIntroduction() {
+        System.out.println("我是葫芦七兄弟中的" + name);
     }
 }
