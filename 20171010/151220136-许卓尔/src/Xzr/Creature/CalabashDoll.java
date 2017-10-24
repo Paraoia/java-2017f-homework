@@ -1,4 +1,6 @@
-package Xzr.demo;
+package Xzr.Creature;
+
+import Xzr.Position.Position;
 
 enum COLOR{
     RED(1),ORANGE(2),YELLOW(3),GREEN(4),CYAN(5),BLUE(6),PURPLE(7);
@@ -24,9 +26,9 @@ public class CalabashDoll implements Creature{
 
     private SENIORITY seniority;        // 葫芦娃各自序号
     private COLOR color;    // 葫芦娃的颜色
-    private  Position position;
+    private Position position;
 
-    CalabashDoll(){
+    public CalabashDoll(){
         color = COLOR.values()[curNum];
         seniority = SENIORITY.values()[curNum];
         curNum = (curNum+1)%allNum;
@@ -55,5 +57,7 @@ public class CalabashDoll implements Creature{
     public Position getPosition(){
         return this.position;
     }
+    @Override
+    public String getName(){ return this.seniority.toString(); }
 
 }
