@@ -1,14 +1,15 @@
+enum Color { RED, ORANGE, YELLOW, GREEN, CYAN, BLUE, PURPLE }
 public class Huluwa{
-    int no;
-    String color;
+    private int no;
+    private Color color;
 
-    Huluwa(int No,String Color)
+    public Huluwa(int No,Color c)
     {
         no=No;
-        color=Color;
+        color=c;
     }
 
-    void numberOff()
+    public void numberOff()
     {
         switch(no)
         {
@@ -43,8 +44,12 @@ public class Huluwa{
         }
     }
 
-    void colorOff()
+    public void colorOff()
     {
         System.out.print(color);
+    }
+
+    public int getNo() {
+        return no;
     }
 };
