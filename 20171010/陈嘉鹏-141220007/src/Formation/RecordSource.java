@@ -1,37 +1,9 @@
+package Formation;
 
-class FormRecord{
-    Direction formOri;
-    Integer   width;
-    Integer   height;
-    String[]  formDot;
+import mEnums.Direction;
 
-    public FormRecord(Direction formOri, Integer width, Integer height, String[] formDot) {
-        this.formOri = formOri;
-        this.width = width;
-        this.height = height;
-        this.formDot = formDot;
-    }
-
-    public Direction getFormOri() {
-        return formOri;
-    }
-
-    public Integer getWidth() {
-        return width;
-    }
-
-    public Integer getHeight() {
-        return height;
-    }
-
-    public String[] getFormDot() {
-        return formDot;
-    }
-
-}
-
-class FormRecords{
-    static final FormRecord 鹤翼阵 = new FormRecord(
+public class RecordSource {
+    public static final FormRecord 鹤翼阵 = new FormRecordImpl(
             Direction.南,
             7,
             4,
@@ -42,7 +14,7 @@ class FormRecords{
                     "0001000"
             }
     );
-    static final FormRecord 雁行阵 = new FormRecord(
+    public static final FormRecord 雁行阵 = new FormRecordImpl(
             Direction.南,
             5,
             5,
@@ -55,7 +27,7 @@ class FormRecords{
             }
     );
 
-    static final FormRecord 衡轭阵 = new FormRecord(
+    public static final FormRecord 衡轭阵 = new FormRecordImpl(
             Direction.南,
             3,
             6,
@@ -69,7 +41,7 @@ class FormRecords{
             }
     );
 
-    static final FormRecord 长蛇阵 = new FormRecord(
+    public static final FormRecord 长蛇阵 = new FormRecordImpl(
             Direction.南,
             1,
             7,
@@ -83,7 +55,7 @@ class FormRecords{
                     "1"
             }
     );
-    static final FormRecord 鱼鳞阵 = new FormRecord(
+    public static final FormRecord 鱼鳞阵 = new FormRecordImpl(
             Direction.南,
             7,
             5,
@@ -95,7 +67,7 @@ class FormRecords{
                     "0001000"
             }
     );
-    static final FormRecord 方门阵 = new FormRecord(
+    public static final FormRecord 方门阵 = new FormRecordImpl(
             Direction.南,
             5,
             5,
@@ -107,7 +79,7 @@ class FormRecords{
                     "00100"
             }
     );
-    static final FormRecord 偃月阵 = new FormRecord(
+    public static final FormRecord 偃月阵 = new FormRecordImpl(
             Direction.西,
             7,
             9,
@@ -123,7 +95,7 @@ class FormRecords{
                     "0000007"
             }
     );
-    static final FormRecord 锋矢阵 = new FormRecord(
+    public static final FormRecord 锋矢阵 = new FormRecordImpl(
             Direction.北,
             9,
             7,
@@ -137,5 +109,4 @@ class FormRecords{
                     "000070000"
             }
     );
-
-};
+}
