@@ -1,42 +1,42 @@
 import java.util.Random;
 public class sevenBrothers{
-    Huluwa[] brothers;
+    private Huluwa[] brothers;
 
     //构造七个葫芦娃
-    sevenBrothers()
+    public sevenBrothers()
     {
         brothers=new Huluwa[7];
         for(int i=1;i<8;i++)
         {
-            String color="";
+            Color color=Color.RED;
             switch(i)
             {
                 case 1:{
-                    color="红色";
+                    color=Color.RED;
                     break;
                 }
                 case 2:{
-                    color="橙色";
+                    color=Color.ORANGE;
                     break;
                 }
                 case 3:{
-                    color="黄色";
+                    color=Color.YELLOW;
                     break;
                 }
                 case 4:{
-                    color="绿色";
+                    color=Color.GREEN;
                     break;
                 }
                 case 5:{
-                    color="青色";
+                    color=Color.CYAN;
                     break;
                 }
                 case 6:{
-                    color="蓝色";
+                    color=Color.BLUE;
                     break;
                 }
                 case 7:{
-                    color="紫色";
+                    color=Color.PURPLE;
                     break;
                 }
             }
@@ -46,14 +46,14 @@ public class sevenBrothers{
     }
 
     //冒泡排序
-    void bubbleSort()
+    public void bubbleSort()
     {
         System.out.println("冒泡法排序：");
         for(int i=0;i<6;i++)
         {
             for(int j=0;j<6-i;j++)
             {
-                if(brothers[j].no>brothers[j+1].no)
+                if(brothers[j].getNo()>brothers[j+1].getNo())
                 {
                     brothers[j].numberOff();
                     Huluwa temp=brothers[j];
@@ -72,7 +72,7 @@ public class sevenBrothers{
     }
 
     //二分法排序
-    void binarySort()
+    public void binarySort()
     {
         System.out.println("二分法排序：");
         for (int i = 1; i < 7; i++)
@@ -82,7 +82,7 @@ public class sevenBrothers{
             while (right >= left)
             {
                 int middle = (left + right) / 2;
-                if (brothers[i].no < brothers[middle].no)
+                if (brothers[i].getNo() < brothers[middle].getNo())
                     right = middle - 1;
                 else
                     left = middle + 1;
@@ -112,7 +112,7 @@ public class sevenBrothers{
     }
 
     //随机排队
-    void randomQ()
+    public void randomQ()
     {
         Random r = new Random();
         boolean bool[]={false,false,false,false,false,false,false};
@@ -123,39 +123,40 @@ public class sevenBrothers{
                 continue;
             else {
                 bool[number] = true;
-                brothers[number].no = i + 1;
-                String color = "";
+                int no = i + 1;
+                Color color =Color.RED;
                 switch (i+1) {
                     case 1: {
-                        color = "红色";
+                        color = Color.RED;
                         break;
                     }
                     case 2: {
-                        color = "橙色";
+                        color = Color.ORANGE;
                         break;
                     }
                     case 3: {
-                        color = "黄色";
+                        color = Color.YELLOW;
                         break;
                     }
                     case 4: {
-                        color = "绿色";
+                        color = Color.GREEN;
                         break;
                     }
                     case 5: {
-                        color = "青色";
+                        color = Color.CYAN;
                         break;
                     }
                     case 6: {
-                        color = "蓝色";
+                        color = Color.BLUE;
                         break;
                     }
                     case 7: {
-                        color = "紫色";
+                        color = Color.PURPLE;
                         break;
                     }
                 }
-                brothers[number].color = color;
+                Huluwa temp=new Huluwa(no,color);
+                brothers[number]=temp;
                 i++;
             }
         }
