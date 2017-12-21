@@ -1,108 +1,119 @@
-public class StrategySelector {
+import javafx.geometry.Pos;
 
+import java.util.ArrayList;
+
+public class StrategySelector<T extends Creature> {
+    private int row;
+    ArrayList<Position<Creature>> pos;
+
+    StrategySelector(int inRow, ArrayList<Position<Creature>> inPos) {
+        row = inRow;
+        pos = inPos;
+    }
+    
     /*The strategy can only be used by huluwas.*/
-    public void changeShe(Creature[] creatures, Position[][] pos) {
-        creatures[0].setPosition(pos[0][pos.length - 1]);
-        int len = creatures.length - 1;
-        int start = (pos.length - len) / 2;
+    public void changeShe(ArrayList<T> creatures) {
+        creatures.get(7).setPosition(pos.get(row - 1));
+        int len = creatures.size() - 1;
+        int start = (row - len) / 2;
         for (int i = 1; i <= len; i++) {
-            creatures[i].setPosition(pos[0][start + i - 1]);
+            creatures.get(i - 1).setPosition(pos.get(start + i - 1));
         }
     }
 
-    public void heYi(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 8) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void heYi(ArrayList<T> creatures) {
+        if (creatures.size() < 8) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow));
         for (int i = leadRow + 1; i < leadRow + 4; i++) {
-            creatures[beg++].setPosition(pos[i][leadRow + leadRow - i]);
-            creatures[beg++].setPosition(pos[i][i]);
+            creatures.get(beg++).setPosition(pos.get(i * row + leadRow + leadRow - i));
+            creatures.get(beg++).setPosition(pos.get(i * row + i));
         }
     }
 
-    public void yanXing(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 6) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void yanXing(ArrayList<T> creatures) {
+        if (creatures.size() < 6) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
         for (int i = 0; i < 5; i++) {
-            creatures[beg++].setPosition(pos[leadRow + i][leadRow + 2 - i]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow + 2 - i));
         }
     }
 
-    public void hengE(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 7) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void hengE(ArrayList<T> creatures) {
+        if (creatures.size() < 7) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
         for (int i = 0; i < 3; i++) {
-            creatures[beg++].setPosition(pos[leadRow][leadRow + 2 - i * 2]);
+            creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow + 2 - i * 2));
         }
         leadRow++;
         for (int i = 0; i < 3; i++) {
-            creatures[beg++].setPosition(pos[leadRow][leadRow + 2 - i * 2]);
+            creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow + 2 - i * 2));
         }
     }
 
-    public void yuLin(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 12) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void yuLin(ArrayList<T> creatures) {
+        if (creatures.size() < 12) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow]);
-        creatures[beg++].setPosition(pos[leadRow + 1][leadRow + 1]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow));
+        creatures.get(beg++).setPosition(pos.get((leadRow + 1) * row + leadRow + 1));
         for (int i = 0; i < 3; i++)
-            creatures[beg++].setPosition(pos[leadRow + 2][leadRow - 1 + i]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + leadRow - 1 + i));
         for (int i = 0; i < 5; i++)
-            creatures[beg++].setPosition(pos[leadRow + 3][leadRow - 2 + i]);
-        creatures[beg].setPosition(pos[leadRow + 4][leadRow]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + 3) * row + leadRow - 2 + i));
+        creatures.get(beg).setPosition(pos.get((leadRow + 4) * row + leadRow));
     }
 
-    public void fangDou(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 9) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void fangDou(ArrayList<T> creatures) {
+        if (creatures.size() < 9) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow));
         for (int i = 1; i < 4; i++) {
-            creatures[beg++].setPosition(pos[leadRow + i][leadRow - 2 + Math.abs(i - 2)]);
-            creatures[beg++].setPosition(pos[leadRow + i][leadRow + 2 - Math.abs(i - 2)]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow - 2 + Math.abs(i - 2)));
+            creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow + 2 - Math.abs(i - 2)));
         }
-        creatures[beg].setPosition(pos[leadRow + 4][leadRow]);
+        creatures.get(beg).setPosition(pos.get((leadRow + 4) * row + leadRow));
     }
 
-    public void yanYue(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 20) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void yanYue(ArrayList<T> creatures) {
+        if (creatures.size() < 20) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow - 1]);
-        creatures[beg++].setPosition(pos[leadRow][leadRow + 1]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow - 1));
+        creatures.get(beg++).setPosition(pos.get(leadRow * row + leadRow + 1));
         for (int i = 0; i < 5; i++) {
-            creatures[beg++].setPosition(pos[leadRow + 1][leadRow - 2 + i]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + 1) * row + leadRow - 2 + i));
         }
         for (int i = 0; i < 7; i++) {
-            creatures[beg++].setPosition(pos[leadRow + 2][leadRow - 3 + i]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + leadRow - 3 + i));
         }
         for (int i = 0; i < 2; i++) {
-            creatures[beg++].setPosition(pos[leadRow + i + 3][leadRow - 3 - i]);
-            creatures[beg++].setPosition(pos[leadRow + i + 3][leadRow + 3 + i]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + i + 3) * row + leadRow - 3 - i));
+            creatures.get(beg++).setPosition(pos.get((leadRow + i + 3) * row + leadRow + 3 + i));
         }
     }
 
-    public void fengShi(Creature[] creatures, Position[][] pos) {
-        if (creatures.length < 13) return;
-        int leadRow = pos.length / 2 - ((pos.length % 2 == 0) ? 1 : 0);
+    public void fengShi(ArrayList<T> creatures) {
+        if (creatures.size() < 13) return;
+        int leadRow = row / 2 - ((row % 2 == 0) ? 1 : 0);
         int beg = 0;
-        creatures[beg++].setPosition(pos[leadRow + 2][pos.length - 1]);
+        creatures.get(beg++).setPosition(pos.get((leadRow + 2) * row + row - 1));
         for (int i = 0; i < 6; i++) {
-            creatures[beg++].setPosition(pos[leadRow + i][leadRow]);
+            creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow));
             if (i > 0 && i < 4) {
-                creatures[beg++].setPosition(pos[leadRow + i][leadRow - i]);
-                creatures[beg++].setPosition(pos[leadRow + i][leadRow + i]);
+                creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow - i));
+                creatures.get(beg++).setPosition(pos.get((leadRow + i) * row + leadRow + i));
             }
         }
     }

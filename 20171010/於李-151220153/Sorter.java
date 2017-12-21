@@ -1,4 +1,6 @@
-public interface Sorter {
+import java.util.ArrayList;
 
-    public void sort(Position[] positions, int beg, int end);
+public interface Sorter<T extends Creature>  {
+
+    public void sort(ArrayList<Position<T>> positions, int beg, int end);
 }

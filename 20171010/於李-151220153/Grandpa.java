@@ -1,7 +1,7 @@
 public class Grandpa extends Creature {
     @Override
     public String toString(){
-        return "爷爷";
+        return "\uD83C\uDF85";
     }
 
 

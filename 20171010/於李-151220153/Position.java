@@ -1,5 +1,5 @@
-public class Position {
-    private Creature holder;
+public class Position<T extends Creature> {
+    private T holder;
     private int x, y;
 
     Position(int inputX, int inputY) {
@@ -8,11 +8,11 @@ public class Position {
         holder = null;
     }
 
-    public Creature getHolder() {
+    public T getHolder() {
         return holder;
     }
 
-    public void setHolder(Creature creature) {
+    public void setHolder(T creature) {
         holder = creature;
     }
 }

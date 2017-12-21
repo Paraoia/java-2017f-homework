@@ -2,7 +2,7 @@ public class Lowluo extends Creature {
 
     @Override
     public String toString(){
-        return "喽啰";
+        return "\uD83D\uDC38";
     }
 
     @Override

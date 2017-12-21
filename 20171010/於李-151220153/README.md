@@ -25,3 +25,13 @@ LSP替换法则
 DIP依赖倒置原则
 --
 高层模块仅依赖于抽象：如Huluwa依赖于抽象类Creature与Comparable接口。
+
+*小改进
+==
+容器
+--
+使用了ArrayList容器取代了原来的数组，删除了用来打乱顺序的Shuffler,转而采用集合类型自带的打乱方法。
+
+泛型
+--
+在Position,StrategySelector和Sorter中使用了泛型的机制，限定泛型的类型为Creature的派生类。

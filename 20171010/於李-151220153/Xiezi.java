@@ -2,7 +2,7 @@ public class Xiezi extends Creature {
 
     @Override
     public String toString(){
-        return "蝎子";
+        return "\uD83E\uDD82";
     }
 
 

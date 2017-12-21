@@ -2,6 +2,11 @@ public class Huluwa extends Creature implements Comparable {
 
     private COLOR color;
     private SENIORITY seniority;
+    private static final String name[];
+
+    static {
+        name = new String[]{"❤️", "\uD83D\uDC97", "\uD83D\uDC9B", "\uD83D\uDC9A", "\uD83D\uDC99", "\uD83D\uDC96", "\uD83D\uDC9C"};
+    }
 
     Huluwa(COLOR color, SENIORITY seiority) {
         color = color;
@@ -14,7 +19,7 @@ public class Huluwa extends Creature implements Comparable {
 
     @Override
     public String toString(){
-        return seniority.toString();
+        return name[seniority.ordinal()];
     }
 
     @Override
