@@ -1,4 +1,3 @@
-
 public interface Creature {
     public void report();
 

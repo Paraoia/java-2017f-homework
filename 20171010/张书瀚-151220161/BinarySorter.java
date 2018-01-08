@@ -1,25 +1,28 @@
+import java.util.ArrayList;
+
 public class BinarySorter implements Sorter {
     public void sort(Space space) {
         Creature temp;
-        Creature creatures[][] = space.getCreatures();
+        //Creature creatures[][] = space.getCreatures();
+        ArrayList<Creature> creatures = space.getCreatures().get(1);
         int low, middle, high;
 
-        for (int i = 0 + 1; i <= 6; i++) {
-            temp = creatures[1][i];
+        for (int i = 1; i <= 6; i++) {
+            temp = creatures.get(i);
             low = 0;
             high = i - 1;
             while (low <= high) {
                 middle = (low + high) / 2;
-                if (!((Comparable) creatures[1][i]).biggerThan((Comparable) creatures[1][middle]))
+                if (!((Comparable) creatures.get(i)).biggerThan((Comparable) creatures.get(middle)))
                     high = middle - 1;
                 else
                     low = middle + 1;
             }
 
             for (int j = i - 1; j >= low; j--) {
-                creatures[1][j + 1] = creatures[1][j];
+                creatures.set(j + 1, creatures.get(j));
             }
-            creatures[1][low] = temp;
+            creatures.set(low, temp);
         }
     }
 }
