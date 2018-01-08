@@ -1,15 +1,15 @@
-//葫芦娃的爷爷：能够命令葫芦娃做事，比如打乱葫芦娃的顺序和让葫芦娃重新排序
-
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Space implements Constants {
 
-    private Position[][] positions = new Position[MAXSPACE][MAXSPACE];
-    private Creature[][] creatures = new Creature[5][];
+    private Position[][] positions = new Position[MAXSPACE][HALFSPACE];
+    ArrayList<ArrayList<Creature>> creatures = new ArrayList<>();
+
 
     public void posInit() {
         for (int i = 0; i < MAXSPACE; i++)
-            for (int j = 0; j < MAXSPACE; j++)
+            for (int j = 0; j < HALFSPACE; j++)
                 positions[i][j] = new Position(i, j);
     }
 
@@ -17,57 +17,56 @@ public class Space implements Constants {
         return positions;
     }
 
-    public Creature[][] getCreatures() {
+    public ArrayList<ArrayList<Creature>> getCreatures() {
         return creatures;
     }
 
-    public void setCreatures(Creature newCre[][]) {
-        creatures = newCre;
-    }
+    public Space(ArrayList<Creature> brothers, ArrayList<Creature> goblins) {
+        ArrayList<Creature> grandpa = new ArrayList<>();
+        grandpa.add(new Grandpa());
+        this.creatures.add(grandpa);
 
-    public Space(Boy[] brothers, Goblins[] monsters) {
-        this.creatures[0] = new Grandpa[1];
-        this.creatures[0][0] = new Grandpa();
+        this.creatures.add(brothers);
 
-        this.creatures[1] = brothers;
+        ArrayList<Creature> snake = new ArrayList<>();
+        snake.add(new Snake());
+        this.creatures.add(snake);
 
-        this.creatures[2] = new Snake[1];
-        this.creatures[2][0] = new Snake();
+        ArrayList<Creature> scorpion = new ArrayList<>();
+        scorpion.add(new Scorpion());
+        this.creatures.add(scorpion);
 
-        this.creatures[3] = new Scorpion[1];
-        this.creatures[3][0] = new Scorpion();
-
-        this.creatures[4] = monsters;
+        this.creatures.add(goblins);
     }
 
     //用于查看当前战场排列与所有生物当前位置
     public void show() {
 
         for (int m = 0; m < MAXSPACE; m++) {
-            for (int n = 0; n < MAXSPACE; n++) {
+            for (int n = 0; n < HALFSPACE; n++) {
                 if (positions[m][n].isOccupy()) {
                     Position temp = positions[m][n];
                     if (temp.getHolder() instanceof Boy)
-                        System.out.print(((Boy) temp.getHolder()).getRank() + " ");
+                        System.out.print("\uD83D\uDC66");
                     else if (temp.getHolder() instanceof Goblins)
-                        System.out.print(((Goblins) temp.getHolder()).getNo() + " ");
+                        System.out.print("\uD83E\uDD8D");
                     else if (temp.getHolder() instanceof Scorpion)
-                        System.out.print("蝎 ");
+                        System.out.print("\uD83E\uDD82");
                     else if (temp.getHolder() instanceof Snake)
-                        System.out.print("蛇 ");
+                        System.out.print("\uD83D\uDC0D");
                     else if (temp.getHolder() instanceof Grandpa)
-                        System.out.print("爷 ");
+                        System.out.print("\uD83D\uDC74");
                     else
-                        System.out.print("? ");
+                        System.out.print("?");
                 } else
-                    System.out.print("  ");
+                    System.out.print("\uD83C\uDF3F");
             }
             System.out.print("\n");
         }
         System.out.print("报位置：\n");
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < creatures[i].length; j++) {
-                creatures[i][j].report();
+        for (int i = 0; i < creatures.size(); i++) {
+            for (int j = 0; j < creatures.get(i).size(); j++) {
+                creatures.get(i).get(j).report();
             }
         }
     }
@@ -84,21 +83,20 @@ public class Space implements Constants {
             int s = r.nextInt(7);
             if (!alhave[s]) {
                 alhave[s] = true;
-                creatures[1][count] = new Boy(RANK.values()[s], COLOR.values()[s]);
+                creatures.get(1).set(count, new Boy(RANK.values()[s], COLOR.values()[s]));
                 count++;
             }
         }
     }
 
     public static void main(String args[]) {
-
-        Boy bro[] = new Boy[7];
-        for (int i = 0; i < bro.length; i++) {
-            bro[i] = new Boy(RANK.values()[i], COLOR.values()[i]);
+        ArrayList<Creature> bro = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            bro.add(new Boy(RANK.values()[i], COLOR.values()[i]));
         }
-        Goblins gob[] = new Goblins[20];
-        for (int i = 0; i < gob.length; i++) {
-            gob[i] = new Goblins(i);
+        ArrayList<Creature> gob = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            gob.add(new Goblins(i));
         }
 
         Space a = new Space(bro, gob);
@@ -110,6 +108,7 @@ public class Space implements Constants {
         new BinarySorter().sort(a);
 
         new SnakeFormatter().format(a);
+        /*
         new WingFormatter().format(a);
         new CheerUp().cheer(a);
         a.show();
@@ -133,10 +132,12 @@ public class Space implements Constants {
         new MoonFormatter().format(a);
         new CheerUp().cheer(a);
         a.show();
-
+        */
         new ArrowFormatter().format(a);
         new CheerUp().cheer(a);
         a.show();
 
+        new March().march(a,gob.get(1),ORIENTATION.NORTH);
+        a.show();
     }
 }
