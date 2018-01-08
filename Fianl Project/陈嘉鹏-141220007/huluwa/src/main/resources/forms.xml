@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<forms>
+    <form>
+        <name>鹤翼阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>@...@</row>
+            <row>.@.@.</row>
+            <row>..@..</row>
+        </dots>
+    </form>
+
+    <form>
+        <name>雁行阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>....@</row>
+            <row>...@.</row>
+            <row>..@..</row>
+            <row>.@...</row>
+            <row>@....</row>
+        </dots>
+    </form>
+
+
+    <form>
+        <name>衡轭阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>..@</row>
+            <row>@..</row>
+            <row>..@</row>
+            <row>@..</row>
+            <row>..@</row>
+            <row>@..</row>
+        </dots>
+    </form>
+
+    <form>
+        <name>长蛇阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>@</row>
+            <row>@</row>
+            <row>@</row>
+            <row>@</row>
+            <row>@</row>
+            <row>@</row>
+            <row>@</row>
+        </dots>
+    </form>
+
+    <form>
+        <name>鱼鳞阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>.@...</row>
+            <row>..@..</row>
+            <row>@.@.@</row>
+            <row>.@.@.</row>
+            <row>..@..</row>
+        </dots>
+    </form>
+
+    <form>
+        <name>方门阵</name>
+        <direction>南</direction>
+        <dots>
+            <row>..@..</row>
+            <row>.@.@.</row>
+            <row>@...@</row>
+            <row>.@.@.</row>
+            <row>..@..</row>
+        </dots>
+    </form>
+
+    <form>
+        <name>偃月阵</name>
+        <direction>西</direction>
+        <dots>
+            <row>.....@.</row>
+            <row>..@.@..</row>
+            <row>.@.@...</row>
+            <row>..@.@..</row>
+            <row>.....@.</row>
+        </dots>
+    </form>
+
+
+    <form>
+        <name>锋矢阵</name>
+        <direction>北</direction>
+        <dots>
+            <row>..@..</row>
+            <row>.@@@.</row>
+            <row>@.@.@</row>
+            <row>..@..</row>
+        </dots>
+    </form>
+</forms>

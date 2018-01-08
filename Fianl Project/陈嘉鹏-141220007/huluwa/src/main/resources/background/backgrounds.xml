@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<backgorunds>
+    <background>
+        <name>background0</name>
+        <type>jpg</type>
+        <discription>Just background0</discription>
+        <row>9</row>
+        <col>5</col>
+        <leftUp>(265, 58)</leftUp>
+        <rightDown>(888, 412)</rightDown>
+    </background>
+
+    <background>
+        <name>background1</name>
+        <type>jpg</type>
+        <discription>Nothing</discription>
+        <row>9</row>
+        <col>5</col>
+        <leftUp>(265, 58)</leftUp>
+        <rightDown>(888, 412)</rightDown>
+    </background>
+
+    <background>
+        <name>background2</name>
+        <type>jpg</type>
+        <discription>Nothing</discription>
+        <row>9</row>
+        <col>5</col>
+        <leftUp>(265, 58)</leftUp>
+        <rightDown>(888, 412)</rightDown>
+    </background>
+
+    <background>
+        <name>background3</name>
+        <type>jpg</type>
+        <discription>Nothing</discription>
+        <row>9</row>
+        <col>5</col>
+        <leftUp>(265, 58)</leftUp>
+        <rightDown>(888, 412)</rightDown>
+    </background>
+
+    <background>
+        <name>background4</name>
+        <type>jpg</type>
+        <discription>Nothing</discription>
+        <row>9</row>
+        <col>5</col>
+        <leftUp>(265, 58)</leftUp>
+        <rightDown>(888, 412)</rightDown>
+    </background>
+</backgorunds>
+

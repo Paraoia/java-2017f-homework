@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pictures>
+    <picture>
+        <name>大娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(7, 35)</leftUpPoint>
+        <righDownPiont>(64, 130)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>二娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(86, 33)</leftUpPoint>
+        <righDownPiont>(142, 128)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>三娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(165, 36)</leftUpPoint>
+        <righDownPiont>(220, 127)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>四娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(229, 36)</leftUpPoint>
+        <righDownPiont>(294, 127)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>五娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(305, 35)</leftUpPoint>
+        <righDownPiont>(361, 127)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>六娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(379, 35)</leftUpPoint>
+        <righDownPiont>(431, 127)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>七娃</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(445, 35)</leftUpPoint>
+        <righDownPiont>(493, 127)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>爷爷</name>
+        <filename>huluwa</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(3, 145)</leftUpPoint>
+        <righDownPiont>(102, 267)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>蛇精</name>
+        <filename>monster</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(0, 0)</leftUpPoint>
+        <righDownPiont>(133, 121)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>蝎子</name>
+        <filename>monster</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(258, 0)</leftUpPoint>
+        <righDownPiont>(367, 110)</righDownPiont>
+    </picture>
+
+    <picture>
+        <name>鼠</name>
+        <filename>monster</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(367, 0)</leftUpPoint>
+        <righDownPiont>(486, 110)</righDownPiont>
+    </picture>
+
+
+    <picture>
+        <name>蛙</name>
+        <filename>monster</filename>
+        <filetype>png</filetype>
+        <leftUpPoint>(135, 0)</leftUpPoint>
+        <righDownPiont>(242, 110)</righDownPiont>
+    </picture>
+
+
+</pictures>
