@@ -1,4 +1,3 @@
-
 public class Position {
     private int x, y;
     private boolean occupy;

@@ -1,4 +1,3 @@
-
 public class Grandpa implements Creature, Comparable {
 
     private Position pos;

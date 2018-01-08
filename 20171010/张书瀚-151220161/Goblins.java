@@ -1,4 +1,3 @@
-
 public class Goblins implements Creature, Comparable {
 
     private int no;
